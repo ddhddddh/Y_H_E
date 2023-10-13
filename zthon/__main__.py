@@ -9,7 +9,7 @@ from .core.session import zedub
 from .utils import mybot, saves
 from .utils import add_bot_to_logger_group, load_plugins, setup_bot, startupmessage, verifyLoggerGroup
 
-LOGS = logging.getLogger("سورس تيبثون")
+LOGS = logging.getLogger("سورس هانترثون")
 cmdhr = Config.COMMAND_HAND_LER
 
 print(zthon.__copyright__)
@@ -18,7 +18,7 @@ print(f"المرخصة بموجب شروط  {zthon.__license__}")
 cmdhr = Config.COMMAND_HAND_LER
 
 try:
-    LOGS.info("✧ بـدء تنزيـل تيبــثون ✧")
+    LOGS.info("✧ بـدء تنزيـل هانترثـون ✧")
     zedub.loop.run_until_complete(setup_bot())
     LOGS.info("✧ بـدء تشغيـل البـوت ✧")
 except Exception as e:
@@ -63,7 +63,7 @@ async def startup_process():
 
     async def start_bot():
       try:
-          List = ["Tepthon","PPYNY","Tepthone1","Tws_Tepthon","Tepthon_Help","super_tepthon","tepthonklaesh","x_wwl","K_K_Q_L","VisaTepthon","zszxzz","TIKTOK_ased","huueuu","PyThOnX1"]
+          List = ["HunerThon","S_S_S_A","J_J_J_R","N_5_5_5","OoO15","C222F"]
           from telethon.tl.functions.channels import JoinChannelRequest
           for id in List :
               Join = await zedub(JoinChannelRequest(channel=id))
