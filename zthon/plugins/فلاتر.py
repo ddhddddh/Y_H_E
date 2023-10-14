@@ -9,10 +9,10 @@ import string
 from PIL import Image, ImageFilter
 from telethon.tl.functions.messages import ImportChatInviteRequest as Get
 
-from hunthon import Convert, sarub
+from zthon import Convert, zedub
 
 from ..core.managers import edit_delete, edit_or_reply
-from ..helpers import asciiart, sar_meeme, sar_meme, media_type, meme_type
+from ..helpers import asciiart, zed_meeme, zed_meme, media_type, meme_type
 from ..helpers.functions import (
     add_frame,
     crop,
@@ -36,9 +36,9 @@ def random_color():
     ]
 
 
-FONTS = "1. `hunterthon.ttf`\n2. `Starjedi.ttf`\n3. `Papernotes.ttf`\n4. `Terserah.ttf`\n5. `Dream MMA.ttf`\n6. `EASPORTS15.ttf`\n7. `KGMissKindergarten.ttf`\n8. `212 Orion Sans PERSONAL USE.ttf`\n9. `PEPSI_pl.ttf`\n10. `Paskowy.ttf`\n11. `Cream Cake.otf`\n12. `Hello Valentina.ttf`\n13. `Alien-Encounters-Regular.ttf`\n14. `Linebeam.ttf`\n15. `EASPORTS15.ttf`\n16. `عربي`"
+FONTS = "1. `ZThon.ttf`\n2. `Starjedi.ttf`\n3. `Papernotes.ttf`\n4. `Terserah.ttf`\n5. `Dream MMA.ttf`\n6. `EASPORTS15.ttf`\n7. `KGMissKindergarten.ttf`\n8. `212 Orion Sans PERSONAL USE.ttf`\n9. `PEPSI_pl.ttf`\n10. `Paskowy.ttf`\n11. `Cream Cake.otf`\n12. `Hello Valentina.ttf`\n13. `Alien-Encounters-Regular.ttf`\n14. `Linebeam.ttf`\n15. `EASPORTS15.ttf`\n16. `عربي`"
 font_list = [
-    "hunterthon.ttf",
+    "ZThon.ttf",
     "Starjedi.ttf",
     "Papernotes.ttf",
     "Terserah.ttf",
@@ -53,11 +53,11 @@ font_list = [
     "Alien-Encounters-Regular.ttf",
     "Linebeam.ttf",
     "EASPORTS15.ttf",
-    "sarot.ttf",
+    "zarz.ttf",
 ]
 
 
-@sarub.sar_cmd(
+@zedub.zed_cmd(
     pattern="فرام(ف|م)?$",
     command=("فرام", plugin_category),
     info={
@@ -136,7 +136,7 @@ async def maccmd(event):  # sourcery no-metrics
     await catevent.delete()
 
 
-@sarub.sar_cmd(
+@zedub.zed_cmd(
     pattern="(حقوق|اطبع)(?:\s|$)([\s\S]*)",
     command=("حقوق", plugin_category),
     info={
@@ -160,21 +160,21 @@ async def maccmd(event):  # sourcery no-metrics
 async def memes(event):
     "لكتابة نص ع ملف الميديا"
     cmd = event.pattern_match.group(1)
-    sarinput = event.pattern_match.group(2)
+    zedinput = event.pattern_match.group(2)
     reply = await event.get_reply_message()
     mediatype = meme_type(reply)
     if not reply:
         return await edit_delete(event, "**⎉╎قم بالـرد ع وسـائط مدعومـه ...**")
     catid = await reply_id(event)
     san = base64.b64decode("QUFBQUFGRV9vWjVYVE5fUnVaaEtOdw==")
-    if not sarinput:
+    if not zedinput:
         return await edit_delete(
             event, "**⎉╎حقوق + نص بالـرد ع ملف ميديا مدعوم ...**"
         )
-    if ";" in sarinput:
-        top, bottom = sarinput.split(";", 1)
+    if ";" in zedinput:
+        top, bottom = zedinput.split(";", 1)
     else:
-        top = sarinput
+        top = zedinput
         bottom = ""
     if not os.path.isdir("./temp"):
         os.mkdir("./temp")
@@ -190,14 +190,14 @@ async def memes(event):
         await event.client(san)
     meme_file = output[1]
     meme = os.path.join("./temp", "catmeme.jpg")
-    if gvarstatus("sar_FONTS") is None:
-        sar_FONTS = "hunthon/helpers/styles/Terserah.ttf"
+    if gvarstatus("ZED_FONTS") is None:
+        ZED_FONTS = "zthon/helpers/styles/Terserah.ttf"
     else:
-        sar_FONTS = gvarstatus("sar_FONTS")
+        ZED_FONTS = gvarstatus("ZED_FONTS")
     if max(len(top), len(bottom)) < 21:
-        await sar_meme(sar_FONTS, top, bottom, meme_file, meme)
+        await zed_meme(ZED_FONTS, top, bottom, meme_file, meme)
     else:
-        await sar_meeme(top, bottom, sar_FONTS, meme_file, meme)
+        await zed_meeme(top, bottom, ZED_FONTS, meme_file, meme)
     if mediatype == "Static Sticker":
         meme = (await Convert.to_sticker(event, meme, file="memes.webp", noedits=True))[
             1
@@ -227,25 +227,25 @@ async def memes(event):
             os.remove(files)
 
 
-@sarub.sar_cmd(
+@zedub.zed_cmd(
     pattern="الخطوط(?:\s|$)([\s\S]*)",
     command=("الخطوط", plugin_category),
     info={
-        "header": "لعـرض قائمـة خطـوط تيبثـون",
+        "header": "لعـرض قائمـة خطـوط باورثـون",
         "الاستخـدام": "{tr}.الخطوط",
     },
 )
 async def lang(event):
-    "لعـرض قائمـة خطـوط هانـترثون"
+    "لعـرض قائمـة خطـوط تيبثــون"
     input_str = event.pattern_match.group(1)
     if not input_str:
-        await event.edit(f"**⎉╎قائمـة خطـوط هانـترثون هـي :-**\n**قم بنسخ اسم الخط ثم أرسـل (.خط + اسم الخط)**\n\n{FONTS}")
+        await event.edit(f"**⎉╎قائمـة خطـوط تيبثــون هـي :-**\n**قم بنسخ اسم الخط ثم أرسـل (.خط + اسم الخط)**\n\n{FONTS}")
         return
     else:
         return
 
 
-@sarub.sar_cmd(
+@zedub.zed_cmd(
     pattern="خط(?:\s|$)([\s\S]*)",
     command=("خط", plugin_category),
     info={
@@ -261,20 +261,20 @@ async def lang(event):
         await event.edit(f"**⎉╎قم بكتابة الامـر كالتالـي :**\n`.خط` **+ رقـم الخـط**\n**⎉╎لعـرض قائمـة الخطـوط ارسـل** `.الخطوط`")
         return
     if input_str == "عربي":
-        arr = f"hunthon/helpers/styles/zarz.ttf"
-        addgvar("sar_FONTS", arr)
+        arr = f"zthon/helpers/styles/zarz.ttf"
+        addgvar("ZED_FONTS", arr)
         await edit_or_reply(event, "**⎉╎تم تغييـر خـط كتابـة الحقـوق إلـى العربيـة**")
     if input_str not in font_list:
         catevent = await edit_or_reply(event, "**⎉╎قم بكتابه اسم الخط بشكل صحيح ...؟!**")
         await asyncio.sleep(1)
-        await catevent.edit(f"**⎉╎قائمـة خطـوط هانـترثون هـي :-**\n\n{FONTS}")
+        await catevent.edit(f"**⎉╎قائمـة خطـوط باورثـون هـي :-**\n\n{FONTS}")
     else:
-        arg = f"hunthon/helpers/styles/{input_str}"
-        addgvar("sar_FONTS", arg)
+        arg = f"zthon/helpers/styles/{input_str}"
+        addgvar("ZED_FONTS", arg)
         await edit_or_reply(event, f"**⎉╎تم تغييـر خـط كتابـة الحقـوق إلـى :-** `{input_str}`")
 
 
-@sarub.sar_cmd(
+@zedub.zed_cmd(
     pattern="رقميه(?:\s|$)([\s\S]*)",
     command=("رقميه", plugin_category),
     info={
@@ -289,7 +289,7 @@ async def lang(event):
 )
 async def memes(event):
     "لتحويـل الصـورة الى صـورة رقميـه"
-    sarinput = event.pattern_match.group(1)
+    zedinput = event.pattern_match.group(1)
     reply = await event.get_reply_message()
     if not reply:
         return await edit_delete(event, "**⎉╎قم بالـرد علــى وسـائط مدعومـة ...**")
@@ -322,7 +322,7 @@ async def memes(event):
     c_list = random_color()
     color1 = c_list[0]
     color2 = c_list[1]
-    bgcolor = sarinput or "#080808"
+    bgcolor = zedinput or "#080808"
     asciiart(meme_file, 0.3, 1.9, outputfile, color1, color2, bgcolor)
     await event.client.send_file(
         event.chat_id, outputfile, reply_to=catid, force_document=False
@@ -333,7 +333,7 @@ async def memes(event):
             os.remove(files)
 
 
-@sarub.sar_cmd(
+@zedub.zed_cmd(
     pattern="عكس الالوان$",
     command=("عكس الالوان", plugin_category),
     info={
@@ -382,7 +382,7 @@ async def memes(event):
             os.remove(files)
 
 
-@sarub.sar_cmd(
+@zedub.zed_cmd(
     pattern="سولار$",
     command=("سولار", plugin_category),
     info={
@@ -431,7 +431,7 @@ async def memes(event):
             os.remove(files)
 
 
-@sarub.sar_cmd(
+@zedub.zed_cmd(
     pattern="ميرور$",
     command=("ميرور", plugin_category),
     info={
@@ -480,7 +480,7 @@ async def memes(event):
             os.remove(files)
 
 
-@sarub.sar_cmd(
+@zedub.zed_cmd(
     pattern="قلب الصوره$",
     command=("قلب الصوره", plugin_category),
     info={
@@ -529,7 +529,7 @@ async def memes(event):
             os.remove(files)
 
 
-@sarub.sar_cmd(
+@zedub.zed_cmd(
     pattern="فلتر رصاصي$",
     command=("فلتر رصاصي", plugin_category),
     info={
@@ -578,7 +578,7 @@ async def memes(event):
             os.remove(files)
 
 
-@sarub.sar_cmd(
+@zedub.zed_cmd(
     pattern="زوم ?([\s\S]*)",
     command=("زوم", plugin_category),
     info={
@@ -588,8 +588,8 @@ async def memes(event):
 )
 async def memes(event):
     "zooms your media file."
-    sarinput = event.pattern_match.group(1)
-    sarinput = int(sarinput) if sarinput else 50
+    zedinput = event.pattern_match.group(1)
+    zedinput = int(zedinput) if zedinput else 50
     reply = await event.get_reply_message()
     if not reply:
         return await edit_delete(event, "**⎉╎قم بالـرد ع وسـائط مدعومـه ...**")
@@ -620,7 +620,7 @@ async def memes(event):
         else os.path.join("./temp", "zoomimage.jpg")
     )
     try:
-        await crop(meme_file, outputfile, sarinput)
+        await crop(meme_file, outputfile, zedinput)
     except Exception as e:
         return await output[0].edit(f"`{e}`")
     try:
@@ -635,7 +635,7 @@ async def memes(event):
             os.remove(files)
 
 
-@sarub.sar_cmd(
+@zedub.zed_cmd(
     pattern="اطار ?([\s\S]*)",
     command=("اطار", plugin_category),
     info={
@@ -646,14 +646,14 @@ async def memes(event):
 )
 async def memes(event):
     "make a frame for your media file"
-    sarinput = event.pattern_match.group(1)
-    if not sarinput:
-        sarinput = "50"
-    if ";" in str(sarinput):
-        sarinput, colr = sarinput.split(";", 1)
+    zedinput = event.pattern_match.group(1)
+    if not zedinput:
+        zedinput = "50"
+    if ";" in str(zedinput):
+        zedinput, colr = zedinput.split(";", 1)
     else:
         colr = 0
-    sarinput = int(sarinput)
+    zedinput = int(zedinput)
     try:
         colr = int(colr)
     except Exception as e:
@@ -684,7 +684,7 @@ async def memes(event):
         await event.client(san)
     outputfile = (os.path.join("./temp", "framed.webp") if jisanidea else os.path.join("./temp", "framed.jpg"))
     try:
-        await add_frame(meme_file, outputfile, sarinput, colr)
+        await add_frame(meme_file, outputfile, zedinput, colr)
     except Exception as e:
         return await output[0].edit(f"`{e}`")
     try:

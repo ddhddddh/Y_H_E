@@ -29,11 +29,11 @@ from ..core.managers import edit_or_reply
 plugin_category = "البوت"
 
 
-# code by t.me/y_H_e
+# code by t.me/zzzzl1l
 @zedub.zed_cmd(pattern="فحص فيزات 2(?:\s|$)([\s\S]*)")
 async def song2(event):
     song = event.pattern_match.group(1)
-    chat = "@SakuraRendibot" # code by t.me/y_H_e
+    chat = "@SakuraRendibot" # code by t.me/zzzzl1l
     reply_id_ = await reply_id(event)
     zed = await edit_or_reply(event, "**⎉╎جـارِ فحص البطـاقـةُ ...**")
     async with event.client.conversation(chat) as conv:
@@ -55,11 +55,11 @@ async def song2(event):
         await zed.delete()
 
 
-# code by t.me/y_H_e
+# code by t.me/zzzzl1l
 @zedub.zed_cmd(pattern="فحص فيزات(?:\s|$)([\s\S]*)")
 async def song2(event):
     song = event.pattern_match.group(1)
-    chat = "@SDBB_Bot" # code by t.me/y_H_e
+    chat = "@SDBB_Bot" # code by t.me/zzzzl1l
     reply_id_ = await reply_id(event)
     zed = await edit_or_reply(event, "**⎉╎جـارِ فحص البطـاقـةُ ...**")
     async with event.client.conversation(chat) as conv:
@@ -81,9 +81,9 @@ async def song2(event):
         await zed.delete()
         
         
-# code by t.me/y_H_e
+# code by t.me/zzzzl1l
 @zedub.zed_cmd(pattern="كومبو(?:\s|$)([\s\S]*)")
-async def song2(event): # code by t.me/y_H_e
+async def song2(event): # code by t.me/zzzzl1l
     been = event.pattern_match.group(1)
     chat = "@SDBB_Bot"
     reply_id_ = await reply_id(event)
@@ -107,11 +107,11 @@ async def song2(event): # code by t.me/y_H_e
         await zed.delete()
 
 
-# code by t.me/y_H_e
+# code by t.me/zzzzl1l
 @zedub.zed_cmd(pattern="معلومات فيزا وهمية(?:\s|$)([\s\S]*)")
 async def song2(event):
     song = event.pattern_match.group(1)
-    chat = "@SDBB_Bot" # code by t.me/y_H_e
+    chat = "@SDBB_Bot" # code by t.me/zzzzl1l
     reply_id_ = await reply_id(event)
     zed = await edit_or_reply(event, "**⎉╎جـار جلب معلومـات الفيـزا ...**")
     async with event.client.conversation(chat) as conv:
@@ -133,11 +133,11 @@ async def song2(event):
         await zed.delete()
         
         
-# code by t.me/y_H_e
+# code by t.me/zzzzl1l
 @zedub.zed_cmd(pattern="توليد(?:\s|$)([\s\S]*)")
 async def song2(event):
     been = event.pattern_match.group(1)
-    chat = "@SDBB_Bot" # code by t.me/y_H_e
+    chat = "@SDBB_Bot" # code by t.me/zzzzl1l
     reply_id_ = await reply_id(event)
     zed = await edit_or_reply(event, f"**⎉╎جـارِ جلب كومبـو لـ البين {been}  ...**\n**⎉╎عـدد 10 بطاقـات 💳**")
     async with event.client.conversation(chat) as conv:
@@ -159,11 +159,11 @@ async def song2(event):
         await zed.delete()
 
 
-# code by t.me/y_H_e
+# code by t.me/zzzzl1l
 @zedub.zed_cmd(pattern="فيزا(?:\s|$)([\s\S]*)")
 async def song2(event):
-    been = "415464xxxxxxxxxx|xx|xxxx|xxx" # code by t.me/y_H_e
-    chat = "@SDBB_Bot" # code by t.me/y_H_e
+    been = "415464xxxxxxxxxx|xx|xxxx|xxx" # code by t.me/zzzzl1l
+    chat = "@SDBB_Bot" # code by t.me/zzzzl1l
     reply_id_ = await reply_id(event)
     zed = await edit_or_reply(event, f"**⎉╎جـارِ تولـيد 𝚅𝙸𝚂𝙴💲...**\n**⎉╎لـ البين {been}  ...**\n**⎉╎عـدد 10 بطاقـات 💳**")
     async with event.client.conversation(chat) as conv:
@@ -185,11 +185,11 @@ async def song2(event):
         await zed.delete()
 
 
-# code by t.me/y_H_e
+# code by t.me/zzzzl1l
 @zedub.zed_cmd(pattern="ماستر(?:\s|$)([\s\S]*)")
 async def song2(event):
-    been = "524447000053xxxx|xx|xxxx|xxx" # code by t.me/y_H_e
-    chat = "@SDBB_Bot" # code by t.me/y_H_e
+    been = "524447000053xxxx|xx|xxxx|xxx" # code by t.me/zzzzl1l
+    chat = "@SDBB_Bot" # code by t.me/zzzzl1l
     reply_id_ = await reply_id(event)
     zed = await edit_or_reply(event, f"**⎉╎جـارِ تولـيد بن 𝙼𝙰𝚂𝚃𝙴𝚁𝙲𝙰𝚁𝙳 💳...**\n**⎉╎لـ البين {been}  ...**\n**⎉╎عـدد 10 بطاقـات 💳**")
     async with event.client.conversation(chat) as conv:
@@ -211,11 +211,11 @@ async def song2(event):
         await zed.delete()
 
 
-# code by t.me/y_H_e
+# code by t.me/zzzzl1l
 @zedub.zed_cmd(pattern="اماكس(?:\s|$)([\s\S]*)")
 async def song2(event):
-    been = "373352589xxxxxx|xx|xxxx|xxxx" # code by t.me/y_H_e
-    chat = "@SDBB_Bot" # code by t.me/y_H_e
+    been = "373352589xxxxxx|xx|xxxx|xxxx" # code by t.me/zzzzl1l
+    chat = "@SDBB_Bot" # code by t.me/zzzzl1l
     reply_id_ = await reply_id(event)
     zed = await edit_or_reply(event, f"**⎉╎جـارِ تولـيد بن 🇧🇷 𝙰𝙼𝙴𝚇...**\n**⎉╎لـ البين {been}  ...**\n**⎉╎عـدد 10 بطاقـات 💳**")
     async with event.client.conversation(chat) as conv:

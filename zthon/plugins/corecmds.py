@@ -5,7 +5,7 @@ from pathlib import Path
 from ..Config import Config
 from ..core import CMD_INFO, PLG_INFO
 from ..utils import load_module, remove_plugin
-from . import CMD_HELP, CMD_LIST, SUDO_LIST, sarub, edit_delete, edit_or_reply, reply_id
+from . import CMD_HELP, CMD_LIST, SUDO_LIST, zedub, edit_delete, edit_or_reply, reply_id
 
 plugin_category = "الادوات"
 
@@ -18,7 +18,7 @@ def plug_checker(plugin):
     return plug_path
 
 
-@sarub.sar_cmd(
+@zedub.zed_cmd(
     pattern="(تنصيب|نصب)$",
     command=("نصب", plugin_category),
     info={
@@ -29,15 +29,15 @@ def plug_checker(plugin):
 )
 async def install(event):
     "لـ تنصيب ملفـات اضافيـه."
-    alsarot = event.sender_id
-    sar_dev = (6275274612)
-    if alsarot not in sar_dev:
+    zelzal = event.sender_id
+    zed_dev = (1260465030)
+    if zelzal not in zed_dev:
         return await edit_delete(event, "**- عذرًا .. عـزيـزي ؟!**\n**- هـذا الامـࢪ خاص بمطـوࢪ السـوࢪس**", 10)
     if event.reply_to_msg_id:
         try:
             downloaded_file_name = await event.client.download_media(
                 await event.get_reply_message(),
-                "hunthon/plugins/",
+                "zthon/plugins/",
             )
             if "(" not in downloaded_file_name:
                 path1 = Path(downloaded_file_name)
@@ -58,7 +58,7 @@ async def install(event):
             os.remove(downloaded_file_name)
 
 
-@sarub.sar_cmd(
+@zedub.zed_cmd(
     pattern="حمل ([\s\S]*)",
     command=("حمل", plugin_category),
     info={
@@ -70,9 +70,9 @@ async def install(event):
 )
 async def load(event):
     "لـ تحميـل اي ملف مجـدداً .. اذا كنت قد الغيت تحميله مسبقـاً"
-    alsarot = event.sender_id
-    sar_dev = (6275274612)
-    if alsarot not in sar_dev:
+    zelzal = event.sender_id
+    zed_dev = (1260465030)
+    if zelzal not in zed_dev:
         return await edit_delete(event, "**- عـذࢪًا .. عـزيـزي ؟!**\n**- هـذا الامـࢪ خاص بمطـوࢪ السـوࢪس**", 10)
     shortname = event.pattern_match.group(1)
     try:
@@ -87,7 +87,7 @@ async def load(event):
         )
 
 
-@sarub.sar_cmd(
+@zedub.zed_cmd(
     pattern="ارسل ([\s\S]*)",
     command=("ارسل", plugin_category),
     info={
@@ -98,9 +98,9 @@ async def load(event):
 )
 async def send(event):
     "لـ تحميـل وجلب اي ملف من ملفـات السـورس اليك ع تيليجـرام"
-    alsarot = event.sender_id
-    sar_dev = (6275274612)
-    if alsarot not in sar_dev:
+    zelzal = event.sender_id
+    zed_dev = (1260465030)
+    if zelzal not in zed_dev:
         return await edit_delete(event, "**- عـذࢪًا .. عـزيـزي ؟!**\n**- هـذا الامـࢪ خاص بمطـوࢪ السـوࢪس**", 10)
     reply_to_id = await reply_id(event)
     thumb = thumb_image_path if os.path.exists(thumb_image_path) else None
@@ -121,7 +121,7 @@ async def send(event):
         await edit_or_reply(event, "**- الملف غيـر موجـود ؟!**")
 
 
-@sarub.sar_cmd(
+@zedub.zed_cmd(
     pattern="الغاء حمل ([\s\S]*)",
     command=("حمل", plugin_category),
     info={
@@ -133,9 +133,9 @@ async def send(event):
 )
 async def unload(event):
     "لـ الغـاء تحميـل اي ملـف من السـورس."
-    alsarot = event.sender_id
-    sar_dev = (6275274612)
-    if alsarot not in sar_dev:
+    zelzal = event.sender_id
+    zed_dev = (1260465030)
+    if zelzal not in zed_dev:
         return await edit_delete(event, "**- عـذࢪًا .. عـزيـزي ؟!**\n**- هـذا الامـࢪ خاص بمطـوࢪ السـوࢪس**", 10)
     shortname = event.pattern_match.group(1)
     try:
@@ -145,7 +145,7 @@ async def unload(event):
         await edit_or_reply(event, f"**⎉╎تم الغـاء تحميـل** {shortname} **.. بنجـاح✓**\n{e}")
 
 
-@sarub.sar_cmd(
+@zedub.zed_cmd(
     pattern="الغاء نصب ([\s\S]*)",
     command=("الغاء تنصيب", plugin_category),
     info={
@@ -158,9 +158,9 @@ async def unload(event):
 )
 async def unload(event):
     "لـ الغـاء تنصيب اي ملـف من السـورس."
-    alsarot = event.sender_id
-    sar_dev = (6275274612)
-    if alsarot not in sar_dev:
+    zelzal = event.sender_id
+    zed_dev = (1260465030)
+    if zelzal not in zed_dev:
         return await edit_delete(event, "**- عـذࢪاً .. عـزيـزي ؟!**\n**- هـذا الامـࢪ خاص بمطـوࢪ السـوࢪس**", 10)
     shortname = event.pattern_match.group(1)
     path = plug_checker(shortname)
@@ -186,7 +186,7 @@ async def unload(event):
         PLG_INFO.pop(shortname)
 
 
-@sarub.sar_cmd(
+@zedub.zed_cmd(
     pattern="الغاء تنصيب ([\s\S]*)",
     command=("الغاء تنصيب", plugin_category),
     info={
@@ -199,9 +199,9 @@ async def unload(event):
 )
 async def unload(event):
     "لـ الغـاء تنصيب اي ملـف من السـورس."
-    alsarot = event.sender_id
-    sar_dev = (6275274612)
-    if alsarot not in sar_dev:
+    zelzal = event.sender_id
+    zed_dev = (1260465030)
+    if zelzal not in zed_dev:
         return await edit_delete(event, "**- عـذࢪًا .. عـزيـزي ؟!**\n**- هـذا الامـࢪ خاص بمطـوࢪ السـوࢪس**", 10)
     shortname = event.pattern_match.group(1)
     path = plug_checker(shortname)

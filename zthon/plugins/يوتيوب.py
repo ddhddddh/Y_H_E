@@ -153,7 +153,7 @@ async def fix_attributes(
     return new_attributes, mime_type
 
 
-@hunterthon.hunter_sarot(
+@zedub.zed_cmd(
     pattern="تحميل صوت(?:\s|$)([\s\S]*)",
     command=("تحميل صوت", plugin_category),
     info={
@@ -169,8 +169,8 @@ async def download_audio(event):
         msg = rmsg.text
     urls = extractor.find_urls(msg)
     if not urls:
-        return await edit_or_reply(event, "**- ضع الرابط مع الامر او بالرد على الرابط ليتم التحميل**")
-    hunter = await edit_or_reply(event, "**⎉╎جـارِ التحميل انتظر قليلا ▬▭ ...**")
+        return await edit_or_reply(event, "**- قـم بادخــال رابـط مع الامـر او بالــرد ع رابـط ليتـم التحميـل**")
+    zedevent = await edit_or_reply(event, "**⎉╎جـارِ التحميل انتظر قليلا ▬▭ ...**")
     reply_to_id = await reply_id(event)
     for url in urls:
         try:
@@ -191,8 +191,8 @@ async def download_audio(event):
             else:
                 _fpath = _path
         if not _fpath:
-            return await edit_delete(hunter, "__Unable to upload file__")
-        await hunter.edit(
+            return await edit_delete(zedevent, "__Unable to upload file__")
+        await zedevent.edit(
             f"**╮ ❐ جـارِ التحضيـر للـرفع انتظـر ...𓅫╰**:\
             \n**{vid_data['title']}***"
         )
@@ -210,7 +210,7 @@ async def download_audio(event):
                 progress(
                     d,
                     t,
-                    hunter,
+                    zedevent,
                     startTime,
                     "trying to upload",
                     file_name=os.path.basename(pathlib.Path(_fpath)),
@@ -235,10 +235,10 @@ async def download_audio(event):
         )
         for _path in [_fpath, thumb_pic]:
             os.remove(_path)
-    await hunter.delete()
+    await zedevent.delete()
 
 
-@hunterthon.hunter_sarot(
+@zedub.zed_cmd(
     pattern="تحميل فيديو(?:\s|$)([\s\S]*)",
     command=("تحميل فيديو", plugin_category),
     info={
@@ -257,11 +257,11 @@ async def download_video(event):
         msg = rmsg.text
     urls = extractor.find_urls(msg)
     if not urls:
-        return await edit_or_reply(event, "**- ضع الرابط مع الامر او بالرد على الرابط ليتم التحميل**")
-    hunter = await edit_or_reply(event, "**⎉╎جـارِ التحميل انتظر قليلا ▬▭ ...**")
+        return await edit_or_reply(event, "**- قـم بادخــال رابـط مع الامـر او بالــرد ع رابـط ليتـم التحميـل**")
+    zedevent = await edit_or_reply(event, "**⎉╎جـارِ التحميل انتظر قليلا ▬▭ ...**")
     reply_to_id = await reply_id(event)
     for url in urls:
-        ytdl_data = await ytdl_down(hunter, video_opts, url)
+        ytdl_data = await ytdl_down(zedevent, video_opts, url)
         if ytdl_down is None:
             return
         try:
@@ -272,7 +272,7 @@ async def download_video(event):
                 catthumb = pathlib.Path("cat_ytv.webp")
             if not os.path.exists(catthumb):
                 catthumb = None
-            await hunter.edit(
+            await zedevent.edit(
                 f"**╮ ❐ جـارِ التحضيـر للـرفع انتظـر ...𓅫╰**:\
                 \n**{ytdl_data['title']}**"
             )
@@ -285,7 +285,7 @@ async def download_video(event):
                 file=ul,
                 progress_callback=lambda d, t: asyncio.get_event_loop().create_task(
                     progress(
-                        d, t, hunter, c_time, "Upload :", file_name=ytdl_data["title"]
+                        d, t, zedevent, c_time, "Upload :", file_name=ytdl_data["title"]
                     )
                 ),
             )
@@ -310,7 +310,7 @@ async def download_video(event):
     await event.delete()
 
 
-@hunterthon.hunter_sarot(
+@zedub.zed_cmd(
     pattern="فيس(?:\s|$)([\s\S]*)",
     command=("فيسبوك", plugin_category),
     info={
@@ -329,11 +329,11 @@ async def download_video(event):
         msg = rmsg.text
     urls = extractor.find_urls(msg)
     if not urls:
-        return await edit_or_reply(event, "**- ضع الرابط مع الامر او بالرد على الرابط ليتم التحميل**")
-    hunter = await edit_or_reply(event, "**⎉╎جـارِ التحميل مـن فيـس بـوك انتظر قليلا ▬▭ ...**")
+        return await edit_or_reply(event, "**- قـم بادخــال رابـط مع الامـر او بالــرد ع رابـط ليتـم التحميـل**")
+    zedevent = await edit_or_reply(event, "**⎉╎جـارِ التحميل مـن فيـس بـوك انتظر قليلا ▬▭ ...**")
     reply_to_id = await reply_id(event)
     for url in urls:
-        ytdl_data = await ytdl_down(hunter, video_opts, url)
+        ytdl_data = await ytdl_down(zedevent, video_opts, url)
         if ytdl_down is None:
             return
         try:
@@ -344,7 +344,7 @@ async def download_video(event):
                 catthumb = pathlib.Path("cat_ytv.webp")
             if not os.path.exists(catthumb):
                 catthumb = None
-            await hunter.edit(
+            await zedevent.edit(
                 f"**╮ ❐ جـارِ التحضيـر للـرفع انتظـر ...𓅫╰**:\
                 \n**{ytdl_data['title']}**"
             )
@@ -357,7 +357,7 @@ async def download_video(event):
                 file=ul,
                 progress_callback=lambda d, t: asyncio.get_event_loop().create_task(
                     progress(
-                        d, t, hunter, c_time, "Upload :", file_name=ytdl_data["title"]
+                        d, t, zedevent, c_time, "Upload :", file_name=ytdl_data["title"]
                     )
                 ),
             )
@@ -382,7 +382,7 @@ async def download_video(event):
     await event.delete()
 
 
-@hunterthon.hunter_sarot(
+@zedub.zed_cmd(
     pattern="سناب(?:\s|$)([\s\S]*)",
     command=("سناب شات", plugin_category),
     info={
@@ -401,11 +401,11 @@ async def download_video(event):
         msg = rmsg.text
     urls = extractor.find_urls(msg)
     if not urls:
-        return await edit_or_reply(event, "**- ضع الرابط مع الامر او بالرد على الرابط ليتم التحميل**")
-    hunter = await edit_or_reply(event, "**⎉╎جـارِ التحميل انتظر قليلا ▬▭ ...**")
+        return await edit_or_reply(event, "**- قـم بادخــال رابـط مع الامـر او بالــرد ع رابـط ليتـم التحميـل**")
+    zedevent = await edit_or_reply(event, "**⎉╎جـارِ التحميل انتظر قليلا ▬▭ ...**")
     reply_to_id = await reply_id(event)
     for url in urls:
-        ytdl_data = await ytdl_down(hunter, video_opts, url)
+        ytdl_data = await ytdl_down(zedevent, video_opts, url)
         if ytdl_down is None:
             return
         try:
@@ -416,7 +416,7 @@ async def download_video(event):
                 catthumb = pathlib.Path("cat_ytv.webp")
             if not os.path.exists(catthumb):
                 catthumb = None
-            await hunter.edit(
+            await zedevent.edit(
                 f"**╮ ❐ جـارِ التحضيـر للـرفع انتظـر ...𓅫╰**:\
                 \n**{ytdl_data['title']}**"
             )
@@ -429,7 +429,7 @@ async def download_video(event):
                 file=ul,
                 progress_callback=lambda d, t: asyncio.get_event_loop().create_task(
                     progress(
-                        d, t, hunter, c_time, "Upload :", file_name=ytdl_data["title"]
+                        d, t, zedevent, c_time, "Upload :", file_name=ytdl_data["title"]
                     )
                 ),
             )
@@ -454,7 +454,7 @@ async def download_video(event):
     await event.delete()
 
 
-@hunterthon.hunter_sarot(
+@zedub.zed_cmd(
     pattern="تيك(?:\s|$)([\s\S]*)",
     command=("تيك", plugin_category),
     info={
@@ -473,11 +473,11 @@ async def download_video(event):
         msg = rmsg.text
     urls = extractor.find_urls(msg)
     if not urls:
-        return await edit_or_reply(event, "**- ضع الرابط مع الامر او بالرد على الرابط ليتم التحميل**")
-    hunter = await edit_or_reply(event, "**⎉╎جـارِ التحميل انتظر قليلا ▬▭ ...**")
+        return await edit_or_reply(event, "**- قـم بادخــال رابـط مع الامـر او بالــرد ع رابـط ليتـم التحميـل**")
+    zedevent = await edit_or_reply(event, "**⎉╎جـارِ التحميل انتظر قليلا ▬▭ ...**")
     reply_to_id = await reply_id(event)
     for url in urls:
-        ytdl_data = await ytdl_down(hunter, video_opts, url)
+        ytdl_data = await ytdl_down(zedevent, video_opts, url)
         if ytdl_down is None:
             return
         try:
@@ -488,7 +488,7 @@ async def download_video(event):
                 catthumb = pathlib.Path("cat_ytv.webp")
             if not os.path.exists(catthumb):
                 catthumb = None
-            await hunter.edit(
+            await zedevent.edit(
                 f"**╮ ❐ جـارِ التحضيـر للـرفع انتظـر ...𓅫╰**:\
                 \n**{ytdl_data['title']}**"
             )
@@ -501,7 +501,7 @@ async def download_video(event):
                 file=ul,
                 progress_callback=lambda d, t: asyncio.get_event_loop().create_task(
                     progress(
-                        d, t, hunter, c_time, "Upload :", file_name=ytdl_data["title"]
+                        d, t, zedevent, c_time, "Upload :", file_name=ytdl_data["title"]
                     )
                 ),
             )
@@ -526,7 +526,7 @@ async def download_video(event):
     await event.delete()
 
 
-@hunterthon.hunter_sarot(
+@zedub.zed_cmd(
     pattern="لايكي(?:\s|$)([\s\S]*)",
     command=("لايكي", plugin_category),
     info={
@@ -545,11 +545,11 @@ async def download_video(event):
         msg = rmsg.text
     urls = extractor.find_urls(msg)
     if not urls:
-        return await edit_or_reply(event, "**- ضع الرابط مع الامر او بالرد على الرابط ليتم التحميل**")
-    hunter = await edit_or_reply(event, "**⎉╎جـارِ التحميل انتظر قليلا ▬▭ ...**")
+        return await edit_or_reply(event, "**- قـم بادخــال رابـط مع الامـر او بالــرد ع رابـط ليتـم التحميـل**")
+    zedevent = await edit_or_reply(event, "**⎉╎جـارِ التحميل انتظر قليلا ▬▭ ...**")
     reply_to_id = await reply_id(event)
     for url in urls:
-        ytdl_data = await ytdl_down(hunter, video_opts, url)
+        ytdl_data = await ytdl_down(zedevent, video_opts, url)
         if ytdl_down is None:
             return
         try:
@@ -560,7 +560,7 @@ async def download_video(event):
                 catthumb = pathlib.Path("cat_ytv.webp")
             if not os.path.exists(catthumb):
                 catthumb = None
-            await hunter.edit(
+            await zedevent.edit(
                 f"**╮ ❐ جـارِ التحضيـر للـرفع انتظـر ...𓅫╰**:\
                 \n**{ytdl_data['title']}**"
             )
@@ -573,7 +573,7 @@ async def download_video(event):
                 file=ul,
                 progress_callback=lambda d, t: asyncio.get_event_loop().create_task(
                     progress(
-                        d, t, hunter, c_time, "Upload :", file_name=ytdl_data["title"]
+                        d, t, zedevent, c_time, "Upload :", file_name=ytdl_data["title"]
                     )
                 ),
             )
@@ -598,7 +598,7 @@ async def download_video(event):
     await event.delete()
 
 
-@hunterthon.hunter_sarot(
+@zedub.zed_cmd(
     pattern="ساوند(?:\s|$)([\s\S]*)",
     command=("ساوند", plugin_category),
     info={
@@ -614,8 +614,8 @@ async def download_audio(event):
         msg = rmsg.text
     urls = extractor.find_urls(msg)
     if not urls:
-        return await edit_or_reply(event, "**- ضع الرابط مع الامر او بالرد على الرابط ليتم التحميل**")
-    hunter = await edit_or_reply(event, "**⎉╎جـارِ التحميل انتظر قليلا ▬▭ ...**")
+        return await edit_or_reply(event, "**- قـم بادخــال رابـط مع الامـر او بالــرد ع رابـط ليتـم التحميـل**")
+    zedevent = await edit_or_reply(event, "**⎉╎جـارِ التحميل انتظر قليلا ▬▭ ...**")
     reply_to_id = await reply_id(event)
     for url in urls:
         try:
@@ -636,8 +636,8 @@ async def download_audio(event):
             else:
                 _fpath = _path
         if not _fpath:
-            return await edit_delete(hunter, "__Unable to upload file__")
-        await hunter.edit(
+            return await edit_delete(zedevent, "__Unable to upload file__")
+        await zedevent.edit(
             f"**╮ ❐ جـارِ التحضيـر للـرفع انتظـر ...𓅫╰**:\
             \n**{vid_data['title']}***"
         )
@@ -655,7 +655,7 @@ async def download_audio(event):
                 progress(
                     d,
                     t,
-                    hunter,
+                    zedevent,
                     startTime,
                     "trying to upload",
                     file_name=os.path.basename(pathlib.Path(_fpath)),
@@ -680,10 +680,10 @@ async def download_audio(event):
         )
         for _path in [_fpath, thumb_pic]:
             os.remove(_path)
-    await hunter.delete()
+    await zedevent.delete()
 
 
-@hunterthon.hunter_sarot(
+@zedub.zed_cmd(
     pattern="انستا(?: |$)([\s\S]*)",
     command=("انستا", plugin_category),
     info={
@@ -700,17 +700,17 @@ async def insta_dl(event):
     if not link and reply:
         link = reply.text
     if not link:
-        return await edit_delete(event, "**- احتـاج الرابــط للتحميــل**", 10)
+        return await edit_delete(event, "**- احتـاج الـر رابــط للتحميــل**", 10)
     if "instagram.com" not in link:
         return await edit_delete(
-            event, "**- احتـاج الرابــط للتحميــل**", 10
+            event, "**- احتـاج الـر رابــط للتحميــل**", 10
         )
     # v1 = "@instasave_bot"
     # v1 = "@IgGramBot"
     v1 = "Fullsavebot"
     v2 = "@videomaniacbot"
     media_list = []
-    hunter = await edit_or_reply(event, "**⎉╎جـارِ التحميل انتظر قليلا ▬▭ ...**")
+    zedevent = await edit_or_reply(event, "**⎉╎جـارِ التحميل انتظر قليلا ▬▭ ...**")
     async with event.client.conversation(v1) as conv:
         try:
             v1_flag = await conv.send_message("/start")
@@ -739,7 +739,7 @@ async def insta_dl(event):
                     except asyncio.TimeoutError:
                         break
                 details = media_list[0].message.splitlines()
-                await hunter.delete()
+                await zedevent.delete()
                 await event.client.send_file(
                     event.chat_id,
                     media_list,
@@ -748,7 +748,7 @@ async def insta_dl(event):
                 return await delete_conv(event, v1, v1_flag)
         except asyncio.TimeoutError:
             await delete_conv(event, v1, v1_flag)
-        await edit_or_reply(hunter, "**Switching v2...**")
+        await edit_or_reply(zedevent, "**Switching v2...**")
         async with event.client.conversation(v2) as conv:
             try:
                 v2_flag = await conv.send_message("/start")
@@ -764,18 +764,18 @@ async def insta_dl(event):
             media = await conv.get_response()
             await event.client.send_read_acknowledge(conv.chat_id)
             if media.media:
-                await hunter.delete()
+                await zedevent.delete()
                 await event.client.send_file(event.chat_id, media)
             else:
                 await edit_delete(
-                    hunter,
+                    zedevent,
                     f"**#ERROR\nv1 :** __Not valid URL__\n\n**v2 :**__ {media.text}__",
                     40,
                 )
             await delete_conv(event, v2, v2_flag)
 
 
-@hunterthon.hunter_sarot(
+@zedub.zed_cmd(
     pattern="بنترست?(?:\s|$)([\s\S]*)",
     command=("بنترست", plugin_category),
     info={
@@ -788,18 +788,18 @@ async def _(event):
     links = re.findall(r"\bhttps?://.*\.\S+", M)
     await event.delete()
     if not links:
-        N = await event.respond("**ارسل الامـر + الرابـط ... 😶❤️ **")
+        N = await event.respond("**ارسل الامـر + الرابـط ... 🧸🎈**")
         await asyncio.sleep(2)
         await N.delete()
     else:
         pass
-    A = await event.respond("**╮•⎚ جـارِ التحميل مـن بنتـرسـت ... ❤️😶 **")
-    ALSAROT = get_download_url(M)
-    await event.client.send_file(event.chat.id, ALSAROT)
+    A = await event.respond("**╮•⎚ جـارِ التحميل مـن بنتـرسـت ... 🧸🎈**")
+    ZZZZL1L = get_download_url(M)
+    await event.client.send_file(event.chat.id, ZZZZL1L)
     await A.delete()
 
 
-@hunterthon.hunter_sarot(
+@zedub.zed_cmd(
     pattern="يوتيوب(?: |$)(\d*)? ?([\s\S]*)",
     command=("يوتيوب", plugin_category),
     info={

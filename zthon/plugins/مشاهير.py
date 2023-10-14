@@ -1,3 +1,13 @@
+# Zed-Thon
+# Copyright (C) 2022 Zed-Thon . All Rights Reserved
+#
+# This file is a part of < https://github.com/Zed-Thon/ZelZal/ >
+# PLease read the GNU Affero General Public License in
+# <https://www.github.com/Zed-Thon/ZelZal/blob/master/LICENSE/>.
+#الملـف حقـوق وكتابـة زلـزال الهيبـه ⤶ @zzzzl1l خاص بسـورس ⤶ 𝙕𝙚𝙙𝙏𝙝𝙤𝙣
+#الملـف متعـوب عليه تخمـط اذكر المصـدر
+#تخمـط بـدون مصـدر اهينـك
+
 import os
 import random
 from asyncio import sleep
@@ -7,8 +17,8 @@ from telethon.tl.functions.users import GetFullUserRequest
 from telethon.tl.types import MessageEntityMentionName
 from telethon.utils import get_input_location
 
-from hunthon import sarub
-from hunthon.core.logger import logging
+from zthon import zedub
+from zthon.core.logger import logging
 
 from ..Config import Config
 from ..core.managers import edit_or_reply, edit_delete
@@ -19,7 +29,7 @@ from . import mention
 plugin_category = "العروض"
 LOGS = logging.getLogger(__name__)
 
-FANAN = "<b> 𓆩 𝗦𝗢𝗨𝗥𝗖𝗘 𝗛𝗨𝗡𝗧𝗘𝗥𝗧𝗛𝗢𝗡 - 💞🤵💞 𓆪 </b>"
+FANAN = "<b> 𓆩 𝗦𝗢𝗨𝗥𝗖𝗘 𝗞𝗔𝗜𝗗𝗢 - 💞🤵💞 𓆪 </b>"
 VANAN = "<b>✾╎افيشش 🥺💘 </b>"
 sts_fanan = "https://telegra.ph/file/50caf0efa9a2453985364.jpg"
 sts_fanan2 = "https://telegra.ph/file/dda7dd09f7d697fe92ff6.jpg" 
@@ -59,9 +69,9 @@ gtg_fanan16 = "https://telegra.ph/file/e6fd5618dc186ae286e9c.jpg"
 gtg_fanan17 = "https://telegra.ph/file/d40c3f57c3b1c2fceaef0.jpg"
 gtg_fanan18 = "https://telegra.ph/file/650f99255eb90e8f95061.jpg"
 
-Gsar_IMG = gtg_fanan or gtg_fanan2 or gtg_fanan3 or gtg_fanan4 or gtg_fanan5
-sar_IMG = sts_fanan or sts_fanan2 or sts_fanan3 or sts_fanan4 or sts_fanan5
-sar_VOICE = zahff
+GZED_IMG = gtg_fanan or gtg_fanan2 or gtg_fanan3 or gtg_fanan4 or gtg_fanan5
+ZEED_IMG = sts_fanan or sts_fanan2 or sts_fanan3 or sts_fanan4 or sts_fanan5
+ZED_VOICE = zahff
 
 
 async def get_user_from_event(event):
@@ -105,17 +115,17 @@ async def zfetch_info(replied_user, event):
     is_bot = replied_user.bot
     restricted = replied_user.restricted
     verified = replied_user.verified
-    sar_VOICE
+    ZED_VOICE
     x = random.randrange(1, 2)
     if x == 1:
        caption = f"<b>⪼• اطـلـع زاحـف 😹🤫</b>\n\n"
        caption += f'<a href="tg://user?id={user_id}">{first_name}</a>'
-       caption += f"\n\n<b> 𓆩 𝙎𝙊𝙐𝙍𝘾𝞝 𝗛𝗨𝗡𝗧𝗘𝗥𝗧𝗛𝗢𝗡 𓆪 </b> - @HunerThon "
+       caption += f"\n\n<b> 𓆩 𝙎𝙊𝙐𝙍𝘾𝞝 𝗞𝗔𝗜𝗗𝗢 𓆪 </b> - @kaido_q "
        return zahff, caption
     if x == 2:
        caption = f"<b>⪼• اطـلـع زاحـف 😹🤫</b>\n\n"
        caption += f'<a href="tg://user?id={user_id}">{first_name}</a>'
-       caption += f"\n\n<b> 𓆩 𝙎𝙊𝙐𝙍𝘾𝞝 𝗛𝗨𝗡𝗧𝗘𝗥𝗧𝗛𝗢𝗡 𓆪 </b> - @HunerThon "
+       caption += f"\n\n<b> 𓆩 𝙎𝙊𝙐𝙍𝘾𝞝 𝗞𝗔𝗜𝗗𝗢 𓆪 </b> - @kaido_q "
        return zahff, caption
 
 
@@ -132,133 +142,133 @@ async def fetch_info(replied_user, event):
     is_bot = replied_user.bot
     restricted = replied_user.restricted
     verified = replied_user.verified
-    sar_IMG
+    ZEED_IMG
     x = random.randrange(1, 18)
     if x == 1:
        caption = f"<b> {FANAN} </b>\n\n\n"
        caption += f"<b> {VANAN} </b>"
        caption += f'<a href="tg://user?id={user_id}">{first_name}</a>'
        caption += f"\n\n<b> ✾╎مبࢪوڪ زواجج مِـن إنجين أكيوريك 🥺💘. </b>"
-       caption += f"\n\n<b> 𓆩 𝙎𝙊𝙐𝙍𝘾𝞝 𝗛𝗨𝗡𝗧𝗘𝗥𝗧𝗛𝗢𝗡 𓆪 </b> - @HunerThon "
+       caption += f"\n\n<b> 𓆩 𝙎𝙊𝙐𝙍𝘾𝞝 𝗞𝗔𝗜𝗗𝗢 𓆪 </b> - @kaido_q "
        return sts_fanan, caption
     if x == 2:
        caption = f"<b> {FANAN} </b>\n\n\n"
        caption += f"<b> {VANAN} </b>"
        caption += f'<a href="tg://user?id={user_id}">{first_name}</a>'
        caption += f"\n\n<b> ✾╎مبࢪوڪ زواجج مِـن كيفانش تاتليتوغ 🥺💘. </b>"
-       caption += f"\n\n<b> 𓆩 𝙎𝙊𝙐𝙍𝘾𝞝 𝗛𝗨𝗡𝗧𝗘𝗥𝗧𝗛𝗢𝗡 𓆪 </b> - @HunerThon "
+       caption += f"\n\n<b> 𓆩 𝙎𝙊𝙐𝙍𝘾𝞝 𝗞𝗔𝗜𝗗𝗢 𓆪 </b> - @kaido_q "
        return sts_fanan2, caption
     if x == 3:
        caption = f"<b> {FANAN} </b>\n\n\n"
        caption += f"<b> {VANAN} </b>"
        caption += f'<a href="tg://user?id={user_id}">{first_name}</a>'
        caption += f"\n\n<b> ✾╎مبࢪوڪ زواجج مِـن شاتاي أولسوي 🥺💘. </b>"
-       caption += f"\n\n<b> 𓆩 𝙎𝙊𝙐𝙍𝘾𝞝 𝗛𝗨𝗡𝗧𝗘𝗥𝗧𝗛𝗢𝗡 𓆪 </b> - @HunerThon "
+       caption += f"\n\n<b> 𓆩 𝙎𝙊𝙐𝙍𝘾𝞝 𝗞𝗔𝗜𝗗𝗢 𓆪 </b> - @kaido_q "
        return sts_fanan3, caption
     if x == 4:
        caption = f"<b> {FANAN} </b>\n\n\n"
        caption += f"<b> {VANAN} </b>"
        caption += f'<a href="tg://user?id={user_id}">{first_name}</a>'
        caption += f"\n\n<b> ✾╎مبࢪوڪ زواجج مِـن إنجين ألتان دوزياتان 🥺💘. </b>"
-       caption += f"\n\n<b> 𓆩 𝙎𝙊𝙐𝙍𝘾𝞝 𝗛𝗨𝗡𝗧𝗘𝗥𝗧𝗛𝗢𝗡 𓆪 </b> - @HunerThon "
+       caption += f"\n\n<b> 𓆩 𝙎𝙊𝙐𝙍𝘾𝞝 𝗞𝗔𝗜𝗗𝗢 𓆪 </b> - @kaido_q "
        return sts_fanan4, caption
     if x == 5:
        caption = f"<b> {FANAN} </b>\n\n\n"
        caption += f"<b> {VANAN} </b>"
        caption += f'<a href="tg://user?id={user_id}">{first_name}</a>'
        caption += f"\n\n<b> ✾╎مبࢪوڪ زواجج مِـن بوراك أوزجيفت 🥺💘. </b>"
-       caption += f"\n\n<b> 𓆩 𝙎𝙊𝙐𝙍𝘾𝞝 𝗛𝗨𝗡𝗧𝗘𝗥𝗧𝗛𝗢𝗡 𓆪 </b> - @HunerThon "
+       caption += f"\n\n<b> 𓆩 𝙎𝙊𝙐𝙍𝘾𝞝 𝗞𝗔𝗜𝗗𝗢 𓆪 </b> - @kaido_q "
        return sts_fanan5, caption
     if x == 6:
        caption = f"<b> {FANAN} </b>\n\n\n"
        caption += f"<b> {VANAN} </b>"
        caption += f'<a href="tg://user?id={user_id}">{first_name}</a>'
        caption += f"\n\n<b> ✾╎مبࢪوڪ زواجج مِـن أراس بولوت إيناملي 🥺💘. </b>"
-       caption += f"\n\n<b> 𓆩 𝙎𝙊𝙐𝙍𝘾𝞝 𝗛𝗨𝗡𝗧𝗘𝗥𝗧𝗛𝗢𝗡 𓆪 </b> - @HunerThon "
+       caption += f"\n\n<b> 𓆩 𝙎𝙊𝙐𝙍𝘾𝞝 𝗞𝗔𝗜𝗗𝗢 𓆪 </b> - @kaido_q "
        return sts_fanan6, caption
     if x == 7:
        caption = f"<b> {FANAN} </b>\n\n\n"
        caption += f"<b> {VANAN} </b>"
        caption += f'<a href="tg://user?id={user_id}">{first_name}</a>'
        caption += f"\n\n<b> ✾╎مبࢪوڪ زواجج مِـن گريستيانو رونالدو 🥺💘. </b>"
-       caption += f"\n\n<b> 𓆩 𝙎𝙊𝙐𝙍𝘾𝞝 𝗛𝗨𝗡𝗧𝗘𝗥𝗧𝗛𝗢𝗡 𓆪 </b> - @HunerThon "
+       caption += f"\n\n<b> 𓆩 𝙎𝙊𝙐𝙍𝘾𝞝 𝗞𝗔𝗜𝗗𝗢 𓆪 </b> - @kaido_q "
        return sts_fanan7, caption
     if x == 8:
        caption = f"<b> {FANAN} </b>\n\n\n"
        caption += f"<b> {VANAN} </b>"
        caption += f'<a href="tg://user?id={user_id}">{first_name}</a>'
        caption += f"\n\n<b> ✾╎مبࢪوڪ زواجج مِـن سيركان شاي أوغلو 🥺💘. </b>"
-       caption += f"\n\n<b> 𓆩 𝙎𝙊𝙐𝙍𝘾𝞝 𝗛𝗨𝗡𝗧𝗘𝗥𝗧𝗛𝗢𝗡 𓆪 </b> - @HunerThon "
+       caption += f"\n\n<b> 𓆩 𝙎𝙊𝙐𝙍𝘾𝞝 𝗞𝗔𝗜𝗗𝗢 𓆪 </b> - @kaido_q "
        return sts_fanan8, caption
     if x == 9:
        caption = f"<b> {FANAN} </b>\n\n\n"
        caption += f"<b> {VANAN} </b>"
        caption += f'<a href="tg://user?id={user_id}">{first_name}</a>'
        caption += f"\n\n<b> ✾╎مبࢪوڪ زواجج مِـن كرم بورسين🥺💘. </b>"
-       caption += f"\n\n<b> 𓆩 𝙎𝙊𝙐𝙍𝘾𝞝 𝗛𝗨𝗡𝗧𝗘𝗥𝗧𝗛𝗢𝗡 𓆪 </b> - @HunerThon "
+       caption += f"\n\n<b> 𓆩 𝙎𝙊𝙐𝙍𝘾𝞝 𝗞𝗔𝗜𝗗𝗢 𓆪 </b> - @kaido_q "
        return sts_fanan9, caption
     if x == 10:
        caption = f"<b> {FANAN} </b>\n\n\n"
        caption += f"<b> {VANAN} </b>"
        caption += f'<a href="tg://user?id={user_id}">{first_name}</a>'
        caption += f"\n\n<b> ✾╎مبࢪوڪ زواجج مِـن توم گــروز🥺💘. </b>"
-       caption += f"\n\n<b> 𓆩 𝙎𝙊𝙐𝙍𝘾𝞝 𝗛𝗨𝗡𝗧𝗘𝗥𝗧𝗛𝗢𝗡 𓆪 </b> - @HunerThon "
+       caption += f"\n\n<b> 𓆩 𝙎𝙊𝙐𝙍𝘾𝞝 𝗞𝗔𝗜𝗗𝗢 𓆪 </b> - @kaido_q "
        return sts_fanan10, caption
     if x == 11:
        caption = f"<b> {FANAN} </b>\n\n\n"
        caption += f"<b> {VANAN} </b>"
        caption += f'<a href="tg://user?id={user_id}">{first_name}</a>'
        caption += f"\n\n<b> ✾╎مبࢪوڪ زواجج مِـن شاهـد گــابور🥺💘. </b>"
-       caption += f"\n\n<b> 𓆩 𝙎𝙊𝙐𝙍𝘾𝞝 𝗛𝗨𝗡𝗧𝗘𝗥𝗧𝗛𝗢𝗡 𓆪 </b> - @HunerThon "
+       caption += f"\n\n<b> 𓆩 𝙎𝙊𝙐𝙍𝘾𝞝 𝗞𝗔𝗜𝗗𝗢 𓆪 </b> - @kaido_q "
        return sts_fanan11, caption
     if x == 12:
        caption = f"<b> {FANAN} </b>\n\n\n"
        caption += f"<b> {VANAN} </b>"
        caption += f'<a href="tg://user?id={user_id}">{first_name}</a>'
        caption += f"\n\n<b> ✾╎مبࢪوڪ زواجج مِـن ليـو ميسـي🥺💘. </b>"
-       caption += f"\n\n<b> 𓆩 𝙎𝙊𝙐𝙍𝘾𝞝 𝗛𝗨𝗡𝗧𝗘𝗥𝗧𝗛𝗢𝗡 𓆪 </b> - @HunerThon "
+       caption += f"\n\n<b> 𓆩 𝙎𝙊𝙐𝙍𝘾𝞝 𝗞𝗔𝗜𝗗𝗢 𓆪 </b> - @kaido_q "
        return sts_fanan12, caption
     if x == 13:
        caption = f"<b> {FANAN} </b>\n\n\n"
        caption += f"<b> {VANAN} </b>"
        caption += f'<a href="tg://user?id={user_id}">{first_name}</a>'
        caption += f"\n\n<b> ✾╎مبࢪوڪ زواجج مِـن محمد حماقي🥺💘. </b>"
-       caption += f"\n\n<b> 𓆩 𝙎𝙊𝙐𝙍𝘾𝞝 𝗛𝗨𝗡𝗧𝗘𝗥𝗧𝗛𝗢𝗡 𓆪 </b> - @HunerThon "
+       caption += f"\n\n<b> 𓆩 𝙎𝙊𝙐𝙍𝘾𝞝 𝗞𝗔𝗜𝗗𝗢 𓆪 </b> - @kaido_q "
        return sts_fanan13, caption
     if x == 14:
        caption = f"<b> {FANAN} </b>\n\n\n"
        caption += f"<b> {VANAN} </b>"
        caption += f'<a href="tg://user?id={user_id}">{first_name}</a>'
        caption += f"\n\n<b> ✾╎مبࢪوڪ زواجج مِـن شَاروخــان🥺💘. </b>"
-       caption += f"\n\n<b> 𓆩 𝙎𝙊𝙐𝙍𝘾𝞝 𝗛𝗨𝗡𝗧𝗘𝗥𝗧𝗛𝗢𝗡 𓆪 </b> - @HunerThon "
+       caption += f"\n\n<b> 𓆩 𝙎𝙊𝙐𝙍𝘾𝞝 𝗞𝗔𝗜𝗗𝗢 𓆪 </b> - @kaido_q "
        return sts_fanan14, caption
     if x == 15:
        caption = f"<b> {FANAN} </b>\n\n\n"
        caption += f"<b> {VANAN} </b>"
        caption += f'<a href="tg://user?id={user_id}">{first_name}</a>'
        caption += f"\n\n<b> ✾╎مبࢪوڪ زواجج مِـن سيـف نبيل🥺💘. </b>"
-       caption += f"\n\n<b> 𓆩 𝙎𝙊𝙐𝙍𝘾𝞝 𝗛𝗨𝗡𝗧𝗘𝗥𝗧𝗛𝗢𝗡 𓆪 </b> - @HunerThon "
+       caption += f"\n\n<b> 𓆩 𝙎𝙊𝙐𝙍𝘾𝞝 𝗞𝗔𝗜𝗗𝗢 𓆪 </b> - @kaido_q "
        return sts_fanan15, caption
     if x == 16:
        caption = f"<b> {FANAN} </b>\n\n\n"
        caption += f"<b> {VANAN} </b>"
        caption += f'<a href="tg://user?id={user_id}">{first_name}</a>'
        caption += f"\n\n<b> ✾╎مبࢪوڪ زواجج مِـن ليوناردو گـابريو 🥺💘. </b>"
-       caption += f"\n\n<b> 𓆩 𝙎𝙊𝙐𝙍𝘾𝞝 𝗛𝗨𝗡𝗧𝗘𝗥𝗧𝗛𝗢𝗡 𓆪 </b> - @HunerThon "
+       caption += f"\n\n<b> 𓆩 𝙎𝙊𝙐𝙍𝘾𝞝 𝗞𝗔𝗜𝗗𝗢 𓆪 </b> - @kaido_q "
        return sts_fanan16, caption
     if x == 17:
        caption = f"<b> {FANAN} </b>\n\n\n"
        caption += f"<b> {VANAN} </b>"
        caption += f'<a href="tg://user?id={user_id}">{first_name}</a>'
        caption += f"\n\n<b> ✾╎مبࢪوڪ زواجج مِـن محمد رمـضان🥺💘. </b>"
-       caption += f"\n\n<b> 𓆩 𝙎𝙊𝙐𝙍𝘾𝞝 𝗛𝗨𝗡𝗧𝗘𝗥𝗧𝗛𝗢𝗡 𓆪 </b> - @HunerThon "
+       caption += f"\n\n<b> 𓆩 𝙎𝙊𝙐𝙍𝘾𝞝 𝗞𝗔𝗜𝗗𝗢 𓆪 </b> - @kaido_q "
        return sts_fanan17, caption
     if x == 18:
        caption = f"<b> {FANAN} </b>\n\n\n"
        caption += f"<b> {VANAN} </b>"
        caption += f'<a href="tg://user?id={user_id}">{first_name}</a>'
        caption += f"\n\n<b> ✾╎مبࢪوڪ زواجج مِـن سعــد المجرد 🥺💘. </b>"
-       caption += f"\n\n<b> 𓆩 𝙎𝙊𝙐𝙍𝘾𝞝 𝗛𝗨𝗡𝗧𝗘𝗥𝗧𝗛𝗢𝗡 𓆪 </b> - @HunerThon "
+       caption += f"\n\n<b> 𓆩 𝙎𝙊𝙐𝙍𝘾𝞝 𝗞𝗔𝗜𝗗𝗢 𓆪 </b> - @kaido_q "
        return sts_fanan18, caption
 
 
@@ -275,217 +285,217 @@ async def ifetch_info(replied_user, event):
     is_bot = replied_user.bot
     restricted = replied_user.restricted
     verified = replied_user.verified
-    Gsar_IMG
+    GZED_IMG
     x = random.randrange(1, 18)
     if x == 1:
        caption = f"<b> {FANAN} </b>\n\n\n"
        caption += f"<b> {VANAN} </b>"
        caption += f'<a href="tg://user?id={user_id}">{first_name}</a>'
        caption += f"\n\n<b> ✾╎مبࢪوڪ زواجك مِـن بيرين سات 🥺💘. </b>"
-       caption += f"\n\n<b> 𓆩 𝙎𝙊𝙐𝙍𝘾𝞝 𝗛𝗨𝗡𝗧𝗘𝗥𝗧𝗛𝗢𝗡 𓆪 </b> - @HunerThon "
+       caption += f"\n\n<b> 𓆩 𝙎𝙊𝙐𝙍𝘾𝞝 𝗞𝗔𝗜𝗗𝗢 𓆪 </b> - @kaido_q "
        return gtg_fanan, caption
     if x == 2:
        caption = f"<b> {FANAN} </b>\n\n\n"
        caption += f"<b> {VANAN} </b>"
        caption += f'<a href="tg://user?id={user_id}">{first_name}</a>'
        caption += f"\n\n<b> ✾╎مبࢪوڪ زواجك مِـن إسـراء الاصيـل 🥺💘. </b>"
-       caption += f"\n\n<b> 𓆩 𝙎𝙊𝙐𝙍𝘾𝞝 𝗛𝗨𝗡𝗧𝗘𝗥𝗧𝗛𝗢𝗡 𓆪 </b> - @HunerThon "
+       caption += f"\n\n<b> 𓆩 𝙎𝙊𝙐𝙍𝘾𝞝 𝗞𝗔𝗜𝗗𝗢 𓆪 </b> - @kaido_q "
        return gtg_fanan2, caption
     if x == 3:
        caption = f"<b> {FANAN} </b>\n\n\n"
        caption += f"<b> {VANAN} </b>"
        caption += f'<a href="tg://user?id={user_id}">{first_name}</a>'
        caption += f"\n\n<b> ✾╎مبࢪوڪ زواجك مِـن رحمـة ريـاض 🥺💘. </b>"
-       caption += f"\n\n<b> 𓆩 𝙎𝙊𝙐𝙍𝘾𝞝 𝗛𝗨𝗡𝗧𝗘𝗥𝗧𝗛𝗢𝗡 𓆪 </b> - @HunerThon "
+       caption += f"\n\n<b> 𓆩 𝙎𝙊𝙐𝙍𝘾𝞝 𝗞𝗔𝗜𝗗𝗢 𓆪 </b> - @kaido_q "
        return gtg_fanan3, caption
     if x == 4:
        caption = f"<b> {FANAN} </b>\n\n\n"
        caption += f"<b> {VANAN} </b>"
        caption += f'<a href="tg://user?id={user_id}">{first_name}</a>'
        caption += f"\n\n<b> ✾╎مبࢪوڪ زواجك مِـن تـوبا بويوكـوستن 🥺💘. </b>"
-       caption += f"\n\n<b> 𓆩 𝙎𝙊𝙐𝙍𝘾𝞝 𝗛𝗨𝗡𝗧𝗘𝗥𝗧𝗛𝗢𝗡 𓆪 </b> - @HunerThon "
+       caption += f"\n\n<b> 𓆩 𝙎𝙊𝙐𝙍𝘾𝞝 𝗞𝗔𝗜𝗗𝗢 𓆪 </b> - @kaido_q "
        return gtg_fanan4, caption
     if x == 5:
        caption = f"<b> {FANAN} </b>\n\n\n"
        caption += f"<b> {VANAN} </b>"
        caption += f'<a href="tg://user?id={user_id}">{first_name}</a>'
        caption += f"\n\n<b> ✾╎مبࢪوڪ زواجك مِـن هـازال كـايا 🥺💘. </b>"
-       caption += f"\n\n<b> 𓆩 𝙎𝙊𝙐𝙍𝘾𝞝 𝗛𝗨𝗡𝗧𝗘𝗥𝗧𝗛𝗢𝗡 𓆪 </b> - @HunerThon "
+       caption += f"\n\n<b> 𓆩 𝙎𝙊𝙐𝙍𝘾𝞝 𝗞𝗔𝗜𝗗𝗢 𓆪 </b> - @kaido_q "
        return gtg_fanan5, caption
     if x == 6:
        caption = f"<b> {FANAN} </b>\n\n\n"
        caption += f"<b> {VANAN} </b>"
        caption += f'<a href="tg://user?id={user_id}">{first_name}</a>'
        caption += f"\n\n<b> ✾╎مبࢪوڪ زواجك مِـن هـاندا ارتشـل 🥺💘. </b>"
-       caption += f"\n\n<b> 𓆩 𝙎𝙊𝙐𝙍𝘾𝞝 𝗛𝗨𝗡𝗧𝗘𝗥𝗧𝗛𝗢𝗡 𓆪 </b> - @HunerThon "
+       caption += f"\n\n<b> 𓆩 𝙎𝙊𝙐𝙍𝘾𝞝 𝗞𝗔𝗜𝗗𝗢 𓆪 </b> - @kaido_q "
        return gtg_fanan6, caption
     if x == 7:
        caption = f"<b> {FANAN} </b>\n\n\n"
        caption += f"<b> {VANAN} </b>"
        caption += f'<a href="tg://user?id={user_id}">{first_name}</a>'
        caption += f"\n\n<b> ✾╎مبࢪوڪ زواجك مِـن هيفـاء وهبـي 🥺💘. </b>"
-       caption += f"\n\n<b> 𓆩 𝙎𝙊𝙐𝙍𝘾𝞝 𝗛𝗨𝗡𝗧𝗘𝗥𝗧𝗛𝗢𝗡 𓆪 </b> - @HunerThon "
+       caption += f"\n\n<b> 𓆩 𝙎𝙊𝙐𝙍𝘾𝞝 𝗞𝗔𝗜𝗗𝗢 𓆪 </b> - @kaido_q "
        return gtg_fanan7, caption
     if x == 8:
        caption = f"<b> {FANAN} </b>\n\n\n"
        caption += f"<b> {VANAN} </b>"
        caption += f'<a href="tg://user?id={user_id}">{first_name}</a>'
        caption += f"\n\n<b> ✾╎مبࢪوڪ زواجك مِـن نانسـي عجـرم 🥺💘. </b>"
-       caption += f"\n\n<b> 𓆩 𝙎𝙊𝙐𝙍𝘾𝞝 𝗛𝗨𝗡𝗧𝗘𝗥𝗧𝗛𝗢𝗡 𓆪 </b> - @HunerThon "
+       caption += f"\n\n<b> 𓆩 𝙎𝙊𝙐𝙍𝘾𝞝 𝗞𝗔𝗜𝗗𝗢 𓆪 </b> - @kaido_q "
        return gtg_fanan8, caption
     if x == 9:
        caption = f"<b> {FANAN} </b>\n\n\n"
        caption += f"<b> {VANAN} </b>"
        caption += f'<a href="tg://user?id={user_id}">{first_name}</a>'
        caption += f"\n\n<b> ✾╎مبࢪوڪ زواجك مِـن شيـرين عبد الوهـاب 🥺💘. </b>"
-       caption += f"\n\n<b> 𓆩 𝙎𝙊𝙐𝙍𝘾𝞝 𝗛𝗨𝗡𝗧𝗘𝗥𝗧𝗛𝗢𝗡 𓆪 </b> - @HunerThon "
+       caption += f"\n\n<b> 𓆩 𝙎𝙊𝙐𝙍𝘾𝞝 𝗞𝗔𝗜𝗗𝗢 𓆪 </b> - @kaido_q "
        return gtg_fanan9, caption
     if x == 10:
        caption = f"<b> {FANAN} </b>\n\n\n"
        caption += f"<b> {VANAN} </b>"
        caption += f'<a href="tg://user?id={user_id}">{first_name}</a>'
        caption += f"\n\n<b> ✾╎مبࢪوڪ زواجك مِـن احـلام 🥺💘. </b>"
-       caption += f"\n\n<b> 𓆩 𝙎𝙊𝙐𝙍𝘾𝞝 𝗛𝗨𝗡𝗧𝗘𝗥𝗧𝗛𝗢𝗡 𓆪 </b> - @HunerThon "
+       caption += f"\n\n<b> 𓆩 𝙎𝙊𝙐𝙍𝘾𝞝 𝗞𝗔𝗜𝗗𝗢 𓆪 </b> - @kaido_q "
        return gtg_fanan10, caption
     if x == 11:
        caption = f"<b> {FANAN} </b>\n\n\n"
        caption += f"<b> {VANAN} </b>"
        caption += f'<a href="tg://user?id={user_id}">{first_name}</a>'
        caption += f"\n\n<b> ✾╎مبࢪوڪ زواجك مِـن حـلا تـرك 🥺💘. </b>"
-       caption += f"\n\n<b> 𓆩 𝙎𝙊𝙐𝙍𝘾𝞝 𝗛𝗨𝗡𝗧𝗘𝗥𝗧𝗛𝗢𝗡 𓆪 </b> - @HunerThon "
+       caption += f"\n\n<b> 𓆩 𝙎𝙊𝙐𝙍𝘾𝞝 𝗞𝗔𝗜𝗗𝗢 𓆪 </b> - @kaido_q "
        return gtg_fanan11, caption
     if x == 12:
        caption = f"<b> {FANAN} </b>\n\n\n"
        caption += f"<b> {VANAN} </b>"
        caption += f'<a href="tg://user?id={user_id}">{first_name}</a>'
        caption += f"\n\n<b> ✾╎مبࢪوڪ زواجك مِـن نجـوى كـرم 🥺💘. </b>"
-       caption += f"\n\n<b> 𓆩 𝙎𝙊𝙐𝙍𝘾𝞝 𝗛𝗨𝗡𝗧𝗘𝗥𝗧𝗛𝗢𝗡 𓆪 </b> - @HunerThon "
+       caption += f"\n\n<b> 𓆩 𝙎𝙊𝙐𝙍𝘾𝞝 𝗞𝗔𝗜𝗗𝗢 𓆪 </b> - @kaido_q "
        return gtg_fanan12, caption
     if x == 13:
        caption = f"<b> {FANAN} </b>\n\n\n"
        caption += f"<b> {VANAN} </b>"
        caption += f'<a href="tg://user?id={user_id}">{first_name}</a>'
        caption += f"\n\n<b> ✾╎مبࢪوڪ زواجك مِـن هـاندا ارتشـل 🥺💘. </b>"
-       caption += f"\n\n<b> 𓆩 𝙎𝙊𝙐𝙍𝘾𝞝 𝗛𝗨𝗡𝗧𝗘𝗥𝗧𝗛𝗢𝗡 𓆪 </b> - @HunerThon "
+       caption += f"\n\n<b> 𓆩 𝙎𝙊𝙐𝙍𝘾𝞝 𝗞𝗔𝗜𝗗𝗢 𓆪 </b> - @kaido_q "
        return gtg_fanan13, caption
     if x == 14:
        caption = f"<b> {FANAN} </b>\n\n\n"
        caption += f"<b> {VANAN} </b>"
        caption += f'<a href="tg://user?id={user_id}">{first_name}</a>'
        caption += f"\n\n<b> ✾╎مبࢪوڪ زواجك مِـن آيشـه افيخـاي 🥺💘. </b>"
-       caption += f"\n\n<b> 𓆩 𝙎𝙊𝙐𝙍𝘾𝞝 𝗛𝗨𝗡𝗧𝗘𝗥𝗧𝗛𝗢𝗡 𓆪 </b> - @HunerThon "
+       caption += f"\n\n<b> 𓆩 𝙎𝙊𝙐𝙍𝘾𝞝 𝗞𝗔𝗜𝗗𝗢 𓆪 </b> - @kaido_q "
        return gtg_fanan14, caption
     if x == 15:
        caption = f"<b> {FANAN} </b>\n\n\n"
        caption += f"<b> {VANAN} </b>"
        caption += f'<a href="tg://user?id={user_id}">{first_name}</a>'
        caption += f"\n\n<b> ✾╎مبࢪوڪ زواجك مِـن burcu ozberk 🥺💘. </b>"
-       caption += f"\n\n<b> 𓆩 𝙎𝙊𝙐𝙍𝘾𝞝 𝗛𝗨𝗡𝗧𝗘𝗥𝗧𝗛𝗢𝗡 𓆪 </b> - @HunerThon "
+       caption += f"\n\n<b> 𓆩 𝙎𝙊𝙐𝙍𝘾𝞝 𝗞𝗔𝗜𝗗𝗢 𓆪 </b> - @kaido_q "
        return gtg_fanan15, caption
     if x == 16:
        caption = f"<b> {FANAN} </b>\n\n\n"
        caption += f"<b> {VANAN} </b>"
        caption += f'<a href="tg://user?id={user_id}">{first_name}</a>'
        caption += f"\n\n<b> ✾╎مبࢪوڪ زواجك مِـن شيمـاء سيـف 😂💘. </b>"
-       caption += f"\n\n<b> 𓆩 𝙎𝙊𝙐𝙍𝘾𝞝 𝗛𝗨𝗡𝗧𝗘𝗥𝗧𝗛𝗢𝗡 𓆪 </b> - @HunerThon "
+       caption += f"\n\n<b> 𓆩 𝙎𝙊𝙐𝙍𝘾𝞝 𝗞𝗔𝗜𝗗𝗢 𓆪 </b> - @kaido_q "
        return gtg_fanan16, caption
     if x == 17:
        caption = f"<b> {FANAN} </b>\n\n\n"
        caption += f"<b> {VANAN} </b>"
        caption += f'<a href="tg://user?id={user_id}">{first_name}</a>'
        caption += f"\n\n<b> ✾╎مبࢪوڪ زواجك مِـن نيهـان اتاغـول 🥺💘. </b>"
-       caption += f"\n\n<b> 𓆩 𝙎𝙊𝙐𝙍𝘾𝞝 𝗛𝗨𝗡𝗧𝗘𝗥𝗧𝗛𝗢𝗡 𓆪 </b> - @HunerThon "
+       caption += f"\n\n<b> 𓆩 𝙎𝙊𝙐𝙍𝘾𝞝 𝗞𝗔𝗜𝗗𝗢 𓆪 </b> - @kaido_q "
        return gtg_fanan17, caption
     if x == 18:
        caption = f"<b> {FANAN} </b>\n\n\n"
        caption += f"<b> {VANAN} </b>"
        caption += f'<a href="tg://user?id={user_id}">{first_name}</a>'
        caption += f"\n\n<b> ✾╎مبࢪوڪ زواجك مِـن ميليسـا بامـوك 🥺💘. </b>"
-       caption += f"\n\n<b> 𓆩 𝙎𝙊𝙐𝙍𝘾𝞝 𝗛𝗨𝗡𝗧𝗘𝗥𝗧𝗛𝗢𝗡 𓆪 </b> - @HunerThon "
+       caption += f"\n\n<b> 𓆩 𝙎𝙊𝙐𝙍𝘾𝞝 𝗞𝗔𝗜𝗗𝗢 𓆪 </b> - @kaido_q "
        return gtg_fanan18, caption
 
 
-@sarub.sar_cmd(pattern="مشهور(?: |$)(.*)")
+@zedub.zed_cmd(pattern="مشهور(?: |$)(.*)")
 async def who(event):
-    sar = await edit_or_reply(event, "⇆")
+    zed = await edit_or_reply(event, "⇆")
     if not os.path.isdir(Config.TMP_DOWNLOAD_DIRECTORY):
         os.makedirs(Config.TMP_DOWNLOAD_DIRECTORY)
     replied_user = await get_user_from_event(event)
     try:
-        sar_IMG, caption = await fetch_info(replied_user, event)
+        ZEED_IMG, caption = await fetch_info(replied_user, event)
     except AttributeError:
-        return await edit_or_reply(sar, "**- لـم استطـع العثــور ع الشخــص**")
+        return await edit_or_reply(zed, "**- لـم استطـع العثــور ع الشخــص**")
     message_id_to_reply = event.message.reply_to_msg_id
     if not message_id_to_reply:
         message_id_to_reply = None
     try:
         await event.client.send_file(
             event.chat_id,
-            sar_IMG,
+            ZEED_IMG,
             caption=caption,
             link_preview=False,
             force_document=False,
             reply_to=message_id_to_reply,
             parse_mode="html",
         )
-        await sar.delete()
+        await zed.delete()
     except TypeError:
-        await sar.edit(caption, parse_mode="html")
+        await zed.edit(caption, parse_mode="html")
 
 
-@sarub.sar_cmd(pattern="مشهوره(?: |$)(.*)")
+@zedub.zed_cmd(pattern="مشهوره(?: |$)(.*)")
 async def who(event):
-    sar = await edit_or_reply(event, "⇆")
+    zed = await edit_or_reply(event, "⇆")
     if not os.path.isdir(Config.TMP_DOWNLOAD_DIRECTORY):
         os.makedirs(Config.TMP_DOWNLOAD_DIRECTORY)
     replied_user = await get_user_from_event(event)
     try:
-        Gsar_IMG, caption = await ifetch_info(replied_user, event)
+        GZED_IMG, caption = await ifetch_info(replied_user, event)
     except AttributeError:
-        return await edit_or_reply(sar, "**- لـم استطـع العثــور ع الشخــص**")
+        return await edit_or_reply(zed, "**- لـم استطـع العثــور ع الشخــص**")
     message_id_to_reply = event.message.reply_to_msg_id
     if not message_id_to_reply:
         message_id_to_reply = None
     try:
         await event.client.send_file(
             event.chat_id,
-            Gsar_IMG,
+            GZED_IMG,
             caption=caption,
             link_preview=False,
             force_document=False,
             reply_to=message_id_to_reply,
             parse_mode="html",
         )
-        await sar.delete()
+        await zed.delete()
     except TypeError:
-        await sar.edit(caption, parse_mode="html")
+        await zed.edit(caption, parse_mode="html")
 
 
-@sarub.sar_cmd(pattern="زاحف(?: |$)(.*)")
+@zedub.zed_cmd(pattern="زاحف(?: |$)(.*)")
 async def who(event):
-    sar = await edit_or_reply(event, "⇆")
+    zed = await edit_or_reply(event, "⇆")
     if not os.path.isdir(Config.TMP_DOWNLOAD_DIRECTORY):
         os.makedirs(Config.TMP_DOWNLOAD_DIRECTORY)
     replied_user = await get_user_from_event(event)
     try:
-        sar_IMG, caption = await zfetch_info(replied_user, event)
+        ZEED_IMG, caption = await zfetch_info(replied_user, event)
     except AttributeError:
-        return await edit_or_reply(sar, "**- لـم استطـع العثــور ع الشخــص**")
+        return await edit_or_reply(zed, "**- لـم استطـع العثــور ع الشخــص**")
     message_id_to_reply = event.message.reply_to_msg_id
     if not message_id_to_reply:
         message_id_to_reply = None
     try:
         await event.client.send_file(
             event.chat_id,
-            sar_VOICE,
+            ZED_VOICE,
             caption=caption,
             link_preview=False,
             force_document=False,
             reply_to=message_id_to_reply,
             parse_mode="html",
         )
-        await sar.delete()
+        await zed.delete()
     except TypeError:
-        await sar.edit(caption, parse_mode="html")
+        await zed.edit(caption, parse_mode="html")
 
 

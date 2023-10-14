@@ -1,3 +1,5 @@
+""" ©ZED™ - @ZlZZl77 """
+
 import asyncio
 import random
 import pyfiglet

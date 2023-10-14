@@ -1,17 +1,22 @@
+#𝙕𝙚𝙙𝙏𝙝𝙤𝙣 ®
+# Port to zthon
+# modified by @ZedThon
+# Copyright (C) 2022.
+
 import asyncio
 import os
 
 from telethon import events
 from telethon.errors.rpcerrorlist import YouBlockedUserError
-from hunthon import sarub
-from hunthon.core.logger import logging
+from zthon import zedub
+from zthon.core.logger import logging
 
 from ..Config import Config
 from ..core.managers import edit_delete, edit_or_reply
 
 plugin_category = "البحث"
 
-@sarub.sar_cmd(
+@zedub.zed_cmd(
     pattern="ريماكس ([\s\S]*)",
     command=("ريماكس", plugin_category),
     info={
@@ -19,24 +24,24 @@ plugin_category = "البحث"
         "الاستـخـدام": "{tr}ريماكس + كلمـة",
     },
 )
-async def remaxsarthon(sarrm):
-    ok = sarrm.pattern_match.group(1)
+async def remaxzedthon(zedrm):
+    ok = zedrm.pattern_match.group(1)
     if not ok:
-        if sarrm.is_reply:
-            what = (await sarrm.get_reply_message()).message
+        if zedrm.is_reply:
+            what = (await zedrm.get_reply_message()).message
         else:
-            await sarrm.edit("`Sir please give some query to search and download it for you..!`")
+            await zedrm.edit("`Sir please give some query to search and download it for you..!`")
             return
     sticcers = await bot.inline_query(
         "spotifybot", f"{(deEmojify(ok))}")
-    await sticcers[0].click(sarrm.chat_id,
-                            reply_to=sarrm.reply_to_msg_id,
-                            silent=True if sarrm.is_reply else False,
+    await sticcers[0].click(zedrm.chat_id,
+                            reply_to=zedrm.reply_to_msg_id,
+                            silent=True if zedrm.is_reply else False,
                             hide_via=True)
-    await sarrm.delete()
+    await zedrm.delete()
     
 
-@sarub.sar_cmd(
+@zedub.zed_cmd(
     pattern="ريمكس ([\s\S]*)",
     command=("ريمكس", plugin_category),
     info={
@@ -44,14 +49,14 @@ async def remaxsarthon(sarrm):
         "الاستـخـدام": "{tr}ريمكس + كلمـة",
     },
 )
-async def sar(event):
+async def zed(event):
     if event.fwd_from:
         return
-    sarr = event.pattern_match.group(1)
-    alsarot = "@spotifybot"
+    zedr = event.pattern_match.group(1)
+    zelzal = "@spotifybot"
     if event.reply_to_msg_id:
         await event.get_reply_message()
-    tap = await bot.inline_query(zelzal, sarr)
+    tap = await bot.inline_query(zelzal, zedr)
     await tap[0].click(event.chat_id)
     await event.delete()
 

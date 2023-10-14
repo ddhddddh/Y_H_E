@@ -1,3 +1,6 @@
+# PLUGIN MADE BY @RRRLz FOR @ZedThon
+# 𝖹Ꭵᥣᴢᥲ️ᥣ
+
 import random, re
 import asyncio
 from telethon import events

@@ -1,3 +1,9 @@
+"""
+`Credits` @amnd33p
+from ..helpers.utils import _format
+Modified by @Zed-Thon
+"""
+
 import io
 import traceback
 from datetime import datetime
@@ -6,7 +12,7 @@ import requests
 from selenium import webdriver
 from validators.url import url
 
-from hunthon import sarub
+from zthon import zedub
 
 from ..Config import Config
 from ..core.managers import edit_or_reply
@@ -15,7 +21,7 @@ from . import reply_id
 plugin_category = "العروض"
 
 
-@sarub.sar_cmd(
+@zedub.zed_cmd(
     pattern="(سكرين|ss) ([\s\S]*)",
     command=("سكرين", plugin_category),
     info={
@@ -97,7 +103,7 @@ async def _(event):
         await zzevent.edit(f"`{traceback.format_exc()}`")
 
 
-@sarub.sar_cmd(
+@zedub.zed_cmd(
     pattern="لقطه ([\s\S]*)",
     command=("لقطه", plugin_category),
     info={

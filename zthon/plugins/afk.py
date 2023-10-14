@@ -3,7 +3,7 @@ from datetime import datetime
 
 from telethon.tl import functions, types
 
-from hunthon import sarub
+from zthon import zedub
 
 from ..Config import Config
 from ..core.logger import logging
@@ -34,7 +34,7 @@ class AFK:
 AFK_ = AFK()
 
 
-@sarub.sar_cmd(outgoing=True, edited=False)
+@zedub.zed_cmd(outgoing=True, edited=False)
 async def set_not_afk(event):
     if AFK_.afk_on is False:
         return
@@ -80,7 +80,7 @@ async def set_not_afk(event):
             )
 
 
-@sarub.sar_cmd(
+@zedub.zed_cmd(
     incoming=True, func=lambda e: bool(e.mentioned or e.is_private), edited=False
 )
 async def on_afk(event):
@@ -159,7 +159,7 @@ async def on_afk(event):
             )
 
 
-@sarub.sar_cmd(pattern="سليب(?:\s|$)([\s\S]*)")
+@zedub.zed_cmd(pattern="سليب(?:\s|$)([\s\S]*)")
 async def _(event):
     AFK_.USERAFK_ON = {}
     AFK_.afk_time = None
@@ -203,7 +203,7 @@ async def _(event):
                 )
 
 
-@sarub.sar_cmd(pattern="سليب_ميديا(?:\s|$)([\s\S]*)")
+@zedub.zed_cmd(pattern="سليب_ميديا(?:\s|$)([\s\S]*)")
 async def _(event):
     reply = await event.get_reply_message()
     media_t = media_type(reply)

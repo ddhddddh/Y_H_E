@@ -1,10 +1,14 @@
+# Uniborg Plugin for getting list of sites where you can watch a particular Movie or TV-Show
+# Author: Sumanjay (https://github.com/cyberboysumanjay) (@cyberboysumanjay)
+# All rights reserved.
+
 import os
 
 # imported from uniborg
 from justwatch import JustWatch, justwatchapi
 from pySmartDL import SmartDL
 
-from hunthon import sarub
+from zthon import zedub
 
 from ..Config import Config
 from ..core.logger import logging
@@ -45,7 +49,7 @@ def get_stream_data(query):
         stream_data["release_date"] = movie["cinema_release_date"]
     except KeyError:
         try:
-            stream_data["release_date"] = movie["localisar_release_date"]
+            stream_data["release_date"] = movie["localized_release_date"]
         except KeyError:
             stream_data["release_date"] = None
 
@@ -85,7 +89,7 @@ def get_provider(url):
     return url
 
 
-@sarub.sar_cmd(
+@zedub.zed_cmd(
     pattern="فلم ([\s\S]*)",
     command=("فلم", plugin_category),
     info={

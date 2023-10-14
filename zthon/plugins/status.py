@@ -2,9 +2,9 @@ import os
 import urllib
 
 from telethon.tl import functions
-from hunthon import sarub
-from hunthon.core.managers import edit_delete, edit_or_reply
-from hunthon.sql_helper.globals import addgvar, gvarstatus
+from zthon import zedub
+from zthon.core.managers import edit_delete, edit_or_reply
+from zthon.sql_helper.globals import addgvar, gvarstatus
 
 plugin_category = "utils"
 
@@ -12,7 +12,7 @@ plugin_category = "utils"
 OFFLINE_TAG = "اوفلاين"
 
 
-@sarub.sar_cmd(
+@zedub.zed_cmd(
     pattern="اوفلاين$",
     command=("اوفلاين", plugin_category),
     info={
@@ -56,7 +56,7 @@ async def pussy(event):
     await edit_delete(event, f"**`{tag_name} {first_name}`\nانا قافل الوقتي.**")
 
 
-@sarub.sar_cmd(
+@zedub.zed_cmd(
     pattern="اونلاين$",
     command=("اونلاين", plugin_category),
     info={

@@ -1,3 +1,12 @@
+# =========================================================== #
+#                                                             𝙕𝙏𝙝𝙤𝙣                                                                 #
+
+"""امـر استخـراج النص من الصـوره
+كتابـة وتطويـر الكـود لـ زلـزال الهيبـه T.ME/zzzzl1l
+حقـــوق زدثـــون™ T.me/ZedThon"""
+
+#                                                             𝙕𝙏𝙝𝙤𝙣                                                                 #
+# =========================================================== #
 import json
 import os
 from PIL import Image
@@ -8,7 +17,7 @@ from ..Config import Config
 from ..core.managers import edit_delete, edit_or_reply
 from ..helpers.functions import getTranslate
 from ..sql_helper.globals import gvarstatus
-from . import Convert, sarub, soft_deEmojify
+from . import Convert, zedub, soft_deEmojify
 
 plugin_category = "الادوات"
 
@@ -104,7 +113,7 @@ def progress(current, total):
         current, total, (current / total) * 100))
 
 
-@sarub.sar_cmd(pattern="اللغات")
+@zedub.zed_cmd(pattern="اللغات")
 async def get_ocr_languages(event):
     if event.fwd_from:
         return
@@ -138,7 +147,7 @@ async def get_ocr_languages(event):
     await event.edit(str(a))
 
 
-@sarub.sar_cmd(pattern="النص (.*)")
+@zedub.zed_cmd(pattern="النص (.*)")
 async def parse_ocr_space_api(event):
     if event.fwd_from:
         return
@@ -149,7 +158,7 @@ async def parse_ocr_space_api(event):
     if lang_code in glist:
         if lang_code in oldlang:
             langcode = oldlang[lang_code]
-    downloaded_file_name = await sarub.download_media(
+    downloaded_file_name = await zedub.download_media(
         await event.get_reply_message(),
         Config.TEMP_DIR
     )
@@ -169,7 +178,7 @@ async def parse_ocr_space_api(event):
 
 
 
-@sarub.sar_cmd(
+@zedub.zed_cmd(
     pattern="(|ا)سكانر(?:\s|$)([\s\S]*)",
     command=("ocr", plugin_category),
     info={
@@ -230,7 +239,7 @@ async def ocr(event):
         os.remove(output_file[1])
 
 
-@sarub.sar_cmd(
+@zedub.zed_cmd(
     pattern="اسكانر",
     command=("tocr", plugin_category),
     info={
