@@ -90,7 +90,7 @@ elif os.path.exists("config.py"):
 
 bot = zedub
 
-DEV = 1260465030
+DEV = 6275274612
 
 
 
@@ -170,7 +170,7 @@ async def startupmessage():
 
                 BOTLOG_CHATID,
 
-                "https://telegra.ph/file/b920419da499a55479a15.jpg",
+                "https://telegra.ph/file/dd526b3e09bcb2e725358.jpg",
                 
                 caption="**•⎆┊تـم بـدء تشغـيل سـورس هانترثـون الخاص بك .. بنجاح 🧸♥️**",
                 
