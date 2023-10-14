@@ -305,3 +305,4 @@ async def cancel_t8ed(event):
         return await event.client.send_message(event.chat_id, "يبدو أنك لست مشرفًا في المجموعة أو تحاول إلغاء تقييد مشرف هنا.")
     except Exception as e:
         return await event.client.send_message(event.chat_id, f"`{str(e)}`")
+            
