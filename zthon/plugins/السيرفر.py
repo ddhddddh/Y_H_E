@@ -1,17 +1,22 @@
+# \\ Created by-@Jisan7509 -- Github.com/Jisan09 //
+#  \\   https://github.com/TgCatUB/catuserbot   //
+#   \\       Plugin for @catuserbot            //
+#    ```````````````````````````````````````````
+
 import asyncio
 import glob
 import os
 
-from hunthon import sarub
+from zthon import zedub
 
 from ..core.managers import edit_delete, edit_or_reply
-from ..helpers.utils import _sarutils
+from ..helpers.utils import _zedutils
 from . import BOTLOG, BOTLOG_CHATID, mention
 
 plugin_category = "الادوات"
 
 
-# ============================@ ALSAROT @===============================
+# ============================@ Constants @===============================
 config = "./config.py"
 var_checker = [
     "APP_ID",
@@ -28,7 +33,7 @@ cmds = [
 # ========================================================================
 
 
-@sarub.sar_cmd(
+@zedub.zed_cmd(
     pattern="(ضع|جلب|حذف) الفار ([\s\S]*)",
     command=("الفار", plugin_category),
     info={
@@ -122,7 +127,7 @@ async def variable(event):  # sourcery no-metrics
         await event.client.reload(cat)
 
 
-@sarub.sar_cmd(
+@zedub.zed_cmd(
     pattern="(ري|كلين) لود$",
     command=("لود", plugin_category),
     info={
@@ -140,10 +145,10 @@ async def variable(event):  # sourcery no-metrics
 async def _(event):
     "لـ اعـادة تشغيل البـوت في السيـرفـر"
     cmd = event.pattern_match.group(1)
-    sar = await edit_or_reply(
+    zed = await edit_or_reply(
         event,
         f"**⌔∮ اهـلا عـزيـزي** - {mention}\n\n"
-        f"**⌔∮ يتـم الآن اعـادة تشغيـل بـوت هانتر فـي السيـرفـر قـد يستغـرق الامـر 2-3 دقيقـه ▬▭ ...**",
+        f"**⌔∮ يتـم الآن اعـادة تشغيـل بـوت تيبــثون فـي السيـرفـر قـد يستغـرق الامـر 2-3 دقيقـه ▬▭ ...**",
     )
     if cmd == "كلين":
         for file in exts:
@@ -151,5 +156,5 @@ async def _(event):
             for i in removing:
                 os.remove(i)
         for i in cmds:
-            await _sarutils.runcmd(i)
-    await event.client.reload(sar)
+            await _zedutils.runcmd(i)
+    await event.client.reload(zed)

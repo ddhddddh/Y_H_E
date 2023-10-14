@@ -15,8 +15,8 @@ from . import BOTLOG, BOTLOG_CHATID
 plugin_category = "العروض"
 
 
-zelzalWF_cmd = (
-    "𓆩 [𝗦𝗼𝘂𝗿𝗰𝗲 𝗛𝗨𝗡𝗧𝗘𝗥𝗧𝗛𝗢𝗡 - اوامـر الـردود / والتـرحيب](t.me/HunerThon) 𓆪\n\n"
+ZelzalWF_cmd = (
+    "𓆩 [𝗦𝗼𝘂𝗿𝗰𝗲 𝗛𝗨𝗡𝗧𝗘𝗥𝗧𝗛𝗢𝗡 - اوامـر الـردود / والتـرحيب](t.me/kaido_q) 𓆪\n\n"
     "**✾╎قائـمة اوامـر الـردود 🦾 :** \n\n"
     "**⎞𝟏⎝** `.رد`\n"
     "**•• ⦇الامـر + اسـم الـرد بالـرد علـى كلمـة الـرد او بالـرد علـى ميـديا⦈ لـ اضـافة رد بالكـروب**\n\n"
@@ -44,13 +44,14 @@ zelzalWF_cmd = (
 )
 
 
+# Copyright (C) 2022 Zed-Thon . All Rights Reserved
 @zedub.zed_cmd(pattern="الردود")
-async def cmd(ALzedOT):
-    await edit_or_reply(ALzedOT, ALzedOTWF_cmd)
+async def cmd(zelzallll):
+    await edit_or_reply(zelzallll, ZelzalWF_cmd)
 
 @zedub.zed_cmd(pattern="الترحيب")
-async def cmd(ALzedOT):
-    await edit_or_reply(ALzedOT, ALzedOTWF_cmd)
+async def cmd(zelzallll):
+    await edit_or_reply(zelzallll, ZelzalWF_cmd)
 
 
 @zedub.zed_cmd(incoming=True)
@@ -190,7 +191,7 @@ async def on_snip_list(event):
     filters = get_filters(event.chat_id)
     for filt in filters:
         if OUT_STR == "** ❈╎لاتوجـد ردود محفوظـه في هـذه الدردشـة ༗**":
-            OUT_STR = "𓆩 𝗦𝗼𝘂𝗿𝗰𝗲 𝗛𝗨𝗡𝗧𝗘𝗥𝗧𝗛𝗢𝗡 - قائمـة الـردود 𓆪\n⋆┄─┄─┄─┄┄─┄─┄─┄─┄┄⋆\n**  ⪼ قائمـه الـردود في هذه الدردشـة :  **\n"
+            OUT_STR = "𓆩 𝗦𝗼𝘂𝗿𝗰𝗲 𝗞𝗮𝗶𝗱𝗼 - قائمـة الـردود 𓆪\n⋆┄─┄─┄─┄┄─┄─┄─┄─┄┄⋆\n**  ⪼ قائمـه الـردود في هذه الدردشـة :  **\n"
         OUT_STR += "⪼ {}  𓆰.\n".format(filt.keyword)
     await edit_or_reply(
         event,

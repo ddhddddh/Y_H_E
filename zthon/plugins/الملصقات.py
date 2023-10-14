@@ -10,7 +10,7 @@ import string
 import urllib.request
 
 import cloudscraper
-import emoji as saremoji
+import emoji as zedemoji
 from bs4 import BeautifulSoup as bs
 from PIL import Image
 from telethon import events
@@ -26,12 +26,12 @@ from telethon.tl.types import (
     MessageMediaPhoto,
 )
 
-from hunthon import Convert, sarub
+from zthon import Convert, zedub
 
 from ..core.managers import edit_delete, edit_or_reply
 from ..helpers.functions import animator, crop_and_divide
 from ..helpers.tools import media_type
-from ..helpers.utils import _sartools
+from ..helpers.utils import _zedtools
 from ..sql_helper.globals import gvarstatus
 
 plugin_category = "الادوات"
@@ -70,7 +70,7 @@ def pack_name(userid, pack, is_anim, is_video):
 
 
 def char_is_emoji(character):
-    return character in saremoji.UNICODE_EMOJI["en"]
+    return character in zedemoji.UNICODE_EMOJI["en"]
 
 
 def pack_nick(username, pack, is_anim, is_video):
@@ -88,11 +88,11 @@ def pack_nick(username, pack, is_anim, is_video):
     return f"@{username} 𒀭 حقـوق ɵ̷᷄ˬɵ̷᷅.{pack}"
 
 
-async def delpack(sarevent, conv, args, packname):
+async def delpack(zedevent, conv, args, packname):
     try:
         await conv.send_message("/delpack")
     except YouBlockedUserError:
-        await sarub(unblock("stickers"))
+        await zedub(unblock("stickers"))
         await conv.send_message("/delpack")
     await conv.get_response()
     await args.client.send_read_acknowledge(conv.chat_id)
@@ -129,7 +129,7 @@ async def resize_photo(photo):
 
 
 async def newpacksticker(
-    sarevent,
+    zedevent,
     conv,
     cmd,
     args,
@@ -146,7 +146,7 @@ async def newpacksticker(
     try:
         await conv.send_message(cmd)
     except YouBlockedUserError:
-        await sarub(unblock("stickers"))
+        await zedub(unblock("stickers"))
         await conv.send_message(cmd)
     await conv.get_response()
     await args.client.send_read_acknowledge(conv.chat_id)
@@ -163,7 +163,7 @@ async def newpacksticker(
         await conv.send_file(stfile, force_document=True)
     rsp = await conv.get_response()
     if not verify_cond(EMOJI_SEN, rsp.text):
-        await sarevent.edit(
+        await zedevent.edit(
             f"**⌔∮فشل اضافه الملصق, استخدم @Stickers لاضافه الملصق .. يدوياً **\n\n**⌔∮الخطأ :** {rsp.txt}"
         )
         if not pkang:
@@ -191,7 +191,7 @@ async def newpacksticker(
 
 
 async def add_to_pack(
-    sarevent,
+    zedevent,
     conv,
     args,
     packname,
@@ -208,7 +208,7 @@ async def add_to_pack(
     try:
         await conv.send_message("/addsticker")
     except YouBlockedUserError:
-        await sarub(unblock("stickers"))
+        await zedub(unblock("stickers"))
         await conv.send_message("/addsticker")
     vtry = True if is_video else None
     await conv.get_response()
@@ -231,12 +231,12 @@ async def add_to_pack(
             pack = 1
         packname = pack_name(userid, pack, is_anim, is_video)
         packnick = pack_nick(username, pack, is_anim, is_video)
-        await sarevent.edit(f"**⌔∮التبديـل الى الحزمـه** {pack} **بسبب امتـلاء الحزمـه الحاليـه ..** ")
+        await zedevent.edit(f"**⌔∮التبديـل الى الحزمـه** {pack} **بسبب امتـلاء الحزمـه الحاليـه ..** ")
         await conv.send_message(packname)
         x = await conv.get_response()
         if x.message == "Invalid set selected.":
             return await newpacksticker(
-                sarevent,
+                zedevent,
                 conv,
                 cmd,
                 args,
@@ -262,7 +262,7 @@ async def add_to_pack(
         await conv.send_file(stfile, force_document=True)
         rsp = await conv.get_response()
     if not verify_cond(EMOJI_SEN, rsp.message):
-        await sarevent.edit(
+        await zedevent.edit(
             f"**⌔∮فشل اضافه الملصق, استخدم @Stickers لاضافه الملصق .. يدوياً **\n\n**⌔∮الخطأ :** {rsp.message}"
         )
         if not pkang:
@@ -279,7 +279,7 @@ async def add_to_pack(
     return pack, packname
 
 
-@sarub.sar_cmd(
+@zedub.zed_cmd(
     pattern="ملصق(?:\s|$)([\s\S]*)",
     command=("ملصق", plugin_category),
     info={
@@ -307,11 +307,11 @@ async def kang(args):  # sourcery no-metrics
     userid = user.id
     if message and message.media:
         if isinstance(message.media, MessageMediaPhoto):
-            sarevent = await edit_or_reply(args, f"`{random.choice(KANGING_STR)}`")
+            zedevent = await edit_or_reply(args, f"`{random.choice(KANGING_STR)}`")
             photo = io.BytesIO()
             photo = await args.client.download_media(message.photo, photo)
         elif "image" in message.media.document.mime_type.split("/"):
-            sarevent = await edit_or_reply(args, f"`{random.choice(KANGING_STR)}`")
+            zedevent = await edit_or_reply(args, f"`{random.choice(KANGING_STR)}`")
             photo = io.BytesIO()
             await args.client.download_media(message.media.document, photo)
             if (
@@ -321,7 +321,7 @@ async def kang(args):  # sourcery no-metrics
                 emoji = message.media.document.attributes[1].alt
                 emojibypass = True
         elif "tgsticker" in message.media.document.mime_type:
-            sarevent = await edit_or_reply(args, f"`{random.choice(KANGING_STR)}`")
+            zedevent = await edit_or_reply(args, f"`{random.choice(KANGING_STR)}`")
             await args.client.download_media(
                 message.media.document, "AnimatedSticker.tgs"
             )
@@ -341,15 +341,15 @@ async def kang(args):  # sourcery no-metrics
                 for attribute in attributes:
                     if isinstance(attribute, DocumentAttributeSticker):
                         if message.media.document.size / 1024 > 255:
-                            sarevent = await edit_or_reply(
+                            zedevent = await edit_or_reply(
                                 args, "__⌛ File size big,,, Downloading..__"
                             )
-                            sticker = await animator(message, args, sarevent)
+                            sticker = await animator(message, args, zedevent)
                             await edit_or_reply(
-                                sarevent, f"`{random.choice(KANGING_STR)}`"
+                                zedevent, f"`{random.choice(KANGING_STR)}`"
                             )
                         else:
-                            sarevent = await edit_or_reply(
+                            zedevent = await edit_or_reply(
                                 args, f"`{random.choice(KANGING_STR)}`"
                             )
                             sticker = await args.client.download_media(
@@ -358,9 +358,9 @@ async def kang(args):  # sourcery no-metrics
                         emoji = attribute.alt
                         emojibypass = True
             else:
-                sarevent = await edit_or_reply(args, "__⌛ Downloading..__")
-                sticker = await animator(message, args, sarevent)
-                await edit_or_reply(sarevent, f"`{random.choice(KANGING_STR)}`")
+                zedevent = await edit_or_reply(args, "__⌛ Downloading..__")
+                sticker = await animator(message, args, zedevent)
+                await edit_or_reply(zedevent, f"`{random.choice(KANGING_STR)}`")
         else:
             await edit_delete(args, "**⪼ ملف غير مدعم**")
             return
@@ -374,14 +374,14 @@ async def kang(args):  # sourcery no-metrics
         if len(splat) == 2:
             if char_is_emoji(splat[0][0]):
                 if char_is_emoji(splat[1][0]):
-                    return await sarevent.edit("**- ارسـل الامـر**  `.معلومات الملصق`  **بالـرد ع الملصـق للتحـقق ...**")
+                    return await zedevent.edit("**- ارسـل الامـر**  `.معلومات الملصق`  **بالـرد ع الملصـق للتحـقق ...**")
                 pack = splat[1]  # User sent both
                 emoji = splat[0]
             elif char_is_emoji(splat[1][0]):
                 pack = splat[0]  # User sent both
                 emoji = splat[1]
             else:
-                return await sarevent.edit("**- ارسـل الامـر**  `.معلومات الملصق`  **بالـرد ع الملصـق للتحـقق ...**")
+                return await zedevent.edit("**- ارسـل الامـر**  `.معلومات الملصق`  **بالـرد ع الملصـق للتحـقق ...**")
         elif len(splat) == 1:
             if char_is_emoji(splat[0][0]):
                 emoji = splat[0]
@@ -409,7 +409,7 @@ async def kang(args):  # sourcery no-metrics
         ):
             async with args.client.conversation("@Stickers") as conv:
                 packname, emoji = await add_to_pack(
-                    sarevent,
+                    zedevent,
                     conv,
                     args,
                     packname,
@@ -425,17 +425,17 @@ async def kang(args):  # sourcery no-metrics
             if packname is None:
                 return
             await edit_delete(
-                sarevent,
+                zedevent,
                 f"`Sticker kanged successfully!\
                     \nYour Pack is` [here](t.me/addstickers/{packname}) `and emoji for the kanged sticker is {emoji}`",
                 parse_mode="md",
                 time=10,
             )
         else:
-            await sarevent.edit("`Brewing a new Pack...`")
+            await zedevent.edit("`Brewing a new Pack...`")
             async with args.client.conversation("@Stickers") as conv:
                 otherpack, packname, emoji = await newpacksticker(
-                    sarevent,
+                    zedevent,
                     conv,
                     cmd,
                     args,
@@ -453,7 +453,7 @@ async def kang(args):  # sourcery no-metrics
                 return
             if otherpack:
                 await edit_delete(
-                    sarevent,
+                    zedevent,
                     f"**╮ تـم صنـع الملصـق .. بنجـاح .. واضـافتـه لحزمـه جديـده ✅𒀭╰**\
                     \n\n**- لـ الحصـول ع الحزمـه اضفهـا من جـديـد ** [بـ الضغـط هنـا](t.me/addstickers/{packname}) \n**-الايمـوجـي الخـاص بالحـزمـة هـو** `{emoji}`",
                     parse_mode="md",
@@ -461,7 +461,7 @@ async def kang(args):  # sourcery no-metrics
                 )
             else:
                 await edit_delete(
-                    sarevent,
+                    zedevent,
                     f"**╮ تـم صنـع الملصـق .. بنجـاح ✅𒀭╰**\
                     \n\n**- لـ الحصـول ع الحزمـه اضفهـا من جـديـد ** [بـ الضغـط هنـا](t.me/addstickers/{packname}) \n**-الايمـوجـي الخـاص بالحـزمـة هـو** `{emoji}`",
                     parse_mode="md",
@@ -469,7 +469,7 @@ async def kang(args):  # sourcery no-metrics
                 )
 
 
-@sarub.sar_cmd(
+@zedub.zed_cmd(
     pattern="حزمه(?:\s|$)([\s\S]*)",
     command=("حزمه", plugin_category),
     info={
@@ -501,7 +501,7 @@ async def pack_kang(event):  # sourcery no-metrics
         )
     try:
         stickerset_attr = reply.document.attributes[1]
-        sarevent = await edit_or_reply(
+        zedevent = await edit_or_reply(
             event, "**⪼ جـارِ .. جـلب تفاصيـل حزمـة الملصقـات ، الرجـاء الانتظار . . .**"
         )
     except BaseException:
@@ -520,7 +520,7 @@ async def pack_kang(event):  # sourcery no-metrics
         )
     except Exception:
         return await edit_delete(
-            sarevent,
+            zedevent,
             "**⪼ أعتقد أن هذا الملصق ليس جزءًا من أي حزمة. لذا ، لا أستطيع أن احول هذا الملصق الى حزمتي**",
         )
     kangst = 1
@@ -539,7 +539,7 @@ async def pack_kang(event):  # sourcery no-metrics
     for message in reqd_sticker_set.documents:
         if "image" in message.mime_type.split("/"):
             await edit_or_reply(
-                sarevent,
+                zedevent,
                 f"**╮ جـاري استنساخ حزمه الملصقـات بحقـوقك ɵ̷᷄ˬɵ̷᷅↫ العدد : {kangst}/{noofst} 𒀭╰**",
             )
             photo = io.BytesIO()
@@ -551,7 +551,7 @@ async def pack_kang(event):  # sourcery no-metrics
                 emoji = message.attributes[1].alt
         elif "tgsticker" in message.mime_type:
             await edit_or_reply(
-                sarevent,
+                zedevent,
                 f"**╮ جـاري استنساخ حزمه الملصقـات بحقـوقك ɵ̷᷄ˬɵ̷᷅↫ العدد : {kangst}/{noofst} 𒀭╰**",
             )
             await event.client.download_media(message, "AnimatedSticker.tgs")
@@ -563,7 +563,7 @@ async def pack_kang(event):  # sourcery no-metrics
             photo = 1
         elif "video/webm" in message.mime_type:
             await edit_or_reply(
-                sarevent,
+                zedevent,
                 f"**╮ جـاري استنساخ حزمه الملصقـات بحقـوقك ɵ̷᷄ˬɵ̷᷅↫ العدد : {kangst}/{noofst} 𒀭╰**",
             )
             if message.size / 1024 > 255:
@@ -577,7 +577,7 @@ async def pack_kang(event):  # sourcery no-metrics
             is_video = True
             photo = 1
         else:
-            await edit_delete(sarevent, "`Unsupported File!`")
+            await edit_delete(zedevent, "`Unsupported File!`")
             return
         if photo:
             splat = ("".join(event.text.split(maxsplit=1)[1:])).split()
@@ -588,7 +588,7 @@ async def pack_kang(event):  # sourcery no-metrics
                     pack = splat[0]
                 elif len(splat) > 1:
                     return await edit_delete(
-                        sarevent,
+                        zedevent,
                         "** ⪼ عذرًا ، لا يمكن استخدام الاسم المعطى للحزمة أو لا توجد حزمة بهذا الاسم**",
                     )
             with contextlib.suppress(BaseException):
@@ -615,8 +615,8 @@ async def pack_kang(event):  # sourcery no-metrics
                 in htmlstr
             ):
                 async with event.client.conversation("@Stickers") as conv:
-                    pack, sarpackname = await newpacksticker(
-                        sarevent,
+                    pack, zedpackname = await newpacksticker(
+                        zedevent,
                         conv,
                         cmd,
                         event,
@@ -631,8 +631,8 @@ async def pack_kang(event):  # sourcery no-metrics
                     )
             else:
                 async with event.client.conversation("@Stickers") as conv:
-                    pack, sarpackname = await add_to_pack(
-                        sarevent,
+                    pack, zedpackname = await add_to_pack(
+                        zedevent,
                         conv,
                         event,
                         packname,
@@ -646,10 +646,10 @@ async def pack_kang(event):  # sourcery no-metrics
                         cmd,
                         pkang=True,
                     )
-            if sarpackname is None:
+            if zedpackname is None:
                 return
-            if sarpackname not in blablapacks:
-                blablapacks.append(sarpackname)
+            if zedpackname not in blablapacks:
+                blablapacks.append(zedpackname)
                 blablapacknames.append(pack)
         kangst += 1
         await asyncio.sleep(2)
@@ -658,10 +658,10 @@ async def pack_kang(event):  # sourcery no-metrics
         result += (
             f"  •  [الحـزمـة {blablapacknames[i[0]]}](t.me/addstickers/{blablapacks[i[0]]})"
         )
-    await sarevent.edit(result)
+    await zedevent.edit(result)
 
 
-@sarub.sar_cmd(
+@zedub.zed_cmd(
     pattern="متحرك$",
     command=("متحرك", plugin_category),
     info={
@@ -676,9 +676,9 @@ async def pussycat(args):
     userid = user.id
     if message and message.media:
         if "video/mp4" in message.media.document.mime_type:
-            sarevent = await edit_or_reply(args, "__⌛ Downloading..__")
-            sticker = await animator(message, args, sarevent)
-            await edit_or_reply(sarevent, f"`{random.choice(KANGING_STR)}`")
+            zedevent = await edit_or_reply(args, "__⌛ Downloading..__")
+            sticker = await animator(message, args, zedevent)
+            await edit_or_reply(zedevent, f"`{random.choice(KANGING_STR)}`")
         else:
             await edit_delete(args, "`Reply to video/gif...!`")
             return
@@ -696,15 +696,15 @@ async def pussycat(args):
     ):
         async with args.client.conversation("@Stickers") as xconv:
             await delpack(
-                sarevent,
+                zedevent,
                 xconv,
                 args,
                 packname,
             )
-    await sarevent.edit("`Hold on, making sticker...`")
+    await zedevent.edit("`Hold on, making sticker...`")
     async with args.client.conversation("@Stickers") as conv:
         otherpack, packname, emoji = await newpacksticker(
-            sarevent,
+            zedevent,
             conv,
             "/newvideo",
             args,
@@ -718,7 +718,7 @@ async def pussycat(args):
         )
     if otherpack is None:
         return
-    await sarevent.delete()
+    await zedevent.delete()
     await args.client.send_file(
         args.chat_id,
         sticker,
@@ -730,7 +730,7 @@ async def pussycat(args):
         os.remove(sticker)
 
 
-@sarub.sar_cmd(
+@zedub.zed_cmd(
     pattern="حزمة(?:\s|$)([\s\S]*)",
     command=("حزمة", plugin_category),
     info={
@@ -763,7 +763,7 @@ async def pic2packcmd(event):
         return await edit_delete(
             event, "__What's your packname ?. pass along with cmd.__"
         )
-    sarevent = await edit_or_reply(event, "__🔪Cropping and adjusting the image...__")
+    zedevent = await edit_or_reply(event, "__🔪Cropping and adjusting the image...__")
     try:
         emoji = (re.findall(r"-e[\U00010000-\U0010ffff]+", args))[0]
         args = args.replace(emoji, "")
@@ -771,11 +771,11 @@ async def pic2packcmd(event):
     except Exception:
         emoji = "▫️"
     chat = "@Stickers"
-    name = "HunerThon_" + "".join(
+    name = "ZThon_" + "".join(
         random.choice(list(string.ascii_lowercase + string.ascii_uppercase))
         for _ in range(16)
     )
-    image = await _sartools.media_to_pic(sarevent, reply, noedits=True)
+    image = await _zedtools.media_to_pic(zedevent, reply, noedits=True)
     if image[1] is None:
         return await edit_delete(
             image[0], "__Unable to extract image from the replied message.__"
@@ -791,13 +791,13 @@ async def pic2packcmd(event):
     images = await crop_and_divide(img)
     newimg.save(new_img)
     new_img.seek(0)
-    sarevent = await event.edit("__Making the pack.__")
+    zedevent = await event.edit("__Making the pack.__")
     async with event.client.conversation(chat) as conv:
         i = 0
         try:
             await event.client.send_message(chat, "/cancel")
         except YouBlockedUserError:
-            await sarub(unblock("stickers"))
+            await zedub(unblock("stickers"))
             await event.client.send_message(chat, "/cancel")
         await conv.wait_event(events.NewMessage(incoming=True, from_users=chat))
         await event.client.send_message(chat, "/newpack")
@@ -815,7 +815,7 @@ async def pic2packcmd(event):
             await event.client.send_read_acknowledge(conv.chat_id)
             await asyncio.sleep(1)
             i += 1
-            await sarevent.edit(f"__Making the pack.\nProgress: {i}/{len(images)}__")
+            await zedevent.edit(f"__Making the pack.\nProgress: {i}/{len(images)}__")
         await event.client.send_message(chat, "/publish")
         await conv.wait_event(events.NewMessage(incoming=True, from_users=chat))
         await event.client.send_file(chat, new_img, force_document=True)
@@ -829,12 +829,12 @@ async def pic2packcmd(event):
             stick_pack_name = packname
             if stick_pack_name.startswith("https://t.me/"):
                 break
-        await sarevent.edit(
+        await zedevent.edit(
             f"__successfully created the pack for the replied media : __[{args}]({stick_pack_name})"
         )
 
 
-@sarub.sar_cmd(
+@zedub.zed_cmd(
     pattern="معلومات الملصق$",
     command=("معلومات الملصق", plugin_category),
     info={
@@ -855,7 +855,7 @@ async def get_pack_info(event):
         )
     try:
         stickerset_attr = rep_msg.document.attributes[1]
-        sarevent = await edit_or_reply(
+        zedevent = await edit_or_reply(
             event, "**جارٍ إحضار تفاصيل حزمة الملصقات ، يُرجى الانتظار ..**"
         )
     except BaseException:
@@ -863,7 +863,7 @@ async def get_pack_info(event):
             event, "**هذا ليس ملصقًا. الرد على ملصق.**", 5
         )
     if not isinstance(stickerset_attr, DocumentAttributeSticker):
-        return await sarevent.edit("**هذا ليس ملصقًا. الرد على ملصق.**")
+        return await zedevent.edit("**هذا ليس ملصقًا. الرد على ملصق.**")
     get_stickerset = await event.client(
         GetStickerSetRequest(
             InputStickerSetID(
@@ -878,7 +878,7 @@ async def get_pack_info(event):
         if document_sticker.emoticon not in pack_emojis:
             pack_emojis.append(document_sticker.emoticon)
     OUTPUT = (
-        f"𓆰 𝑺𝑶𝑼𝑹𝑪𝑬 𝗛𝞝𝗥 - 𝑺𝑻𝑰𝑪𝑲𝑹𝑺 𝑰𝑵𝑭𝑶 𓆪\n"
+        f"𓆰 𝑺𝑶𝑼𝑹𝑪𝑬 𝙕𝞝𝘿 - 𝑺𝑻𝑰𝑪𝑲𝑹𝑺 𝑰𝑵𝑭𝑶 𓆪\n"
         f"𓍹ⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧⵧ𓍻\n"
         f"⪼ **عنوان الملصق:** {get_stickerset.set.title}\n"
         f"⪼ **الاسم المختصر للملصق:** {get_stickerset.set.short_name}\n"
@@ -887,10 +887,10 @@ async def get_pack_info(event):
         f"⪼ **عدد الملصقات:** {get_stickerset.set.count}\n"
         f"⪼ **السمايلات المستخدمه:**\n{' '.join(pack_emojis)}"
     )
-    await sarevent.edit(OUTPUT)
+    await zedevent.edit(OUTPUT)
 
 
-@sarub.sar_cmd(
+@zedub.zed_cmd(
     pattern="ملصقات ?([\s\S]*)",
     command=("ملصقات", plugin_category),
     info={
@@ -903,13 +903,13 @@ async def cb_sticker(event):
     split = event.pattern_match.group(1)
     if not split:
         return await edit_delete(event, "`Provide some name to search for pack.`", 5)
-    sarevent = await edit_or_reply(event, "`Searching sticker packs....`")
+    zedevent = await edit_or_reply(event, "`Searching sticker packs....`")
     scraper = cloudscraper.create_scraper()
     text = scraper.get(combot_stickers_url + split).text
     soup = bs(text, "lxml")
     results = soup.find_all("div", {"class": "sticker-pack__header"})
     if not results:
-        return await edit_delete(sarevent, "`No results found :(.`", 5)
+        return await edit_delete(zedevent, "`No results found :(.`", 5)
     reply = f"**Sticker packs found for {split} are :**"
     for pack in results:
         if pack.button:
@@ -917,4 +917,4 @@ async def cb_sticker(event):
             packlink = (pack.a).get("href")
             packid = (pack.button).get("data-popup")
             reply += f"\n **• ID: **`{packid}`\n [{packtitle}]({packlink})"
-    await sarevent.edit(reply)
+    await zedevent.edit(reply)

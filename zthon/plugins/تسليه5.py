@@ -1,3 +1,5 @@
+# animation5 for zthon edit by ~ @zlzzl77
+
 import asyncio
 import os
 import random
@@ -12,7 +14,7 @@ plugin_category = "الترفيه"
 
 from . import ALIVE_NAME, deEmojify
 
-DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "ZThon"
+DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "HunerThon"
 
 
 @zedub.zed_cmd(pattern="رقص$")
@@ -208,6 +210,7 @@ Fun5_cmd = (
 "**- اضغـط ع الامـر لـ النسـخ"
 )
 
+# Copyright (C) 2022 Zedthon . All Rights Reserved
 @zedub.zed_cmd(pattern="تسليه5")
 async def cmd(zelzallll):
     await edit_or_reply(zelzallll, Fun5_cmd)

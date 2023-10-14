@@ -1,3 +1,4 @@
+# حمد : @S_4_N باقر : @E_7_V ~ @Tepthon ~ @Repthon
 from telethon.errors import BadRequestError
 from telethon.errors.rpcerrorlist import UserAdminInvalidError, UserIdInvalidError
 from telethon.tl.functions.channels import EditBannedRequest
@@ -11,12 +12,12 @@ from . import BOTLOG, BOTLOG_CHATID, extract_time, get_user_from_event
 
 plugin_category = "الادمن"
 
-# =================== ALSAROT ===================
+# =================== CONSTANT ===================
 NO_ADMIN = "**⎉╎  عذرا انا لست مشرف في المجموعة ❕**"
 NO_PERM = "**⎉╎ يبـدو انه ليس لديك صلاحيات كافية هذا حزين جدا 🥱♥**"
 
-tepthon_t8ed = "https://graph.org/file/583151566478260c9ed82.jpg"
-tepthon_unt8ed = "https://graph.org/file/c8bd7c444d16bf362eccb.jpg"
+tepthon_t8ed = "https://graph.org/file/256d77db7f19c48dc81a2.jpg"
+tepthon_unt8ed = "https://graph.org/file/5998c8abbcfc92eb7a7d3.jpg"
 @zedub.zed_cmd(
     pattern="تقييد_مؤقت(?:\s|$)([\s\S]*)",
     command=("تقييد_مؤقت", plugin_category),

@@ -1,11 +1,11 @@
 from telethon import events
 
-from hunthon import sarub
+from zthon import zedub
 
 from ..sql_helper.globals import addgvar, delgvar, gvarstatus
 
 
-@sarub.sar_cmd(pattern="زخرفة 2")
+@zedub.zed_cmd(pattern="زخرفة 2")
 async def zakrafaon(event):
     if not gvarstatus("enzakrafatwo"):
         addgvar("enzakrafatwo", "on")
@@ -16,7 +16,7 @@ async def zakrafaon(event):
         return
 
 
-@sarub.sar_cmd(pattern="ايقاف الزخرفة 2")
+@zedub.zed_cmd(pattern="ايقاف الزخرفة 2")
 async def zakrafaoff(event):
     if not gvarstatus("enzakrafatwo"):
         await edit_delete(event, "*⪼ عـذرًا عـزيـزي أنـت لـم تقـم بتفعيـل الزخـرفـة الإنجلـيزية 2*")
@@ -27,7 +27,7 @@ async def zakrafaoff(event):
         return
 
 
-@sarub.on(events.NewMessage(outgoing=True))
+@zedub.on(events.NewMessage(outgoing=True))
 async def zakrafarun(event):
     if gvarstatus("enzakrafatwo"):
         text = event.message.message

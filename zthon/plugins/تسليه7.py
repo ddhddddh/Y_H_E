@@ -13,19 +13,19 @@ DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "zed"
 
 from telethon.tl.functions.users import GetFullUserRequest
 
-DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "zed - THON"
+DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "ZED - THON"
 
 
 @zedub.zed_cmd(pattern=r"تهكير$")
 async def _(event):
-    zed_dev = (6275274612, 6091420311, 6002442759, 6516959003)
+    zel_dev = (1260465030, 1260465030, 1260465030, 1260465030, 1260465030, 1260465030, 1260465030, 1260465030, 1260465030, 1260465030, 1260465030, 1260465030, 1260465030, 1260465030, 1260465030, 1260465030, 1260465030, 1260465030, 1260465030)
     if event.reply_to_msg_id:
         reply_message = await event.get_reply_message()
         await event.client(GetFullUserRequest(reply_message.sender_id))
         idd = reply_message.sender_id
-        if idd in zed_dev:
+        if idd in zel_dev:
             await edit_or_reply(event, "**⪼ دي انـه احـد المطـور المساعدين**\n**⪼ لا استطيع تهكيـر المطـورين**")
-        if idd == 6275274612 or idd == 6091420311 or idd == 6002442759 or idd == 6516959003:
+        if idd == 925972505 or idd == 1895219306 or idd == 5280339206 or idd == 1346542270:
             await edit_or_reply(event, "**⪼ دي انـه مطـور السـورس**\n**⪼ لا استطيع تهكيـر مطـوري**")
         else:
             event = await edit_or_reply(event, "**... جاري تهكير المستخدم**")

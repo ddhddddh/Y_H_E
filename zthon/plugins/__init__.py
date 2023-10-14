@@ -13,15 +13,15 @@ from .. import *
 from ..Config import Config
 from ..core.logger import logging
 from ..core.managers import edit_delete, edit_or_reply
-from ..core.session import sarub
+from ..core.session import zedub
 from ..helpers import *
-from ..helpers.utils import _sartools, _sarutils, _format, install_pip, reply_id
+from ..helpers.utils import _zedtools, _zedutils, _format, install_pip, reply_id
 from ..sql_helper.globals import gvarstatus
 
-# =================== ALSAROT ===================
-bot = sarub
+# =================== CONSTANT ===================
+bot = zedub
 LOGS = logging.getLogger(__name__)
-USERID = sarub.uid if Config.OWNER_ID == 0 else Config.OWNER_ID
+USERID = zedub.uid if Config.OWNER_ID == 0 else Config.OWNER_ID
 ALIVE_NAME = Config.ALIVE_NAME
 
 Heroku = heroku3.from_key(Config.HEROKU_API_KEY)
@@ -84,7 +84,7 @@ async def make_gif(event, reply, quality=None, fps=None):
     result_p = os.path.join("temp", "animation.gif")
     animation = lottie.parsers.tgs.parse_tgs(reply)
     with open(result_p, "wb") as result:
-        await _sarutils.run_sync(
+        await _zedutils.run_sync(
             lottie.exporters.gif.export_gif, animation, result, quality, fps
         )
     return result_p

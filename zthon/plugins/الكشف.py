@@ -2,7 +2,7 @@ import asyncio
 
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 
-from hunthon import sarub
+from zthon import zedub
 
 from ..core.managers import edit_delete, edit_or_reply
 from ..helpers import get_user_from_event, sanga_seperator
@@ -11,7 +11,7 @@ from ..helpers.utils import _format
 plugin_category = "العروض"
 
 
-@sarub.sar_cmd(
+@zedub.zed_cmd(
     pattern="كشف(المعرف)?(?:\s|$)([\s\S]*)",
     command=("الاسماء", plugin_category),
     info={
@@ -26,7 +26,7 @@ plugin_category = "العروض"
         "examples": "{tr}sg @missrose_bot",
     },
 )
-async def _(event):  
+async def _(event):  # sourcery no-metrics
     "To get name/username history."
     input_str = "".join(event.text.split(maxsplit=1)[1:])
     reply_message = await event.get_reply_message()
@@ -40,12 +40,12 @@ async def _(event):
         return
     uid = user.id
     chat = "@SangMata_BOT"
-    sarevent = await edit_or_reply(event, "**⎉╎جـارِ الكشـف ...**")
+    zedevent = await edit_or_reply(event, "**⎉╎جـارِ الكشـف ...**")
     async with event.client.conversation(chat) as conv:
         try:
             await conv.send_message(f"{uid}")
         except YouBlockedUserError:
-            await edit_delete(sarevent, "**- اضغط ستارت هنـا @SangMata_BOT ثم اعد ارسال الامر**")
+            await edit_delete(zedevent, "**- اضغط ستارت هنـا @SangMata_BOT ثم اعد ارسال الامر**")
         responses = []
         while True:
             try:
@@ -55,9 +55,9 @@ async def _(event):
             responses.append(response.text)
         await event.client.send_read_acknowledge(conv.chat_id)
     if not responses:
-        await edit_delete(sarevent, "**- الامـر في وضع الصيانه حاليـاً ...**")
+        await edit_delete(zedevent, "**- الامـر في وضع الصيانه حاليـاً ...**")
     if "No data available" in responses:
-        await edit_delete(sarevent, "**⎉╎المستخدم ليس لديه أي سجل اسمـاء بعـد ...**")
+        await edit_delete(zedevent, "**⎉╎المستخدم ليس لديه أي سجل اسمـاء بعـد ...**")
     names, usernames = await sanga_seperator(responses)
     cmd = event.pattern_match.group(1)
     sandy = None
@@ -67,11 +67,11 @@ async def _(event):
             await event.reply(i, parse_mode=_format.parse_pre)
         else:
             sandy = True
-            await sarevent.edit(i, parse_mode=_format.parse_pre)
+            await zedevent.edit(i, parse_mode=_format.parse_pre)
 
 
 
-@sarub.sar_cmd(
+@zedub.zed_cmd(
     pattern="الاسماء(المعرف)?(?:\s|$)([\s\S]*)",
     command=("الاسماء", plugin_category),
     info={
@@ -86,7 +86,7 @@ async def _(event):
         "examples": "{tr}sg @missrose_bot",
     },
 )
-async def _(event):  
+async def _(event):  # sourcery no-metrics
     "To get name/username history."
     input_str = "".join(event.text.split(maxsplit=1)[1:])
     reply_message = await event.get_reply_message()
@@ -100,12 +100,12 @@ async def _(event):
         return
     uid = user.id
     chat = "@SangMata_BOT"
-    sarevent = await edit_or_reply(event, "**⎉╎جـارِ الكشـف ...**")
+    zedevent = await edit_or_reply(event, "**⎉╎جـارِ الكشـف ...**")
     async with event.client.conversation(chat) as conv:
         try:
             await conv.send_message(f"{uid}")
         except YouBlockedUserError:
-            await edit_delete(sarevent, "**- اضغط ستارت هنـا @SangMata_BOT ثم اعد ارسال الامر**")
+            await edit_delete(zedevent, "**- اضغط ستارت هنـا @SangMata_BOT ثم اعد ارسال الامر**")
         responses = []
         while True:
             try:
@@ -115,9 +115,9 @@ async def _(event):
             responses.append(response.text)
         await event.client.send_read_acknowledge(conv.chat_id)
     if not responses:
-        await edit_delete(sarevent, "**- الامـر في وضع الصيانه حاليـاً ...**")
+        await edit_delete(zedevent, "**- الامـر في وضع الصيانه حاليـاً ...**")
     if "No data available" in responses:
-        await edit_delete(sarevent, "**⎉╎المستخدم ليس لديه أي سجل اسمـاء بعـد ...**")
+        await edit_delete(zedevent, "**⎉╎المستخدم ليس لديه أي سجل اسمـاء بعـد ...**")
     names, usernames = await sanga_seperator(responses)
     cmd = event.pattern_match.group(1)
     sandy = None
@@ -127,4 +127,4 @@ async def _(event):
             await event.reply(i, parse_mode=_format.parse_pre)
         else:
             sandy = True
-            await sarevent.edit(i, parse_mode=_format.parse_pre)
+            await zedevent.edit(i, parse_mode=_format.parse_pre)

@@ -16,20 +16,18 @@ from . import BOTLOG, BOTLOG_CHATID
 plugin_category = "البوت"
 LOGS = logging.getLogger(__name__)
 
-zed_BLACKLIST = [
-    -1001927413014,
-    -1001636220368,
+ZED_BLACKLIST = [
+    -1001236815136,
+    -1001614012587,
     ]
 
 DEVZ = [
     6275274612,
-    6002442759,
-    6516959003,
-    6091420311,
+    9234662505,
 ]
 #
 
-zelzalPRO_cmd = (
+ZelzalPRO_cmd = (
     "𓆩 [𝗦𝗼𝘂𝗿𝗰𝗲 𝗛𝗨𝗡𝗧𝗘𝗥𝗧𝗛𝗢𝗡 𝗖𝗼𝗻𝗳𝗶𝗴 - أوامـر حـالات الحـساب](t.me/HunerThon) 𓆪\n\n"
     "**⎞➊⎝** `.نائم`\n"
     "**بـ كتابـة أمـر ( .نائم ) سيتم وضع صـورة تدل عـلى أنـك نائـم ووضـع كلمـة نائم بجانــب اســمك**\n"
@@ -43,7 +41,8 @@ zelzalPRO_cmd = (
 )
 
 
+# Copyright (C) 2022 Zed-Thon . All Rights Reserved
 @zedub.zed_cmd(pattern="حالات الحساب")
-async def cmd(zelzalll):
-    await edit_or_reply(zelzalll, zelzalPRO_cmd)
+async def cmd(zelzallll):
+    await edit_or_reply(zelzallll, ZelzalPRO_cmd)
 

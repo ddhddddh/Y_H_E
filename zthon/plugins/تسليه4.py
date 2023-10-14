@@ -1,3 +1,5 @@
+# animation4 for zed by: @ZedThon
+
 import asyncio
 import os
 import random
@@ -435,6 +437,7 @@ Fun4_cmd = (
 "**- اضغـط ع الامـر لـ النسـخ"
 )
 
+# Copyright (C) 2022 Zedthon . All Rights Reserved
 @zedub.zed_cmd(pattern="تسليه4")
 async def cmd(zelzallll):
     await edit_or_reply(zelzallll, Fun4_cmd)

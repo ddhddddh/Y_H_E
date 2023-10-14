@@ -1,3 +1,4 @@
+# reverse search and google search  plugin for zedthon
 import contextlib
 import os
 import re

@@ -1,10 +1,11 @@
+#بسم الله الرحمن الرحيم
 from telethon import events
-from hunthon import sarub
+from zthon import zedub
 from ..sql_helper.globals import addgvar, delgvar, gvarstatus
 from ..core.managers import edit_delete
 from telethon import functions
 from telethon.errors.rpcerrorlist import MessageIdInvalidError
-@sarub.on(admin_cmd(pattern="(خط الغامق|غامق)"))
+@zedub.on(admin_cmd(pattern="(خط الغامق|غامق)"))
 async def btext(event):
     isbold = gvarstatus("bold")
     if not isbold:
@@ -17,7 +18,7 @@ async def btext(event):
         await edit_delete(event, "**⪼ تـم إطفـاء الخط الغامق بنجاح الآن **")
         return
 
-@sarub.on(admin_cmd(pattern="(رمز|خط الرمز)"))
+@zedub.on(admin_cmd(pattern="(رمز|خط الرمز)"))
 async def btext(event):
     isramz = gvarstatus("ramz")
     if not isramz:
@@ -30,7 +31,7 @@ async def btext(event):
         await edit_delete(event, "**⪼ تـم إطفـاء خط الرمز بنجاح الآن **")
         return
 
-@sarub.on(events.NewMessage(outgoing=True))
+@zedub.on(events.NewMessage(outgoing=True))
 async def reda(event):
     isbold = gvarstatus("bold")
     if isbold:
@@ -44,4 +45,4 @@ async def reda(event):
             await event.edit(f"`{event.message.message}`")
         except MessageIdInvalidError:
             pass
-جمثون حقوق
+#jmthon

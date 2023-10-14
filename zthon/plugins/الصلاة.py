@@ -1,3 +1,7 @@
+""" Command: اوقات الصلاة لعواصم الدول باللغـة العربيـة
+Credit: @kaido_q
+@zzzzl1l - كتـابـة الملـف :  زلــزال الهيبــه"""
+
 import json
 import requests
 from zthon import zedub
@@ -17,14 +21,14 @@ plugin_category = "البحث"
     },
 )
 async def get_adzan(adzan):
-    zelzal = adzan.pattern_match.group(1)
-    if zelzal == "صنعاء" or zelzal == "اليمن":
+    ZELZAL = adzan.pattern_match.group(1)
+    if ZELZAL == "صنعاء" or ZELZAL == "اليمن":
 	    url = f"https://api.pray.zone/v2/times/today.json?city=Sanaa"
 	    request = requests.get(url)
 	    if request.status_code != 200:
 	        await edit_delete(
 	            adzan,
-	            f"** لم يـتم العثور على هـذه المدينه {zelzal}**\n**-يرجى كتابة اسم العاصمـه او الدولـة بشكـل صحيـح** ",
+	            f"** لم يـتم العثور على هـذه المدينه {ZELZAL}**\n**-يرجى كتابة اسم العاصمـه او الدولـة بشكـل صحيـح** ",
 	            5,
 	        )
 	        return
@@ -43,16 +47,16 @@ async def get_adzan(adzan):
 	            \n<b>المـغرب  : <b>{result['results']['datetime'][0]['times']['Maghrib']}</b>\
 	            \n<b>العشـاء     : <b>{result['results']['datetime'][0]['times']['Isha']}</b>\
 	            \n<b>منتـصف الليل : <b>{result['results']['datetime'][0]['times']['Midnight']}</b>\
-		        \n\nᯓ 𝗦𝗢𝗨𝗥𝗖𝗘 𝗛𝗨𝗡𝗧𝗘𝗥𝗧𝗛𝗢𝗡╎@HunerThon\
+		        \n\nᯓ 𝗦𝗢𝗨𝗥𝗖𝗘 𝗞𝗔𝗜𝗗𝗢 ╎@kaido_q\
 	    "
 	    await edit_or_reply(adzan, zedthonresult, "html")
-    elif zelzal == "مصر" or zelzal == "القاهرة" or zelzal == "القاهره":
+    elif ZELZAL == "مصر" or ZELZAL == "القاهرة" or ZELZAL == "القاهره":
 	    url = f"https://api.pray.zone/v2/times/today.json?city=Cairo"
 	    request = requests.get(url)
 	    if request.status_code != 200:
 	        await edit_delete(
 	            adzan,
-	            f"** لم يـتم العثور على هـذه المدينه {zelzal}**\n**-يرجى كتابة اسم العاصمـه او الدولـة بشكـل صحيـح** ",
+	            f"** لم يـتم العثور على هـذه المدينه {ZELZAL}**\n**-يرجى كتابة اسم العاصمـه او الدولـة بشكـل صحيـح** ",
 	            5,
 	        )
 	        return
@@ -71,16 +75,16 @@ async def get_adzan(adzan):
 	            \n<b>المـغرب  : <b>{result['results']['datetime'][0]['times']['Maghrib']}</b>\
 	            \n<b>العشـاء     : <b>{result['results']['datetime'][0]['times']['Isha']}</b>\
 	            \n<b>منتـصف الليل : <b>{result['results']['datetime'][0]['times']['Midnight']}</b>\
-		        \n\nᯓ 𝗦𝗢𝗨𝗥𝗖𝗘 𝗛𝗨𝗡𝗧𝗘𝗥𝗧𝗛𝗢𝗡╎@HunerThon\
+		        \n\nᯓ 𝗦𝗢𝗨𝗥𝗖𝗘 𝗞𝗔𝗜𝗗𝗢 ╎@kaido_q\
 	    "
 	    await edit_or_reply(adzan, zedthonresult, "html")
-    elif zelzal == "بغداد" or zelzal == "العراق":
+    elif ZELZAL == "بغداد" or ZELZAL == "العراق":
 	    url = f"https://api.pray.zone/v2/times/today.json?city=Baghdad"
 	    request = requests.get(url)
 	    if request.status_code != 200:
 	        await edit_delete(
 	            adzan,
-	            f"** لم يـتم العثور على هـذه المدينه {zelzal}**\n**-يرجى كتابة اسم العاصمـه او الدولـة بشكـل صحيـح** ",
+	            f"** لم يـتم العثور على هـذه المدينه {ZELZAL}**\n**-يرجى كتابة اسم العاصمـه او الدولـة بشكـل صحيـح** ",
 	            5,
 	        )
 	        return
@@ -99,16 +103,16 @@ async def get_adzan(adzan):
 	            \n<b>المـغرب  : <b>{result['results']['datetime'][0]['times']['Maghrib']}</b>\
 	            \n<b>العشـاء     : <b>{result['results']['datetime'][0]['times']['Isha']}</b>\
 	            \n<b>منتـصف الليل : <b>{result['results']['datetime'][0]['times']['Midnight']}</b>\
-		        \n\nᯓ 𝗦𝗢𝗨𝗥𝗖𝗘 𝗛𝗨𝗡𝗧𝗘𝗥𝗧𝗛𝗢𝗡╎@HunerThon\
+		        \n\nᯓ 𝗦𝗢𝗨𝗥𝗖𝗘 𝗞𝗔𝗜𝗗𝗢 ╎@kaido_q\
 	    "
 	    await edit_or_reply(adzan, zedthonresult, "html")
-    elif zelzal == "دمشق" or zelzal == "سوريا":
+    elif ZELZAL == "دمشق" or ZELZAL == "سوريا":
 	    url = f"https://api.pray.zone/v2/times/today.json?city=Damascus"
 	    request = requests.get(url)
 	    if request.status_code != 200:
 	        await edit_delete(
 	            adzan,
-	            f"** لم يـتم العثور على هـذه المدينه {zelzal}**\n**-يرجى كتابة اسم العاصمـه او الدولـة بشكـل صحيـح** ",
+	            f"** لم يـتم العثور على هـذه المدينه {ZELZAL}**\n**-يرجى كتابة اسم العاصمـه او الدولـة بشكـل صحيـح** ",
 	            5,
 	        )
 	        return
@@ -127,16 +131,16 @@ async def get_adzan(adzan):
 	            \n<b>المـغرب  : <b>{result['results']['datetime'][0]['times']['Maghrib']}</b>\
 	            \n<b>العشـاء     : <b>{result['results']['datetime'][0]['times']['Isha']}</b>\
 	            \n<b>منتـصف الليل : <b>{result['results']['datetime'][0]['times']['Midnight']}</b>\
-		        \n\nᯓ 𝗦𝗢𝗨𝗥𝗖𝗘 𝗛𝗨𝗡𝗧𝗘𝗥𝗧𝗛𝗢𝗡╎@HunerThon\
+		        \n\nᯓ 𝗦𝗢𝗨𝗥𝗖𝗘 𝗞𝗔𝗜𝗗𝗢 ╎@kaido_q\
 	    "
 	    await edit_or_reply(adzan, zedthonresult, "html")
-    elif zelzal == "الدوحه" or zelzal == "قطر":
+    elif ZELZAL == "الدوحه" or ZELZAL == "قطر":
 	    url = f"https://api.pray.zone/v2/times/today.json?city=Doha"
 	    request = requests.get(url)
 	    if request.status_code != 200:
 	        await edit_delete(
 	            adzan,
-	            f"** لم يـتم العثور على هـذه المدينه {zelzal}**\n**-يرجى كتابة اسم العاصمـه او الدولـة بشكـل صحيـح** ",
+	            f"** لم يـتم العثور على هـذه المدينه {ZELZAL}**\n**-يرجى كتابة اسم العاصمـه او الدولـة بشكـل صحيـح** ",
 	            5,
 	        )
 	        return
@@ -155,16 +159,16 @@ async def get_adzan(adzan):
 	            \n<b>المـغرب  : <b>{result['results']['datetime'][0]['times']['Maghrib']}</b>\
 	            \n<b>العشـاء     : <b>{result['results']['datetime'][0]['times']['Isha']}</b>\
 	            \n<b>منتـصف الليل : <b>{result['results']['datetime'][0]['times']['Midnight']}</b>\
-		        \n\nᯓ 𝗦𝗢𝗨𝗥𝗖𝗘 𝗛𝗨𝗡𝗧𝗘𝗥𝗧𝗛𝗢𝗡╎@HunerThon\
+		        \n\nᯓ 𝗦𝗢𝗨𝗥𝗖𝗘 𝗞𝗔𝗜𝗗𝗢 ╎@kaido_q\
 	    "
 	    await edit_or_reply(adzan, zedthonresult, "html")
-    elif zelzal == "مسقط" or zelzal == "سلطنه عمان":
+    elif ZELZAL == "مسقط" or ZELZAL == "سلطنه عمان":
 	    url = f"https://api.pray.zone/v2/times/today.json?city=Muscat"
 	    request = requests.get(url)
 	    if request.status_code != 200:
 	        await edit_delete(
 	            adzan,
-	            f"** لم يـتم العثور على هـذه المدينه {zelzal}**\n**-يرجى كتابة اسم العاصمـه او الدولـة بشكـل صحيـح** ",
+	            f"** لم يـتم العثور على هـذه المدينه {ZELZAL}**\n**-يرجى كتابة اسم العاصمـه او الدولـة بشكـل صحيـح** ",
 	            5,
 	        )
 	        return
@@ -183,16 +187,16 @@ async def get_adzan(adzan):
 	            \n<b>المـغرب  : <b>{result['results']['datetime'][0]['times']['Maghrib']}</b>\
 	            \n<b>العشـاء     : <b>{result['results']['datetime'][0]['times']['Isha']}</b>\
 	            \n<b>منتـصف الليل : <b>{result['results']['datetime'][0]['times']['Midnight']}</b>\
-		        \n\nᯓ 𝗦𝗢𝗨𝗥𝗖𝗘 𝗛𝗨𝗡𝗧𝗘𝗥𝗧𝗛𝗢𝗡╎@HunerThon\
+		        \n\nᯓ 𝗦𝗢𝗨𝗥𝗖𝗘 𝗞𝗔𝗜𝗗𝗢 ╎@kaido_q\
 	    "
 	    await edit_or_reply(adzan, zedthonresult, "html")
-    elif zelzal == "مكه" or zelzal == "السعوديه":
+    elif ZELZAL == "مكه" or ZELZAL == "السعوديه":
 	    url = f"https://api.pray.zone/v2/times/today.json?city=Mecca"
 	    request = requests.get(url)
 	    if request.status_code != 200:
 	        await edit_delete(
 	            adzan,
-	            f"** لم يـتم العثور على هـذه المدينه {zelzal}**\n**-يرجى كتابة اسم العاصمـه او الدولـة بشكـل صحيـح** ",
+	            f"** لم يـتم العثور على هـذه المدينه {ZELZAL}**\n**-يرجى كتابة اسم العاصمـه او الدولـة بشكـل صحيـح** ",
 	            5,
 	        )
 	        return
@@ -211,16 +215,16 @@ async def get_adzan(adzan):
 	            \n<b>المـغرب  : <b>{result['results']['datetime'][0]['times']['Maghrib']}</b>\
 	            \n<b>العشـاء     : <b>{result['results']['datetime'][0]['times']['Isha']}</b>\
 	            \n<b>منتـصف الليل : <b>{result['results']['datetime'][0]['times']['Midnight']}</b>\
-		        \n\nᯓ 𝗦𝗢𝗨𝗥𝗖𝗘 𝗛𝗨𝗡𝗧𝗘𝗥𝗧𝗛𝗢𝗡╎@HunerThon\
+		        \n\nᯓ 𝗦𝗢𝗨𝗥𝗖𝗘 𝗞𝗔𝗜𝗗𝗢 ╎@kaido_q\
 	    "
 	    await edit_or_reply(adzan, zedthonresult, "html")
-    elif zelzal == "بيروت" or zelzal == "لبنان":
+    elif ZELZAL == "بيروت" or ZELZAL == "لبنان":
 	    url = f"https://api.pray.zone/v2/times/today.json?city=Beirut"
 	    request = requests.get(url)
 	    if request.status_code != 200:
 	        await edit_delete(
 	            adzan,
-	            f"** لم يـتم العثور على هـذه المدينه {zelzal}**\n**-يرجى كتابة اسم العاصمـه او الدولـة بشكـل صحيـح** ",
+	            f"** لم يـتم العثور على هـذه المدينه {ZELZAL}**\n**-يرجى كتابة اسم العاصمـه او الدولـة بشكـل صحيـح** ",
 	            5,
 	        )
 	        return
@@ -239,16 +243,16 @@ async def get_adzan(adzan):
 	            \n<b>المـغرب  : <b>{result['results']['datetime'][0]['times']['Maghrib']}</b>\
 	            \n<b>العشـاء     : <b>{result['results']['datetime'][0]['times']['Isha']}</b>\
 	            \n<b>منتـصف الليل : <b>{result['results']['datetime'][0]['times']['Midnight']}</b>\
-		        \n\nᯓ 𝗦𝗢𝗨𝗥𝗖𝗘 𝗛𝗨𝗡𝗧𝗘𝗥𝗧𝗛𝗢𝗡╎@HunerThon\
+		        \n\nᯓ 𝗦𝗢𝗨𝗥𝗖𝗘 𝗞𝗔𝗜𝗗𝗢 ╎@kaido_q\
 	    "
 	    await edit_or_reply(adzan, zedthonresult, "html")
-    elif zelzal == "عمان" or zelzal == "الاردن":
+    elif ZELZAL == "عمان" or ZELZAL == "الاردن":
 	    url = f"https://api.pray.zone/v2/times/today.json?city=Amman"
 	    request = requests.get(url)
 	    if request.status_code != 200:
 	        await edit_delete(
 	            adzan,
-	            f"** لم يـتم العثور على هـذه المدينه {zelzal}**\n**-يرجى كتابة اسم العاصمـه او الدولـة بشكـل صحيـح** ",
+	            f"** لم يـتم العثور على هـذه المدينه {ZELZAL}**\n**-يرجى كتابة اسم العاصمـه او الدولـة بشكـل صحيـح** ",
 	            5,
 	        )
 	        return
@@ -267,16 +271,16 @@ async def get_adzan(adzan):
 	            \n<b>المـغرب  : <b>{result['results']['datetime'][0]['times']['Maghrib']}</b>\
 	            \n<b>العشـاء     : <b>{result['results']['datetime'][0]['times']['Isha']}</b>\
 	            \n<b>منتـصف الليل : <b>{result['results']['datetime'][0]['times']['Midnight']}</b>\
-		        \n\nᯓ 𝗦𝗢𝗨𝗥𝗖𝗘 𝗛𝗨𝗡𝗧𝗘𝗥𝗧𝗛𝗢𝗡╎@HunerThon\
+		        \n\nᯓ 𝗦𝗢𝗨𝗥𝗖𝗘 𝗞𝗔𝗜𝗗𝗢 ╎@kaido_q\
 	    "
 	    await edit_or_reply(adzan, zedthonresult, "html")
-    elif zelzal == "الرباط" or zelzal == "المغرب":
+    elif ZELZAL == "الرباط" or ZELZAL == "المغرب":
 	    url = f"https://api.pray.zone/v2/times/today.json?city=Rabat"
 	    request = requests.get(url)
 	    if request.status_code != 200:
 	        await edit_delete(
 	            adzan,
-	            f"** لم يـتم العثور على هـذه المدينه {zelzal}**\n**-يرجى كتابة اسم العاصمـه او الدولـة بشكـل صحيـح** ",
+	            f"** لم يـتم العثور على هـذه المدينه {ZELZAL}**\n**-يرجى كتابة اسم العاصمـه او الدولـة بشكـل صحيـح** ",
 	            5,
 	        )
 	        return
@@ -295,16 +299,16 @@ async def get_adzan(adzan):
 	            \n<b>المـغرب  : <b>{result['results']['datetime'][0]['times']['Maghrib']}</b>\
 	            \n<b>العشـاء     : <b>{result['results']['datetime'][0]['times']['Isha']}</b>\
 	            \n<b>منتـصف الليل : <b>{result['results']['datetime'][0]['times']['Midnight']}</b>\
-		        \n\nᯓ 𝗦𝗢𝗨𝗥𝗖𝗘 𝗛𝗨𝗡𝗧𝗘𝗥𝗧𝗛𝗢𝗡╎@HunerThon\
+		        \n\nᯓ 𝗦𝗢𝗨𝗥𝗖𝗘 𝗞𝗔𝗜𝗗𝗢 ╎@kaido_q\
 	    "
 	    await edit_or_reply(adzan, zedthonresult, "html")
-    elif zelzal == "الخرطوم" or zelzal == "السودان":
+    elif ZELZAL == "الخرطوم" or ZELZAL == "السودان":
 	    url = f"https://api.pray.zone/v2/times/today.json?city=Khartoum"
 	    request = requests.get(url)
 	    if request.status_code != 200:
 	        await edit_delete(
 	            adzan,
-	            f"** لم يـتم العثور على هـذه المدينه {zelzal}**\n**-يرجى كتابة اسم العاصمـه او الدولـة بشكـل صحيـح** ",
+	            f"** لم يـتم العثور على هـذه المدينه {ZELZAL}**\n**-يرجى كتابة اسم العاصمـه او الدولـة بشكـل صحيـح** ",
 	            5,
 	        )
 	        return
@@ -323,16 +327,16 @@ async def get_adzan(adzan):
 	            \n<b>المـغرب  : <b>{result['results']['datetime'][0]['times']['Maghrib']}</b>\
 	            \n<b>العشـاء     : <b>{result['results']['datetime'][0]['times']['Isha']}</b>\
 	            \n<b>منتـصف الليل : <b>{result['results']['datetime'][0]['times']['Midnight']}</b>\
-		        \n\nᯓ 𝗦𝗢𝗨𝗥𝗖𝗘 𝗛𝗨𝗡𝗧𝗘𝗥𝗧𝗛𝗢𝗡╎@HunerThon\
+		        \n\nᯓ 𝗦𝗢𝗨𝗥𝗖𝗘 𝗞𝗔𝗜𝗗𝗢 ╎@kaido_q\
 	    "
 	    await edit_or_reply(adzan, zedthonresult, "html")
-    elif zelzal == "بنغازي" or zelzal == "ليبيا":
+    elif ZELZAL == "بنغازي" or ZELZAL == "ليبيا":
 	    url = f"https://api.pray.zone/v2/times/today.json?city=Benghazi"
 	    request = requests.get(url)
 	    if request.status_code != 200:
 	        await edit_delete(
 	            adzan,
-	            f"** لم يـتم العثور على هـذه المدينه {zelzal}**\n**-يرجى كتابة اسم العاصمـه او الدولـة بشكـل صحيـح** ",
+	            f"** لم يـتم العثور على هـذه المدينه {ZELZAL}**\n**-يرجى كتابة اسم العاصمـه او الدولـة بشكـل صحيـح** ",
 	            5,
 	        )
 	        return
@@ -351,16 +355,16 @@ async def get_adzan(adzan):
 	            \n<b>المـغرب  : <b>{result['results']['datetime'][0]['times']['Maghrib']}</b>\
 	            \n<b>العشـاء     : <b>{result['results']['datetime'][0]['times']['Isha']}</b>\
 	            \n<b>منتـصف الليل : <b>{result['results']['datetime'][0]['times']['Midnight']}</b>\
-		        \n\nᯓ 𝗦𝗢𝗨𝗥𝗖𝗘 𝗛𝗨𝗡𝗧𝗘𝗥𝗧𝗛𝗢𝗡╎@HunerThon\
+		        \n\nᯓ 𝗦𝗢𝗨𝗥𝗖𝗘 𝗞𝗔𝗜𝗗𝗢 ╎@kaido_q\
 	    "
 	    await edit_or_reply(adzan, zedthonresult, "html")
-    elif zelzal == "تونس":
+    elif ZELZAL == "تونس":
 	    url = f"https://api.pray.zone/v2/times/today.json?city=Tunis"
 	    request = requests.get(url)
 	    if request.status_code != 200:
 	        await edit_delete(
 	            adzan,
-	            f"** لم يـتم العثور على هـذه المدينه {zelzal}**\n**-يرجى كتابة اسم العاصمـه او الدولـة بشكـل صحيـح** ",
+	            f"** لم يـتم العثور على هـذه المدينه {ZELZAL}**\n**-يرجى كتابة اسم العاصمـه او الدولـة بشكـل صحيـح** ",
 	            5,
 	        )
 	        return
@@ -379,16 +383,16 @@ async def get_adzan(adzan):
 	            \n<b>المـغرب  : <b>{result['results']['datetime'][0]['times']['Maghrib']}</b>\
 	            \n<b>العشـاء     : <b>{result['results']['datetime'][0]['times']['Isha']}</b>\
 	            \n<b>منتـصف الليل : <b>{result['results']['datetime'][0]['times']['Midnight']}</b>\
-		        \n\nᯓ 𝗦𝗢𝗨𝗥𝗖𝗘 𝗛𝗨𝗡𝗧𝗘𝗥𝗧𝗛𝗢𝗡╎@HunerThon\
+		        \n\nᯓ 𝗦𝗢𝗨𝗥𝗖𝗘 𝗞𝗔𝗜𝗗𝗢 ╎@kaido_q\
 	    "
 	    await edit_or_reply(adzan, zedthonresult, "html")
-    elif zelzal == "ازمير" or zelzal == "اسطنبول" or zelzal == "انقره" or zelzal == "تركيا":
+    elif ZELZAL == "ازمير" or ZELZAL == "اسطنبول" or ZELZAL == "انقره" or ZELZAL == "تركيا":
 	    url = f"https://api.pray.zone/v2/times/today.json?city=Izmir"
 	    request = requests.get(url)
 	    if request.status_code != 200:
 	        await edit_delete(
 	            adzan,
-	            f"** لم يـتم العثور على هـذه المدينه {zelzal}**\n**-يرجى كتابة اسم العاصمـه او الدولـة بشكـل صحيـح** ",
+	            f"** لم يـتم العثور على هـذه المدينه {ZELZAL}**\n**-يرجى كتابة اسم العاصمـه او الدولـة بشكـل صحيـح** ",
 	            5,
 	        )
 	        return
@@ -407,7 +411,7 @@ async def get_adzan(adzan):
 	            \n<b>المـغرب  : <b>{result['results']['datetime'][0]['times']['Maghrib']}</b>\
 	            \n<b>العشـاء     : <b>{result['results']['datetime'][0]['times']['Isha']}</b>\
 	            \n<b>منتـصف الليل : <b>{result['results']['datetime'][0]['times']['Midnight']}</b>\
-		        \n\nᯓ 𝗦𝗢𝗨𝗥𝗖𝗘 𝗛𝗨𝗡𝗧𝗘𝗥𝗧𝗛𝗢𝗡╎@HunerThon\
+		        \n\nᯓ 𝗦𝗢𝗨𝗥𝗖𝗘 𝗞𝗔𝗜𝗗𝗢 ╎@kaido_q\
 	    "
 	    await edit_or_reply(adzan, zedthonresult, "html")
 

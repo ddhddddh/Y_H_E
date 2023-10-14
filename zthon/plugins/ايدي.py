@@ -1,3 +1,18 @@
+# Zed-Thon - ZelZal
+# Copyright (C) 2022 Zedthon . All Rights Reserved
+#
+# This file is a part of < https://github.com/Zed-Thon/ZelZal/ >
+# PLease read the GNU Affero General Public License in
+# <https://www.github.com/Zed-Thon/ZelZal/blob/main/LICENSE/>.
+
+"""
+ZThon - ZelZal
+- كتـابـة الاضـافـات
+زلــزال الـهيبــه - @zzzzl1l
+- حقـوق زدثـــون @ZedThon
+- تخمـط صيـر مطـور كفــوو واذكــر المصــدر
+"""
+
 import contextlib
 import html
 import os
@@ -10,7 +25,7 @@ from requests import get
 from telethon.tl.functions.photos import GetUserPhotosRequest
 from telethon.tl.functions.users import GetFullUserRequest
 
-from zthon import SARub
+from zthon import zedub
 from zthon.core.logger import logging
 
 from ..Config import Config
@@ -21,13 +36,13 @@ from . import spamwatch
 
 plugin_category = "العروض"
 LOGS = logging.getLogger(__name__)
-# code by https://t.me/Y_H_E
-SAR_TEXT = gvarstatus("CUSTOM_ALIVE_TEXT") or "•⎚• مـعلومـات المسـتخـدم مـن بـوت هانترثون"
-SARM = gvarstatus("CUSTOM_ALIVE_EMOJI") or "✦ "
-SARF = gvarstatus("CUSTOM_ALIVE_FONT") or "⋆─┄─┄─┄─ 𝗛𝗨𝗡𝗧𝗘𝗥𝗧𝗛𝗢𝗡 ─┄─┄─┄─⋆"
-SAR_dev = (6275274612, 6002442759, 6516959003)
-SAR_dev = (6275274612, 6002442759, 6516959003)
-SAROT = (6275274612, 6002442759, 6516959003)
+# code by t.me/zzzzl1l
+ZED_TEXT = gvarstatus("CUSTOM_ALIVE_TEXT") or "•⎚• مـعلومـات المسـتخـدم مـن بـوت تيبثـون"
+ZEDM = gvarstatus("CUSTOM_ALIVE_EMOJI") or "✦ "
+ZEDF = gvarstatus("CUSTOM_ALIVE_FONT") or "⋆─┄─┄─┄─ 𝗧𝗘𝗣𝗧𝗛𝗢𝗡 ─┄─┄─┄─⋆"
+zed_dev = (1207625726, 6060337233)
+zel_dev = (1207625726, 6060337233)
+zelzal = (1207625726, 1264384082)
 
 
 async def get_user_from_event(event):
@@ -78,7 +93,7 @@ async def fetch_info(replied_user, event):
     is_bot = replied_user.bot
     restricted = replied_user.restricted
     verified = replied_user.verified
-    sarot = (await event.client.get_entity(user_id)).premium
+    zilzal = (await event.client.get_entity(user_id)).premium
     photo = await event.client.download_profile_photo(
         user_id,
         Config.TMP_DOWNLOAD_DIRECTORY + str(user_id) + ".jpg",
@@ -92,32 +107,35 @@ async def fetch_info(replied_user, event):
     full_name = full_name or first_name
     username = "@{}".format(username) if username else ("لا يـوجـد")
     user_bio = "لا يـوجـد" if not user_bio else user_bio
-    if user_id in sarot: # code by https://t.me/Y_H_E
+# Copyright (C) 2021 Zed-Thon . All Rights Reserved
+# الـرتب الوهميـه & البريميـوم كتـابـة الكـود - زلــزال الـهيبــه @zzzzl1l
+    if user_id in zelzal: # code by t.me/zzzzl1l
         rotbat = "⌁ مطـور السـورس 𓄂𓆃 ⌁" 
     elif user_id in zel_dev:
         rotbat = "⌁ مطـور مسـاعـد 𐏕⌁" 
-    elif user_id == (await event.client.get_me()).id and user_id not in SAR_dev:
+    elif user_id == (await event.client.get_me()).id and user_id not in zed_dev:
         rotbat = "⌁ مـالك الحساب 𓀫 ⌁" 
     else:
         rotbat = "⌁ العضـو 𓅫 ⌁"
-    caption = f"<b> {SAR_TEXT} </b>\n"
-    caption += f"ٴ<b>{SARF}</b>\n"
-    caption += f"<b>{SARM}الاسـم    ⇠ </b> "
+    caption = f"<b> {ZED_TEXT} </b>\n"
+    caption += f"ٴ<b>{ZEDF}</b>\n"
+    caption += f"<b>{ZEDM}الاسـم    ⇠ </b> "
     caption += f'<a href="tg://user?id={user_id}">{full_name}</a>'
-    caption += f"\n<b>{SARM}المعـرف  ⇠  {username}</b>"
-    caption += f"\n<b>{SARM}الايـدي   ⇠ </b> <code>{user_id}</code>\n"
-    caption += f"<b>{SARM}الرتبـــه   ⇠ {rotbat} </b>\n"
-    if sarot == True or user_id in sarot: # code by https://t.me/Y_H_E
-        caption += f"<b>{SARM}الحسـاب ⇠  بـريميـوم 🌟</b>\n"
-    caption += f"<b>{SARM}الصـور    ⇠ </b> {replied_user_profile_photos_count}\n"
-    if user_id != (await event.client.get_me()).id: # code by https://t.me/Y_H_E
-        caption += f"<b>{SARM}الـمجموعات المشتـركة ⇠ </b> {common_chat} \n"
-    caption += f"<b>{SARM}البايـو     ⇠  {user_bio}</b> \n"
-    caption += f"ٴ<b>{SARF}</b>"
+    caption += f"\n<b>{ZEDM}المعـرف  ⇠  {username}</b>"
+    caption += f"\n<b>{ZEDM}الايـدي   ⇠ </b> <code>{user_id}</code>\n"
+    caption += f"<b>{ZEDM}الرتبـــه   ⇠ {rotbat} </b>\n"
+    if zilzal == True or user_id in zelzal: # code by t.me/zzzzl1l
+        caption += f"<b>{ZEDM}الحسـاب ⇠  بـريميـوم 🌟</b>\n"
+    caption += f"<b>{ZEDM}الصـور    ⇠ </b> {replied_user_profile_photos_count}\n"
+    if user_id != (await event.client.get_me()).id: # code by t.me/zzzzl1l
+        caption += f"<b>{ZEDM}الـمجموعات المشتـركة ⇠ </b> {common_chat} \n"
+    caption += f"<b>{ZEDM}البايـو     ⇠  {user_bio}</b> \n"
+    caption += f"ٴ<b>{ZEDF}</b>"
     return photo, caption
+# Copyright (C) 2021 Zed-Thon . All Rights Reserved
 
 
-@SARub.SAR_cmd(
+@zedub.zed_cmd(
     pattern="ايدي(?: |$)(.*)",
     command=("ايدي", plugin_category),
     info={
@@ -127,14 +145,14 @@ async def fetch_info(replied_user, event):
 )
 async def who(event):
     "Gets info of an user"
-    SAR = await edit_or_reply(event, "⇆")
+    zed = await edit_or_reply(event, "⇆")
     if not os.path.isdir(Config.TMP_DOWNLOAD_DIRECTORY):
         os.makedirs(Config.TMP_DOWNLOAD_DIRECTORY)
     replied_user = await get_user_from_event(event)
     try:
         photo, caption = await fetch_info(replied_user, event)
     except (AttributeError, TypeError):
-        return await edit_or_reply(SAR, "**- لـم استطـع العثــور ع الشخــص ؟!**")
+        return await edit_or_reply(zed, "**- لـم استطـع العثــور ع الشخــص ؟!**")
     message_id_to_reply = event.message.reply_to_msg_id
     if not message_id_to_reply:
         message_id_to_reply = None
@@ -150,12 +168,12 @@ async def who(event):
         )
         if not photo.startswith("http"):
             os.remove(photo)
-        await SAR.delete()
+        await zed.delete()
     except TypeError:
-        await SAR.edit(caption, parse_mode="html")
+        await zed.edit(caption, parse_mode="html")
 
 
-@SARub.SAR_cmd(
+@zedub.zed_cmd(
     pattern="ا(?: |$)(.*)",
     command=("ا", plugin_category),
     info={
@@ -165,14 +183,14 @@ async def who(event):
 )
 async def who(event):
     "Gets info of an user"
-    SAR = await edit_or_reply(event, "⇆")
+    zed = await edit_or_reply(event, "⇆")
     if not os.path.isdir(Config.TMP_DOWNLOAD_DIRECTORY):
         os.makedirs(Config.TMP_DOWNLOAD_DIRECTORY)
     replied_user = await get_user_from_event(event)
     try:
         photo, caption = await fetch_info(replied_user, event)
     except (AttributeError, TypeError):
-        return await edit_or_reply(SAR, "**- لـم استطـع العثــور ع الشخــص ؟!**")
+        return await edit_or_reply(zed, "**- لـم استطـع العثــور ع الشخــص ؟!**")
     message_id_to_reply = event.message.reply_to_msg_id
     if not message_id_to_reply:
         message_id_to_reply = None
@@ -188,12 +206,12 @@ async def who(event):
         )
         if not photo.startswith("http"):
             os.remove(photo)
-        await SAR.delete()
+        await zed.delete()
     except TypeError:
-        await SAR.edit(caption, parse_mode="html")
+        await zed.edit(caption, parse_mode="html")
 
 
-@SARub.SAR_cmd(
+@zedub.zed_cmd(
     pattern="صورته(?:\s|$)([\s\S]*)",
     command=("صورته", plugin_category),
     info={

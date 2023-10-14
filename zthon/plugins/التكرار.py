@@ -21,7 +21,7 @@ plugin_category = "الخدمات"
 SPAM = gvarstatus(" Z_SPAM") or "(مؤقت|تلقائي)"
 UNSPAM = gvarstatus("Z_UNSPAM") or "ايقاف مؤقت"
 
-zelzalSP_cmd = (
+ZelzalSP_cmd = (
     "𓆩 [𝗦𝗼𝘂𝗿𝗰𝗲 𝗛𝗨𝗡𝗧𝗘𝗥𝗧𝗛𝗢𝗡  - اوامـر السبـام والتكـرار](t.me/HunerThon) 𓆪\n\n"
     "`.كرر` + عـدد + كلمـه\n"
     "**⪼ لـ تكـرار كلمـه معينـه لعـدد معيـن من المـرات**\n\n"
@@ -310,7 +310,7 @@ async def tmeme(event):
 
 @zedub.zed_cmd(
     pattern=f"{SPAM} ([\s\S]*)",
-    command=("نشر تلقائي", plugin_category),
+    command=("تلقائي", plugin_category),
     info={
         "header": "لـ تكـرار نص لوقت معين وعدد معين من المـرات",
         "الاستخـدام": [
@@ -402,6 +402,7 @@ async def spammer(event):
 
 
 
+# Copyright (C) 2022 Zed-Thon . All Rights Reserved
 @zedub.zed_cmd(pattern="التكرار")
 async def cmd(zelzallll):
-    await edit_or_reply(zelzallll, zelzalSP_cmd)
+    await edit_or_reply(zelzallll, ZelzalSP_cmd)

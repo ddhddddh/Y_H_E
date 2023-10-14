@@ -1,11 +1,11 @@
 from telethon import events
 from asyncio import sleep
 import os, sys, random, re
-from hunthon import sarub
+from zthon import zedub
 from ..core.managers import edit_delete, edit_or_reply
  
 
-@sarub.sar_cmd(pattern="همسه ?(.*)")
+@zedub.zed_cmd(pattern="همسه ?(.*)")
 async def wspr(event):
     if event.fwd_from:
         return

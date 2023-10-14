@@ -2,12 +2,12 @@ import io
 import sys
 import traceback
 
-from . import sarub, edit_or_reply
+from . import zedub, edit_or_reply
 
 plugin_category = "الادوات"
 
 
-@sarub.sar_cmd(
+@zedub.zed_cmd(
     pattern="احسب ([\s\S]*)",
     command=("احسب", plugin_category),
     info={

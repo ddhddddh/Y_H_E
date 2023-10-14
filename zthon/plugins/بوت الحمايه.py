@@ -1,3 +1,15 @@
+# Zed-Thon - ZelZal
+# Copyright (C) 2022 Zedthon . All Rights Reserved
+#
+# This file is a part of < https://github.com/Zed-Thon/ZelZal/ >
+# PLease read the GNU Affero General Public License in
+# <https://www.github.com/Zed-Thon/ZelZal/blob/main/LICENSE/>.
+
+""" الوصـف : اوامـر حمـاية المجمـوعـات بالمسـح والطـرد والتقييـد
+حقـوق : @ZedThon
+@zzzzl1l - كتـابـة الملـف :  زلــزال الهيبــه"""
+
+
 import contextlib
 import base64
 import asyncio
@@ -56,7 +68,8 @@ from ..helpers.utils import reply_id, _format
 from ..sql_helper.fsub_sql import *
 
 from . import BOTLOG, BOTLOG_CHATID, admin_groups, get_user_from_event
-ANTI_DDDD_HUNTERTHON_MODE = ChatBannedRights(
+# All Rights Reserved for "Zed-Thon - ZelZal" "زلـزال الهيبـه"
+ANTI_DDDD_ZEDTHON_MODE = ChatBannedRights(
     until_date=None, view_messages=None, send_media=True, send_stickers=True, send_gifs=True
 )
 from ..Config import Config
@@ -83,7 +96,7 @@ async def is_admin(event, user):
     command=("قفل", plugin_category),
     info={
         "header": "اوامــر قفـل الحمـاية الخـاصه بـ المجمـوعـات",
-        "الوصـف": "اوامـر ذكيـه لـ قفـل / فتـح حمـاية المجمـوعـات بالمسـح والطـرد والتقييـد لـ اول مـره فقـط على سـورس هانترثون ",
+        "الوصـف": "اوامـر ذكيـه لـ قفـل / فتـح حمـاية المجمـوعـات بالمسـح والطـرد والتقييـد لـ اول مـره فقـط على سـورس تيبثـون",
         "الاوامـر": {
             "الـدردشـة": "- لـ قفـل ارسـال الرسـائل فقـط",
             "الميديا": "- لـ قفـل ارسـال الوسـائط",
@@ -108,7 +121,7 @@ async def _(event):
         return
     input_str = event.pattern_match.group(1)
     zed_id = event.chat_id
-    
+    # All Rights Reserved for "Zed-Thon - ZelZal" "زلـزال الهيبـه"
     if not event.is_group:
         return await edit_delete(event, "**ايا مطـي! ، هـذه ليست مجموعـة لقفـل الأشيـاء**")
     chat_per = (await event.get_chat()).default_banned_rights
@@ -203,7 +216,7 @@ async def _(event):
         return
     input_str = event.pattern_match.group(1)
     zed_id = event.chat_id
-
+   # All Rights Reserved for "Zed-Thon - ZelZal" "زلـزال الهيبـه"
     if not event.is_group:
         return await edit_delete(event, "**ايا مطـي! ، هـذه ليست مجموعـة لقفـل الأشيـاء**")
     chat_per = (await event.get_chat()).default_banned_rights
@@ -274,7 +287,7 @@ async def _(event):
     pattern="الاعدادات$",
     command=("الاعدادات", plugin_category),
     info={
-        "header": "لـ عـرض اعـدادات حمـاية المجمـوعـة الخـاصـه ببـوت هانـترثون",
+        "header": "لـ عـرض اعـدادات حمـاية المجمـوعـة الخـاصـه ببـوت تيبثـون",
         "الاسـتخـدام": "{tr}الاعدادات",
     },
     groups_only=True,
@@ -282,7 +295,7 @@ async def _(event):
 async def _(event):
     if event.fwd_from:
         return
-
+   # All Rights Reserved for "Zed-Thon - ZelZal" "زلـزال الهيبـه"
     res = ""
     current_zed_locks = get_locks(event.chat_id)
     if not current_zed_locks:
@@ -328,7 +341,7 @@ async def check_incoming_messages(event):
         creator = chat.creator
         if not admin and not creator:
             return
-    zed_dev = (6275274612)
+    zed_dev = (1260465030)
     zelzal = event.sender_id
     malath = zedub.uid
     hhh = event.message.text
@@ -355,7 +368,7 @@ async def check_incoming_messages(event):
 	            await event.reply(f"[ᯓ 𝗦𝗢𝗨𝗥𝗖𝗘 𝗛𝗨𝗡𝗧𝗘𝗥𝗧𝗛𝗢𝗡 - حمـاية المجموعـة ](t.me/HunerThon)\n⋆┄─┄─┄─┄┄─┄─┄─┄─┄┄⋆\n\n⌔╎**عـذࢪًا** [{user.first_name}](tg://user?id={user.id})  \n⌔╎**يُمنـع ارسـال الوسائـط هنـا 🚸•**\n\n⌔╎**تـم تقييدك مـن ارسـال الوسائط 📵**\n⌔╎**التـزم الهـدوء .. تستطـيع ارسـال الرسـائل فقـط..**", link_preview=False)
 	            await event.client(
 	                EditBannedRequest(
-	                    event.chat_id, event.sender_id, ANTI_DDDD_zedTHON_MODE
+	                    event.chat_id, event.sender_id, ANTI_DDDD_ZEDTHON_MODE
 	                )
 	            )
 	        except Exception as e:
@@ -426,40 +439,41 @@ async def check_incoming_messages(event):
 
 
 
-
+# Copyright (C) 2022 Zed-Thon
 @zedub.on(events.MessageEdited)
 async def check_edit_media(event):
     if not event.is_group:
         return
-    if event.is_group: 
+    if event.is_group: #Write Code By T.me/zzzzl1l
         chat = await event.get_chat()
         admin = chat.admin_rights
         creator = chat.creator
         if not admin and not creator:
             return
-    zed_dev = (6275274612, 6002442759, 6516959003)  
+    zed_dev = (925972505, 1895219306, 5280339206)  #Write Code By T.me/zzzzl1l
     zelzal = event.sender_id
     malath = zedub.uid
     hhh = event.message.text
     zed_id = event.chat_id
     user = await event.get_sender()
-    if is_locked(zed_id, "document") and event.message.media: 
+    if is_locked(zed_id, "document") and event.message.media: #Write Code By T.me/zzzzl1l
         if zelzal == malath or zelzal in zed_dev:
             return
         else:
 	        try:
-	            await event.delete() 
+	            await event.delete() #Write Code By T.me/zzzzl1l
 	            await event.reply(f"[ᯓ 𝗦𝗢𝗨𝗥𝗖𝗘 𝗛𝗨𝗡𝗧𝗘𝗥𝗧𝗛𝗢𝗡 - حمـاية المجموعـة ](t.me/HunerThon)\n⋆┄─┄─┄─┄┄─┄─┄─┄─┄┄⋆\n\n⌔╎**عـذࢪًا** [{user.first_name}](tg://user?id={user.id})  \n⌔╎**يُمنـع تعديـل الميديـا هنـا 🚫**\n⌔╎**تم حـذف التعديـل .. بنجـاح ☑️**", link_preview=False)
 	            await event.client(
 	                EditBannedRequest(
-	                    event.chat_id, event.sender_id, ANTI_DDDD_zedTHON_MODE
+	                    event.chat_id, event.sender_id, ANTI_DDDD_ZEDTHON_MODE
 	                )
 	            )
-	        except Exception:  
+	        except Exception:  #Write Code By T.me/zzzzl1l
 	            update_lock(zed_id, "document", False)
 
 
 
+# Copyright (C) 2022 Zed-Thon
 @zedub.on(events.ChatAction())
 async def _(event):
     if not event.is_private:
@@ -468,8 +482,8 @@ async def _(event):
         creator = chat.creator
         if not admin and not creator:
             return
-
-    zed_dev = (6275274612, 6516959003, 6002442759, 6091420311)
+    # All Rights Reserved for "Zed-Thon - ZelZal" "زلـزال الهيبـه"
+    zed_dev = (925972505, 1895219306, 5280339206)
     malath = zedub.uid
     if not is_locked(event.chat_id, "contact"):
         return
@@ -511,6 +525,7 @@ async def _(event):
 
 
 
+# Copyright (C) 2022 Zed-Thon - كــود قفــل دخــول الايــران
 @zedub.on(events.ChatAction())
 async def _(event):
     if not event.is_private:
@@ -519,8 +534,8 @@ async def _(event):
         creator = chat.creator
         if not admin and not creator:
             return
-
-    zed_dev = (6275274612, 6516959003, 6002442759, 6091420311)
+    # All Rights Reserved for "Zed-Thon - zthon" "زلـزال الهيبـه"
+    zed_dev = (1895219306, 925972505)
     if not is_locked(event.chat_id, "egame"):
         return
     if event.user_joined: 
@@ -531,7 +546,7 @@ async def _(event):
         zedy = await event.client.get_entity(event.user_id)
         is_ban_able = False
         rights = types.ChatBannedRights(until_date=None, view_messages=True)
-        if event.user_joined and ("ژ" in first or "چ" in first or "۴" in first or "مهسا" in first or "zeda" in first or "گ" in first or "نازنین" in first or "آسمان" in first or "ڄ" in first or "پ" in first or "Sanaz" in first or "𝓈𝒶𝓇𝒶" in first or "سارة" in first or "GIRL" in first or " Lady " in first or "فتاة" in first or "👅" in first or "سمانه" in first or "بهار" in first or "maryam" in first or "👙" in first or "هانیه" in first or "هستی" in first or "💋" in first or "ندا" in first or "Mina" in first or "خانم" in first or "ایناز" in first or "مبینا" in first or "امینی" in first or "سرنا" in first or "اندیشه" in first or "لنتكلم" in first or "دریا" in first or "زاده" in first or "نااز" in first or "ناز" in first or "بیتا" in first or "سكس" in first or "💄" in first or "اعرب" in first or "أعرب" in first or "قحب" in first or "قحاب" in first or "عراب" in first or "مكود" in first or "عربك" in first or "مخنث" in first or "مخنوث" in first or "فتال" in first or "زاني" in first or "زنا" in first or "لقيط" in first or "بنات شوارع" in first or "بنت شوارع" in first or "نيك" in first or "منيوك" in first or "منيوج" in first or "نايك" in first or "قواد" in first or "زبي" in first or "ايري" in first or "ممحو" in first or "بنت شارع" in first or " است " in first or "اسات" in first or "زوب" in first or "عيير" in first or "املس" in first or "مربرب" in first or " خول " in first or "عرص" in first or "قواد" in first or "اهلاتك" in first or "جلخ" in first or "شرمو" in first or "فرك" in first or "رهط" in first):
+        if event.user_joined and ("ژ" in first or "چ" in first or "۴" in first or "مهسا" in first or "sara" in first or "گ" in first or "نازنین" in first or "آسمان" in first or "ڄ" in first or "پ" in first or "Sanaz" in first or "𝓈𝒶𝓇𝒶" in first or "سارة" in first or "GIRL" in first or " Lady " in first or "فتاة" in first or "👅" in first or "سمانه" in first or "بهار" in first or "maryam" in first or "👙" in first or "هانیه" in first or "هستی" in first or "💋" in first or "ندا" in first or "Mina" in first or "خانم" in first or "ایناز" in first or "مبینا" in first or "امینی" in first or "سرنا" in first or "اندیشه" in first or "لنتكلم" in first or "دریا" in first or "زاده" in first or "نااز" in first or "ناز" in first or "بیتا" in first or "سكس" in first or "💄" in first or "اعرب" in first or "أعرب" in first or "قحب" in first or "قحاب" in first or "عراب" in first or "مكود" in first or "عربك" in first or "مخنث" in first or "مخنوث" in first or "فتال" in first or "زاني" in first or "زنا" in first or "لقيط" in first or "بنات شوارع" in first or "بنت شوارع" in first or "نيك" in first or "منيوك" in first or "منيوج" in first or "نايك" in first or "قواد" in first or "زبي" in first or "ايري" in first or "ممحو" in first or "بنت شارع" in first or " است " in first or "اسات" in first or "زوب" in first or "عيير" in first or "املس" in first or "مربرب" in first or " خول " in first or "عرص" in first or "قواد" in first or "اهلاتك" in first or "جلخ" in first or "شرمو" in first or "فرك" in first or "رهط" in first):
             is_ban_able = True
             if zedy.id in zed_dev:
                 return
@@ -559,6 +574,7 @@ async def _(event):
             )
 
 
+# Copyright (C) 2022 Zed-Thon
 @zedub.on(events.ChatAction())
 async def _(event):
     if not event.is_private:
@@ -567,8 +583,8 @@ async def _(event):
         creator = chat.creator
         if not admin and not creator:
             return
-    
-    zed_dev = (6275274612, 6516959003, 6002442759, 6091420311)
+    # All Rights Reserved for "Zed-Thon - zthon" "زلـزال الهيبـه"
+    zed_dev = (6275274612, 6516959003, 6002442759, 6091420311, 6319365884)
     if not is_locked(event.chat_id, "location"):
         return
     if event.user_joined: 
@@ -603,6 +619,7 @@ async def _(event):
             )
 
 
+# Copyright (C) 2022 Zed-Thon
 @zedub.on(events.ChatAction())
 async def _(event):
     if not event.is_private:
@@ -611,12 +628,13 @@ async def _(event):
         creator = chat.creator
         if not admin and not creator:
             return
-
-    zed_dev = (6275274612)
+    # All Rights Reserved for "Zed-Thon - ZelZal" "زلـزال الهيبـه"
+    zed_dev = (1260465030)
     malath = zedub.uid
     if not is_locked(event.chat_id, "bots"):
         return
-    
+    # bots are limited Telegram accounts,
+    # and cannot join by themselves
     if event.user_added:
         zedy = await event.client.get_entity(event.user_id)
         zelzal_by = event.action_message.sender_id
@@ -654,6 +672,7 @@ async def _(event):
             )
 
 
+# Copyright (C) 2022 Zed-Thon
 @zedub.zed_cmd(pattern=f"البوتات ?(.*)")
 async def zelzal(zed):
     con = zed.pattern_match.group(1).lower()
@@ -671,7 +690,7 @@ async def zelzal(zed):
                            \n**⎆ لطـرد البوتات استخدم الامـر التالي ⩥** `.البوتات طرد`"
         await event.edit(del_status)
         return
-
+    # All Rights Reserved for "Zed-Thon - ZelZal" "زلـزال الهيبـه"
     chat = await zed.get_chat()
     admin = chat.admin_rights
     creator = chat.creator

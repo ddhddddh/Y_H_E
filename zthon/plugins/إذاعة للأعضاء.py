@@ -1,3 +1,10 @@
+# Zed-Thon
+# Copyright (C) 2023 Zed-Thon . All Rights Reserved
+#
+# This file is a part of < https://github.com/Zed-Thon/ZelZal/ >
+# PLease read the GNU Affero General Public License in
+# <https://www.github.com/Zed-Thon/ZelZal/blob/master/LICENSE/>.
+
 import asyncio
 import requests
 import logging
@@ -8,7 +15,7 @@ from telethon.errors import UserAdminInvalidError
 from telethon import events
 from telethon.tl.functions.channels import GetParticipantRequest
 
-from . importsarub
+from . import zedub
 
 from ..Config import Config
 from ..core.logger import logging
@@ -23,32 +30,39 @@ LOGS = logging.getLogger(__name__)
 
 spam_chats = []
 
-
+# =========================================================== #
+#                           Zthon                           #
+# =========================================================== #
 Warn = "hhh"
-zedthon_BEST_SOURCE = "[ᯓ 𝗛𝗨𝗡𝗧𝗘𝗥𝗧𝗛𝗢𝗡 𝗨𝘀𝗲𝗿𝗯𝗼𝘁 - اذاعـة خـاص 🚹](t.me/HunerThon) .\n\n**- جـارِ الاذاعـه خـاص لـ أعضـاء الكـروب 🛗\n- الرجـاء الانتظـار .. لحظـات ⏳**"
-zedthon_PRO_SOURCE = "[ᯓ 𝗛𝗨𝗡𝗧𝗘𝗥𝗧𝗛𝗢𝗡 𝗨𝘀𝗲𝗿𝗯𝗼𝘁 - اذاعـة زاجـل 🕊](t.me/HunerThon) .\n\n**- جـارِ الاذاعـه لـ قائمـة زاجـل 📜\n- الرجـاء الانتظـار .. لحظـات ⏳**"
-zelzal_PRO_DEV = "[ᯓ 𝗛𝗨𝗡𝗧𝗘𝗥𝗧𝗛𝗢𝗡 𝗨𝘀𝗲𝗿𝗯𝗼𝘁 - اذاعـة زاجـل 🕊](t.me/HunerThon) .\n⋆┄─┄─┄─┄┄─┄─┄─┄─┄┄⋆\n**⎉╎قائمـة الاذاعـه فـارغـه ؟! ❌**\n**⎉╎قم باضافـة يوزرات عبـر الامر**\n`.اضفـ زاجل` **بالـرد ع عدة يوزرات تفـصل بينهم مسـافـات**"
+ZEDTHON_BEST_SOURCE = "[ᯓ 𝗛𝗨𝗡𝗧𝗘𝗥𝗧𝗛𝗢𝗡 𝗨𝘀𝗲𝗿𝗯𝗼𝘁 - اذاعـة خـاص 🚹](t.me/HunerThon) .\n\n**- جـارِ الاذاعـه خـاص لـ أعضـاء الكـروب 🛗\n- الرجـاء الانتظـار .. لحظـات ⏳**"
+ZEDTHON_PRO_SOURCE = "[ᯓ 𝗛𝗨𝗡𝗧𝗘𝗥𝗧𝗛𝗢𝗡 𝗨𝘀𝗲𝗿𝗯𝗼𝘁 - اذاعـة زاجـل 🕊](t.me/HunerThon) .\n\n**- جـارِ الاذاعـه لـ قائمـة زاجـل 📜\n- الرجـاء الانتظـار .. لحظـات ⏳**"
+ZELZAL_PRO_DEV = "[ᯓ 𝗛𝗨𝗡𝗧𝗘𝗥𝗧𝗛𝗢𝗡 𝗨𝘀𝗲𝗿𝗯𝗼𝘁 - اذاعـة زاجـل 🕊](t.me/HunerThon) .\n⋆┄─┄─┄─┄┄─┄─┄─┄─┄┄⋆\n**⎉╎قائمـة الاذاعـه فـارغـه ؟! ❌**\n**⎉╎قم باضافـة يوزرات عبـر الامر**\n`.اضفـ زاجل` **بالـرد ع عدة يوزرات تفـصل بينهم مسـافـات**"
+# =========================================================== #
+#                                      زلـــزال الهيبـــه - T.me/zzzzl1l                                  #
+# =========================================================== #
+#                                      تـاريـخ كتابـة الملـفـ - 7 ابريل/2023                                  #
+# =========================================================== #
 
 
 @zedub.zed_cmd(pattern=f"للكل(?: |$)(.*)", groups_only=True)
 async def malath(event):
-    zedthon= event.pattern_match.group(1)
-    ifzedthon:
+    zedthon = event.pattern_match.group(1)
+    if zedthon:
         await edit_or_reply(event, "**⎉╎بالـࢪد ؏ــلى ࢪســالة أو وسـائـط**")
         return
     elif event.is_reply:
-       zelzal = await event.get_reply_message()
+        zilzal = await event.get_reply_message()
     else:
         await edit_or_reply(event, "**⎉╎بالـࢪد ؏ــلى ࢪســالة أو وسـائـط**")
         return
     chat_id = event.chat_id
     is_admin = False
     try:
-        awaitsarub(GetParticipantRequest(event.chat_id, event.sender_id))
+        await zedub(GetParticipantRequest(event.chat_id, event.sender_id))
     except UserNotParticipantError:
         pass
     spam_chats.append(chat_id)
-    zelzal = await event.edit(HUNTHON_BEST_SOURCE, link_preview=False)
+    zelzal = await event.edit(ZEDTHON_BEST_SOURCE, link_preview=False)
     total = 0
     success = 0
     async for usr in event.client.iter_participants(event.chat_id):
@@ -60,9 +74,9 @@ async def malath(event):
         if str(username) == "None":
             idofuser = usr.id
             magtxt = f"{idofuser}"
-        ifzelzal.text:
+        if zilzal.text:
             try:
-                await borg.send_message(magtxt,zelzal, link_preview=False)
+                await borg.send_message(magtxt, zilzal, link_preview=False)
                 success += 1
             except BaseException:
                 return
@@ -70,15 +84,15 @@ async def malath(event):
             try:
                 await borg.send_file(
                     magtxt,
-                   zelzal,
+                    zilzal,
                     caption=zilzal.caption,
                     link_preview=False,
                 )
                 success += 1
             except BaseException:
                 return
-    zelzal_BEST_DEV = f"[ᯓ 𝗛𝗨𝗡𝗧𝗘𝗥𝗧𝗛𝗢𝗡 𝗨𝘀𝗲𝗿𝗯𝗼𝘁 - اذاعـة خـاص 🚹](t.me/HunerThon) .\n\n**⎉╎تمت الاذاعـه لـ اعضـاء الكـروب .. بنجـاح  ✅**\n**⎉╎عـدد {success} عضـو**"
-    await zelzal.edit(zelzal_BEST_DEV, link_preview=False)
+    ZELZAL_BEST_DEV = f"[ᯓ 𝗛𝗨𝗡𝗧𝗘𝗥𝗧𝗛𝗢𝗡 𝗨𝘀𝗲𝗿𝗯𝗼𝘁 - اذاعـة خـاص 🚹](t.me/HunerThon) .\n\n**⎉╎تمت الاذاعـه لـ اعضـاء الكـروب .. بنجـاح  ✅**\n**⎉╎عـدد {success} عضـو**"
+    await zelzal.edit(ZELZAL_BEST_DEV, link_preview=False)
     try:
         spam_chats.remove(chat_id)
     except:
@@ -98,45 +112,47 @@ async def unmalath(event):
 
 
 
-
+#                                       تـاريـخ كتابـة الكـود - 19 ابريل/2023                                  #
+#                                        الملفـ كتابتي من الصفـر ومتعوب عليه                                  #
+#                                           تخمط بدون ذكر المصدر = اهينك                                     #
 @zedub.zed_cmd(pattern="زاجل(?: |$)(.*)")
 async def malath(event):
-    zedthon= event.pattern_match.group(1)
-    ifzedthon:
+    zedthon = event.pattern_match.group(1)
+    if zedthon:
         await edit_or_reply(event, "**⎉╎بالـࢪد ؏ــلى ࢪســالة أو وسـائـط**")
         return
-   zelzal = await event.get_reply_message()
+    zilzal = await event.get_reply_message()
     if gvarstatus("ZAGL_Zed") is None:
-        return await event.edit(zelzal_PRO_DEV, link_preview=False)
+        return await event.edit(ZELZAL_PRO_DEV, link_preview=False)
     zelzal = gvarstatus("ZAGL_Zed")
     users = zelzal.split(" ")
-    zzz = await event.edit(HUNTHON_PRO_SOURCE, link_preview=False)
+    zzz = await event.edit(ZEDTHON_PRO_SOURCE, link_preview=False)
     total = 0
     success = 0
     user_entity = None
     for user in users:
         total += 1
-        ifzelzal.text:
+        if zilzal.text:
             try:
-                user_entity = awaitsarub.get_entity(user)
+                user_entity = await zedub.get_entity(user)
                 if user_entity.bot or user_entity.deleted:
                     continue
-                awaitsarub.send_message(user_entity.id,zelzal, link_preview=False)
+                await zedub.send_message(user_entity.id, zilzal, link_preview=False)
                 success += 1
             except UserAdminInvalidError:
                 pass
             except Exception as e:
                 zzz.edit(f"خطـأ فـي إرسـال الرسـالة إلــى {user_entity.id}: {str(e)}")
-        elifzelzal.media:
+        elif zilzal.media:
             try:
-                user_entity = awaitsarub.get_entity(user)
+                user_entity = await zedub.get_entity(user)
                 if user_entity.bot or user_entity.deleted:
                     continue
-                awaitsarub.send_file(user_entity.id,zelzal.media, caption=zilzal.text)
+                await zedub.send_file(user_entity.id, zilzal.media, caption=zilzal.text)
                 success += 1
             except UserAdminInvalidError:
                 pass
             except Exception as e:
                 zzz.edit(f"خطـأ فـي إرسـال الرسـالة إلــى {user_entity.id}: {str(e)}")
-    zelzal_BEST_DEV = f"[ᯓ 𝗛𝗨𝗡𝗧𝗘𝗥𝗧𝗛𝗢𝗡 𝗨𝘀𝗲𝗿𝗯𝗼𝘁 - اذاعـة زاجـل 🕊](t.me/HunerThon) .\n⋆┄─┄─┄─┄┄─┄─┄─┄─┄┄⋆\n**⎉╎تمت الاذاعـه .. بنجـاح  ✅**\n**⎉╎عـدد {success} أشخـاص**"
-    await zzz.edit(zelzal_BEST_DEV, link_preview=False)
+    ZELZAL_BEST_DEV = f"[ᯓ 𝗛𝗨𝗡𝗧𝗘𝗥𝗧𝗛𝗢𝗡 𝗨𝘀𝗲𝗿𝗯𝗼𝘁 - اذاعـة زاجـل 🕊](t.me/HunerThon) .\n⋆┄─┄─┄─┄┄─┄─┄─┄─┄┄⋆\n**⎉╎تمت الاذاعـه .. بنجـاح  ✅**\n**⎉╎عـدد {success} أشخـاص**"
+    await zzz.edit(ZELZAL_BEST_DEV, link_preview=False)

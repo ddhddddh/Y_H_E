@@ -7,14 +7,14 @@ import re
 import time
 from datetime import datetime
 
-from hunthon import sarub
-from hunthon.core.logger import logging
+from zthon import zedub
+from zthon.core.logger import logging
 
 from ..Config import Config
 from ..core.managers import edit_delete, edit_or_reply
 from ..helpers import (
-    _sartools,
-    _sarutils,
+    _zedtools,
+    _zedutils,
     fileinfo,
     humanbytes,
     media_type,
@@ -29,7 +29,7 @@ plugin_category = "الادوات"
 
 thumb_image_path = os.path.join(Config.TMP_DOWNLOAD_DIRECTORY, "thumb_image.jpg")
 FF_MPEG_DOWN_LOAD_MEDIA_PATH = os.path.join(
-    Config.TMP_DOWNLOAD_DIRECTORY, "sarzthon.media.ffmpeg"
+    Config.TMP_DOWNLOAD_DIRECTORY, "zedzthon.media.ffmpeg"
 )
 FINISHED_PROGRESS_STR = Config.FINISHED_PROGRESS_STR
 UN_FINISHED_PROGRESS_STR = Config.UNFINISHED_PROGRESS_STR
@@ -128,7 +128,7 @@ async def cult_small_video(
     return None
 
 
-@sarub.sar_cmd(
+@zedub.zed_cmd(
     pattern="(|ا)ضغط(?:\s|$)([\s\S]*)",
     command=("ضغط", plugin_category),
     info={
@@ -159,14 +159,14 @@ async def ffmpeg_compress(event):
     start = datetime.now()
     if not crf:
         crf = "23"
-    dlpath = os.path.join(Config.TMP_DOWNLOAD_DIRECTORY, "sar.media.ffmpeg")
+    dlpath = os.path.join(Config.TMP_DOWNLOAD_DIRECTORY, "zed.media.ffmpeg")
     if not reply_message or not reply_message.media:
         if os.path.exists(FF_MPEG_DOWN_LOAD_MEDIA_PATH):
             media = (await fileinfo(FF_MPEG_DOWN_LOAD_MEDIA_PATH))["type"]
             if media not in ["Video"]:
                 return await edit_delete(event, "**- الامـر يدعـم فقـط ملفـات الفيـديـو . . .**")
             dlpath = FF_MPEG_DOWN_LOAD_MEDIA_PATH
-            sarevent = await edit_or_reply(event, "**- جـارِ ضغـط ملـف الفيـديـو . . .**")
+            zedevent = await edit_or_reply(event, "**- جـارِ ضغـط ملـف الفيـديـو . . .**")
             delete = False
         else:
             await edit_delete(
@@ -176,7 +176,7 @@ async def ffmpeg_compress(event):
         media = media_type(reply_message)
         if media not in ["Video", "Round Video", "Gif"]:
             return await edit_delete(event, "**- الامـر يدعـم فقـط ملفـات الفيـديـو . . .**")
-        sarevent = await edit_or_reply(event, "**- جـارِ حفـظ المـلف . . .**")
+        zedevent = await edit_or_reply(event, "**- جـارِ حفـظ المـلف . . .**")
         try:
             c_time = time.time()
             dl = io.FileIO(dlpath, "a")
@@ -184,14 +184,14 @@ async def ffmpeg_compress(event):
                 location=reply_message.document,
                 out=dl,
                 progress_callback=lambda d, t: asyncio.get_event_loop().create_task(
-                    progress(d, t, sarevent, c_time, "**- جـاِ التنـزيـل . . .**")
+                    progress(d, t, zedevent, c_time, "**- جـاِ التنـزيـل . . .**")
                 ),
             )
             dl.close()
         except Exception as e:
-            await edit_or_reply(sarevent, f"**- خطـأ :**\n`{e}`")
+            await edit_or_reply(zedevent, f"**- خطـأ :**\n`{e}`")
         else:
-            await edit_or_reply(sarevent, "**- جـارِ ضغـط ملـف الفيـديـو . . .**")
+            await edit_or_reply(zedevent, "**- جـارِ ضغـط ملـف الفيـديـو . . .**")
             delete = True
     else:
         await edit_delete(event, "**- بالـرد ع فيـديـو . . .**")
@@ -200,7 +200,7 @@ async def ffmpeg_compress(event):
         os.mkdir("./temp")
     cstart = datetime.now()
     compress = await convert_video(
-        dlpath, "./temp", crf, old["duration"], sarub, sarevent
+        dlpath, "./temp", crf, old["duration"], zedub, zedevent
     )
     cend = datetime.now()
     cms = (cend - cstart).seconds
@@ -224,14 +224,14 @@ async def ffmpeg_compress(event):
                     allow_cache=False,
                     reply_to=reply_to_id,
                     progress_callback=lambda d, t: asyncio.get_event_loop().create_task(
-                        progress(d, t, sarevent, c_time, "**- جـارِ الرفـع . . .**")
+                        progress(d, t, zedevent, c_time, "**- جـارِ الرفـع . . .**")
                     ),
                 )
                 os.remove(compress)
             except Exception as e:
-                return await edit_delete(sarevent, f"**- خطـأ : **`{e}`")
+                return await edit_delete(zedevent, f"**- خطـأ : **`{e}`")
         else:
-            thumb = await _sartools.take_screen_shot(compress, "00:01")
+            thumb = await _zedtools.take_screen_shot(compress, "00:01")
             try:
                 c_time = time.time()
                 catt = await event.client.send_file(
@@ -244,22 +244,22 @@ async def ffmpeg_compress(event):
                     allow_cache=False,
                     reply_to=reply_to_id,
                     progress_callback=lambda d, t: asyncio.get_event_loop().create_task(
-                        progress(d, t, sarevent, c_time, "Trying to upload")
+                        progress(d, t, zedevent, c_time, "Trying to upload")
                     ),
                 )
                 os.remove(compress)
             except Exception as e:
-                return await edit_delete(sarevent, f"**- خطـأ : **`{e}`")
+                return await edit_delete(zedevent, f"**- خطـأ : **`{e}`")
     else:
-        return await edit_delete(sarevent, "**ERROR :: Unalble to Compress**")
-    await sarevent.delete()
+        return await edit_delete(zedevent, "**ERROR :: Unalble to Compress**")
+    await zedevent.delete()
     end = datetime.now()
     ms = (end - start).seconds
     cap += f"\n**- الاجمـالـي :** `{time_formatter(ms)}`"
     await edit_or_reply(catt, cap)
 
 
-@sarub.sar_cmd(
+@zedub.zed_cmd(
     pattern="ffmpegsave(?:\s|$)([\s\S]*)",
     command=("ffmpegsave", plugin_category),
     info={
@@ -276,7 +276,7 @@ async def ff_mpeg_trim_cmd(event):
             media = (await fileinfo(mpath))["type"]
             if media not in ["Video", "Audio"]:
                 return await edit_delete(event, "`Only media files are supported`", 5)
-            await _sarutils.runcmd(f"cp -r {mpath} {FF_MPEG_DOWN_LOAD_MEDIA_PATH}")
+            await _zedutils.runcmd(f"cp -r {mpath} {FF_MPEG_DOWN_LOAD_MEDIA_PATH}")
             return await edit_or_reply(
                 event, f"Saved file to `{FF_MPEG_DOWN_LOAD_MEDIA_PATH}`"
             )
@@ -286,7 +286,7 @@ async def ff_mpeg_trim_cmd(event):
             media = media_type(reply_message)
             if media not in ["Video", "Audio", "Voice", "Round Video", "Gif"]:
                 return await edit_delete(event, "`Only media files are supported`", 5)
-            sarevent = await edit_or_reply(event, "`Saving the file...`")
+            zedevent = await edit_or_reply(event, "`Saving the file...`")
             try:
                 c_time = time.time()
                 dl = io.FileIO(FF_MPEG_DOWN_LOAD_MEDIA_PATH, "a")
@@ -294,17 +294,17 @@ async def ff_mpeg_trim_cmd(event):
                     location=reply_message.document,
                     out=dl,
                     progress_callback=lambda d, t: asyncio.get_event_loop().create_task(
-                        progress(d, t, sarevent, c_time, "trying to download")
+                        progress(d, t, zedevent, c_time, "trying to download")
                     ),
                 )
                 dl.close()
             except Exception as e:
-                await edit_or_reply(sarevent, f"**Error:**\n`{e}`")
+                await edit_or_reply(zedevent, f"**Error:**\n`{e}`")
             else:
                 end = datetime.now()
                 ms = (end - start).seconds
                 await edit_or_reply(
-                    sarevent,
+                    zedevent,
                     f"Saved file to `{FF_MPEG_DOWN_LOAD_MEDIA_PATH}` in `{ms}` seconds.",
                 )
         else:
@@ -316,7 +316,7 @@ async def ff_mpeg_trim_cmd(event):
         )
 
 
-@sarub.sar_cmd(
+@zedub.zed_cmd(
     pattern="vtrim(?:\s|$)([\s\S]*)",
     command=("vtrim", plugin_category),
     info={
@@ -335,7 +335,7 @@ async def ff_mpeg_trim_cmd(event):
             f"a media file needs to be download, and save to the following path: `{FF_MPEG_DOWN_LOAD_MEDIA_PATH}`",
         )
     reply_to_id = await reply_id(event)
-    sarevent = await edit_or_reply(event, "`Triming the media......`")
+    zedevent = await edit_or_reply(event, "`Triming the media......`")
     current_message_text = event.raw_text
     cmt = current_message_text.split(" ")
     start = datetime.now()
@@ -350,7 +350,7 @@ async def ff_mpeg_trim_cmd(event):
         )
         if o is None:
             return await edit_delete(
-                sarevent, "**Error : **`Can't complete the process`"
+                zedevent, "**Error : **`Can't complete the process`"
             )
         try:
             c_time = time.time()
@@ -363,19 +363,19 @@ async def ff_mpeg_trim_cmd(event):
                 allow_cache=False,
                 reply_to=reply_to_id,
                 progress_callback=lambda d, t: asyncio.get_event_loop().create_task(
-                    progress(d, t, sarevent, c_time, "trying to upload")
+                    progress(d, t, zedevent, c_time, "trying to upload")
                 ),
             )
             os.remove(o)
         except Exception as e:
-            return await edit_delete(sarevent, f"**Error : **`{e}`")
+            return await edit_delete(zedevent, f"**Error : **`{e}`")
     elif len(cmt) == 2:
         # output should be image
         cmd, start_time = cmt
-        o = await _sartools.take_screen_shot(FF_MPEG_DOWN_LOAD_MEDIA_PATH, start_time)
+        o = await _zedtools.take_screen_shot(FF_MPEG_DOWN_LOAD_MEDIA_PATH, start_time)
         if o is None:
             return await edit_delete(
-                sarevent, "**Error : **`Can't complete the process`"
+                zedevent, "**Error : **`Can't complete the process`"
             )
         try:
             c_time = time.time()
@@ -388,21 +388,21 @@ async def ff_mpeg_trim_cmd(event):
                 allow_cache=False,
                 reply_to=event.message.id,
                 progress_callback=lambda d, t: asyncio.get_event_loop().create_task(
-                    progress(d, t, sarevent, c_time, "trying to upload")
+                    progress(d, t, zedevent, c_time, "trying to upload")
                 ),
             )
             os.remove(o)
         except Exception as e:
-            return await edit_delete(sarevent, f"**Error : **`{e}`")
+            return await edit_delete(zedevent, f"**Error : **`{e}`")
     else:
-        await edit_delete(sarevent, "RTFM")
+        await edit_delete(zedevent, "RTFM")
         return
     end = datetime.now()
     ms = (end - start).seconds
-    await edit_delete(sarevent, f"`Completed Process in {ms} seconds`", 3)
+    await edit_delete(zedevent, f"`Completed Process in {ms} seconds`", 3)
 
 
-@sarub.sar_cmd(
+@zedub.zed_cmd(
     pattern="atrim(?:\s|$)([\s\S]*)",
     command=("atrim", plugin_category),
     info={
@@ -423,7 +423,7 @@ async def ff_mpeg_trim_cmd(event):
             f"a media file needs to be download, and save to the following path: `{FF_MPEG_DOWN_LOAD_MEDIA_PATH}`",
         )
     reply_to_id = await reply_id(event)
-    sarevent = await edit_or_reply(event, "`Triming the media...........`")
+    zedevent = await edit_or_reply(event, "`Triming the media...........`")
     current_message_text = event.raw_text
     cmt = current_message_text.split(" ")
     start = datetime.now()
@@ -444,7 +444,7 @@ async def ff_mpeg_trim_cmd(event):
         out_put_file_name,
     )
     if o is None:
-        return await edit_delete(sarevent, "**Error : **`Can't complete the process`")
+        return await edit_delete(zedevent, "**Error : **`Can't complete the process`")
     try:
         c_time = time.time()
         await event.client.send_file(
@@ -456,18 +456,18 @@ async def ff_mpeg_trim_cmd(event):
             allow_cache=False,
             reply_to=reply_to_id,
             progress_callback=lambda d, t: asyncio.get_event_loop().create_task(
-                progress(d, t, sarevent, c_time, "trying to upload")
+                progress(d, t, zedevent, c_time, "trying to upload")
             ),
         )
         os.remove(o)
     except Exception as e:
-        return await edit_delete(sarevent, f"**Error : **`{e}`")
+        return await edit_delete(zedevent, f"**Error : **`{e}`")
     end = datetime.now()
     ms = (end - start).seconds
-    await edit_delete(sarevent, f"`Completed Process in {ms} seconds`", 3)
+    await edit_delete(zedevent, f"`Completed Process in {ms} seconds`", 3)
 
 
-@sarub.sar_cmd(
+@zedub.zed_cmd(
     pattern="ffmpegclear$",
     command=("ffmpegclear", plugin_category),
     info={

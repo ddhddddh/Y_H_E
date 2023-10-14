@@ -1,3 +1,4 @@
+# telegraph utils for ZThon
 import os
 import random
 import string
@@ -14,7 +15,7 @@ from ..Config import Config
 from ..core.logger import logging
 from ..core.managers import edit_delete, edit_or_reply
 from ..helpers.functions import delete_conv
-from . import BOTLOG, BOTLOG_CHATID, sarub, reply_id
+from . import BOTLOG, BOTLOG_CHATID, zedub, reply_id
 
 LOGS = logging.getLogger(__name__)
 
@@ -31,7 +32,7 @@ def resize_image(image):
     im.save(image, "PNG")
 
 
-@sarub.sar_cmd(
+@zedub.zed_cmd(
     pattern="(ت(ل)?ك(راف)?) ?(m|t|ميديا|نص)(?:\s|$)([\s\S]*)",
     command=("تلكراف", plugin_category),
     info={
@@ -52,7 +53,7 @@ def resize_image(image):
 )  # sourcery no-metrics
 async def _(event):
     "To get telegraph link."
-    sarevent = await edit_or_reply(event, "** ⪼ جاري المعالجه ༗...**")
+    zedevent = await edit_or_reply(event, "** ⪼ جاري المعالجه ༗...**")
     if BOTLOG:
         await event.client.send_message(
             BOTLOG_CHATID,
@@ -60,7 +61,7 @@ async def _(event):
         )
     optional_title = event.pattern_match.group(5)
     if not event.reply_to_msg_id:
-        return await sarevent.edit(
+        return await zedevent.edit(
             "`Reply to a message to get a permanent telegra.ph link.`",
         )
 
@@ -71,19 +72,19 @@ async def _(event):
         downloaded_file_name = await event.client.download_media(
             r_message, Config.TEMP_DIR
         )
-        await sarevent.edit(f"** ⪼ تم تحميل** {downloaded_file_name} **.. بنجـاح**")
+        await zedevent.edit(f"** ⪼ تم تحميل** {downloaded_file_name} **.. بنجـاح**")
         if downloaded_file_name.endswith((".webp")):
             resize_image(downloaded_file_name)
         try:
             media_urls = upload_file(downloaded_file_name)
         except exceptions.TelegraphException as exc:
-            await sarevent.edit(f"**- خطـأ : **\n`{exc}`")
+            await zedevent.edit(f"**- خطـأ : **\n`{exc}`")
             os.remove(downloaded_file_name)
         else:
             end = datetime.now()
             ms = (end - start).seconds
             os.remove(downloaded_file_name)
-            await sarevent.edit(
+            await zedevent.edit(
                 f"**⎉╎الــرابـط : ** [اضغــط هنـــا](https://graph.org{media_urls[0]})\
                     \n**⎉╎الـوقـت : **`{ms} seconds.`",
                 link_preview=True,
@@ -119,15 +120,15 @@ async def _(event):
             response = telegraph.create_page(title_of_page, html_content=page_content)
         end = datetime.now()
         ms = (end - start).seconds
-        sar = f"https://telegra.ph/{response['path']}"
-        await sarevent.edit(
-            f"**link : ** [telegraph]({sar})\
+        zed = f"https://telegra.ph/{response['path']}"
+        await zedevent.edit(
+            f"**link : ** [telegraph]({zed})\
                  \n**Time Taken : **`{ms} seconds.`",
             link_preview=True,
         )
 
 
-@sarub.sar_cmd(
+@zedub.zed_cmd(
     pattern="ctg(?: |$)([\s\S]*)",
     command=("ctg", plugin_category),
     info={
@@ -148,22 +149,22 @@ async def ctg(event):
     if not urls:
         return await edit_delete(event, "**There no link to search in the text..**", 20)
     chat = "@chotamreaderbot"
-    sarevent = await edit_or_reply(event, "```Processing...```")
+    zedevent = await edit_or_reply(event, "```Processing...```")
     async with event.client.conversation(chat) as conv:
         try:
             msg_flag = await conv.send_message(urls[0])
         except YouBlockedUserError:
             await edit_or_reply(
-                sarevent, "**Error:** Trying to unblock & retry, wait a sec..."
+                zedevent, "**Error:** Trying to unblock & retry, wait a sec..."
             )
-            await sarub(unblock("chotamreaderbot"))
+            await zedub(unblock("chotamreaderbot"))
             msg_flag = await conv.send_message(urls[0])
         response = await conv.get_response()
         await event.client.send_read_acknowledge(conv.chat_id)
         if response.text.startswith(""):
-            await edit_or_reply(sarevent, "Am I Dumb Or Am I Dumb?")
+            await edit_or_reply(zedevent, "Am I Dumb Or Am I Dumb?")
         else:
-            await sarevent.delete()
+            await zedevent.delete()
             await event.client.send_message(
                 event.chat_id, response, reply_to=reply_to_id, link_preview=True
             )

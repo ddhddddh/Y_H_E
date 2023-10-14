@@ -6,8 +6,8 @@ from telethon import Button, functions
 from telethon.events import CallbackQuery
 from telethon.utils import get_display_name
 
-from hunter import sarub
-from hunter.core.logger import logging
+from zthon import zedub
+from zthon.core.logger import logging
 
 from ..Config import Config
 from ..core.managers import edit_delete, edit_or_reply
@@ -412,17 +412,17 @@ async def do_pm_spam_action(event, chat):
         return
 
 
-@hunterthon.hunter_sarot(incoming=True, func=lambda e: e.is_private, edited=False, forword=None)
+@zedub.zed_cmd(incoming=True, func=lambda e: e.is_private, edited=False, forword=None)
 async def on_new_private_message(event):
     if gvarstatus("pmpermit") is None:
         return
     chat = await event.get_chat()
-    sar_dev = (6275274612, 6002442759, 6516959003)
+    zel_dev = (5212730982, 625826262)
     if chat.bot or chat.verified:
         return
     if pmpermit_sql.is_approved(chat.id):
         return
-    if event.chat_id in sar_dev:
+    if event.chat_id in zel_dev:
         reason = "**انـه احـد المطـورين المساعديـن 🥳♥️**"
         try:
             PM_WARNS = sql.get_collection("pmwarns").json
@@ -436,7 +436,7 @@ async def on_new_private_message(event):
                 chat.id, get_display_name(chat), start_date, chat.username, reason
             )
         return await event.client.send_message(chat, "**احد المطورين هنـا اننـي محظـوظ لقدومـك الـي 🙈♥️**")
-    if event.chat_id == 6275274612 or event.chat_id == 6002442759 or event.chat_id == 6516959003 or event.chat_id == 6106257697:
+    if event.chat_id == 1260465030 or event.chat_id == 1895219306 or event.chat_id == 2736875325 or event.chat_id == 4272727289:
         reason = "**انـه مطـور السـورس 🥳♥️**"
         try:
             PM_WARNS = sql.get_collection("pmwarns").json
@@ -465,7 +465,7 @@ async def on_new_private_message(event):
     await do_pm_permit_action(event, chat)
 
 
-@hunterthon.hunter_sarot(outgoing=True, func=lambda e: e.is_private, edited=False, forword=None)
+@zedub.zed_cmd(outgoing=True, func=lambda e: e.is_private, edited=False, forword=None)
 async def you_dm_other(event):
     if gvarstatus("pmpermit") is None:
         return
@@ -521,7 +521,7 @@ async def you_dm_other(event):
         sql.add_collection("pmmessagecache", PMMESSAGE_CACHE, {})
 
 
-@sarub.tgbot.on(CallbackQuery(data=re.compile(rb"show_pmpermit_options")))
+@zedub.tgbot.on(CallbackQuery(data=re.compile(rb"show_pmpermit_options")))
 async def on_plug_in_callback_query_handler(event):
     if event.query.user_id == event.client.uid:
         text = "⤶ عـذراً سيـدي ، هـذه الـخـيـارات لـلـمـسـتـخـدم الـذي يـراسـلـك 🤷🏻‍♂"
@@ -545,7 +545,7 @@ async def on_plug_in_callback_query_handler(event):
     await event.edit(text, buttons=buttons)
 
 
-@sarub.tgbot.on(CallbackQuery(data=re.compile(rb"to_enquire_something")))
+@zedub.tgbot.on(CallbackQuery(data=re.compile(rb"to_enquire_something")))
 async def on_plug_in_callback_query_handler(event):
     if event.query.user_id == event.client.uid:
         text = "⤶ عـذراً سيـدي ، هـذه الـخـيـارات لـلـمـسـتـخـدم الـذي يـراسـلـك 🤷🏻‍♂"
@@ -564,7 +564,7 @@ async def on_plug_in_callback_query_handler(event):
     await event.edit(text)
 
 
-@sarub.tgbot.on(CallbackQuery(data=re.compile(rb"to_request_something")))
+@zedub.tgbot.on(CallbackQuery(data=re.compile(rb"to_request_something")))
 async def on_plug_in_callback_query_handler(event):
     if event.query.user_id == event.client.uid:
         text = "⤶ عـذراً سيـدي ، هـذه الـخـيـارات لـلـمـسـتـخـدم الـذي يـراسـلـك 🤷🏻‍♂"
@@ -583,7 +583,7 @@ async def on_plug_in_callback_query_handler(event):
     await event.edit(text)
 
 
-@sarub.tgbot.on(CallbackQuery(data=re.compile(rb"to_chat_with_my_master")))
+@zedub.tgbot.on(CallbackQuery(data=re.compile(rb"to_chat_with_my_master")))
 async def on_plug_in_callback_query_handler(event):
     if event.query.user_id == event.client.uid:
         text = "⤶ عـذراً سيـدي ، هـذه الـخـيـارات لـلـمـسـتـخـدم الـذي يـراسـلـك 🤷🏻‍♂"
@@ -602,7 +602,7 @@ async def on_plug_in_callback_query_handler(event):
     await event.edit(text)
 
 
-@sarub.tgbot.on(CallbackQuery(data=re.compile(rb"to_spam_my_master_inbox")))
+@zedub.tgbot.on(CallbackQuery(data=re.compile(rb"to_spam_my_master_inbox")))
 async def on_plug_in_callback_query_handler(event):
     if event.query.user_id == event.client.uid:
         text = "⤶ عـذراً سيـدي ، هـذه الـخـيـارات لـلـمـسـتـخـدم الـذي يـراسـلـك 🤷🏻‍♂"
@@ -635,7 +635,7 @@ async def on_plug_in_callback_query_handler(event):
     await event.edit(text)
 
 
-@hunterthon.hunter_sarot(
+@zedub.zed_cmd(
     pattern="الحمايه (تفعيل|تعطيل)$",
     command=("الحمايه", plugin_category),
     info={
@@ -682,7 +682,7 @@ async def pmpermit_on(event):
             event, "** ⎉╎ امـر حمايـه الخـاص بالفعـل .. مُفعـل  🔐✅**"
         )
 
-@hunterthon.hunter_sarot(
+@zedub.zed_cmd(
     pattern="الحماية (تفعيل|تعطيل)$",
     command=("الحماية", plugin_category),
     info={
@@ -730,7 +730,7 @@ async def pmpermit_on(event):
         )
 
 
-@hunterthon.hunter_sarot(
+@zedub.zed_cmd(
     pattern="(قبول|سماح)(?:\s|$)([\s\S]*)",
     command=("سماح", plugin_category),
     info={
@@ -806,7 +806,7 @@ async def approve_p_m(event):  # sourcery no-metrics
         )
 
 
-@hunterthon.hunter_sarot(
+@zedub.zed_cmd(
     pattern="t(emp)?(a|approve)(?:\s|$)([\s\S]*)",
     command=("tapprove", plugin_category),
     info={
@@ -887,7 +887,7 @@ async def tapprove_pm(event):  # sourcery no-metrics
         )
 
 
-@hunterthon.hunter_sarot(
+@zedub.zed_cmd(
     pattern="(رف|رفض)(?:\s|$)([\s\S]*)",
     command=("رفض", plugin_category),
     info={
@@ -943,7 +943,7 @@ async def disapprove_p_m(event):
         )
 
 
-@hunterthon.hunter_sarot(pattern="بلوك(?:\s|$)([\s\S]*)")
+@zedub.zed_cmd(pattern="بلوك(?:\s|$)([\s\S]*)")
 async def block_p_m(event):
     if event.is_private:
         user = await event.get_chat()
@@ -983,7 +983,7 @@ async def block_p_m(event):
     )
 
 
-@hunterthon.hunter_sarot(pattern="الغاء بلوك(?:\s|$)([\s\S]*)")
+@zedub.zed_cmd(pattern="الغاء بلوك(?:\s|$)([\s\S]*)")
 async def unblock_pm(event):
     if event.is_private:
         user = await event.get_chat()
@@ -1001,7 +1001,7 @@ async def unblock_pm(event):
     )
 
 
-@hunterthon.hunter_sarot(pattern="المقبولين$")
+@zedub.zed_cmd(pattern="المقبولين$")
 async def approve_p_m(event):
     if gvarstatus("pmpermit") is None:
         return await edit_delete(
@@ -1019,5 +1019,5 @@ async def approve_p_m(event):
         event,
         APPROVED_PMs,
         file_name="قائمـة الحمايـة.txt",
-        caption="**- ️قائمـة المسمـوح لهـم ( المقبوليـن )**\n\n**- سـورس هانترثون** 𝗛𝗨𝗡𝗧𝗘𝗥𝗧𝗛𝗢𝗡 ",
+        caption="**- ️قائمـة المسمـوح لهـم ( المقبوليـن )**\n\n**- سـورس زدثــون** 𝙕𝙏𝙝𝙤𝙣 ",
     )

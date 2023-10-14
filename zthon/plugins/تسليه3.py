@@ -1,3 +1,5 @@
+# animation3 for zed edit by: @zlzzl77
+
 import asyncio
 import os
 import random
@@ -89,7 +91,7 @@ async def _(event):
         "------------------>",
         "------>;(^。^)ノ",
         "(￣ー￣) DEAD",
-        "`Targeted user killed by Headshot 😈.😈.😈.😈.😈.😈.😈......`\n '#zed_Reacts_Online'\n",
+        "`Targeted user killed by Headshot 😈.😈.😈.😈.😈.😈.😈......`\n '#Zed_Reacts_Online'\n",
     ]
     for i in animation_ttl:
         await asyncio.sleep(animation_interval)
@@ -319,6 +321,7 @@ Fun3_cmd = (
 "**- اضغـط ع الامـر لـ النسـخ"
 )
 
+# Copyright (C) 2022 Zedthon . All Rights Reserved
 @zedub.zed_cmd(pattern="تسليه3")
 async def cmd(zelzallll):
     await edit_or_reply(zelzallll, Fun3_cmd)

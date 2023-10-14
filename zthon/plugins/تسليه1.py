@@ -1,3 +1,6 @@
+#𝙕𝙚𝙙𝙏𝙝𝙤𝙣 ®
+#الملـف حقـوق زلـزال الهيبـه ⤶ @zzzzl1l خاص بسـورس ⤶ 𝙕𝙚𝙙𝙏𝙝𝙤𝙣
+
 import asyncio
 import os
 import random
@@ -586,6 +589,7 @@ Fun1_cmd = (
 "**- اضغـط ع الامـر لـ النسـخ"
 )
 
+# Copyright (C) 2022 Zedthon . All Rights Reserved
 @zedub.zed_cmd(pattern="تسليه1")
 async def cmd(zelzallll):
     await edit_or_reply(zelzallll, Fun1_cmd)

@@ -1,3 +1,17 @@
+# Zed-Thon - ZelZal
+# Copyright (C) 2023 Zedthon . All Rights Reserved
+#
+# This file is a part of < https://github.com/Zed-Thon/ZelZal/ >
+# PLease read the GNU Affero General Public License in
+# <https://www.github.com/Zed-Thon/ZelZal/blob/main/LICENSE/>.
+""" 
+Abuse Notifications for ZThon™ t.me/ZedThon
+Write file by Zelzal t.me/zzzzl1l
+ها خماط بعدك تخمط مني .. ماتستحي ؟
+متى راح تصير مطور وانت مقضيها خمط تعب وحقوق الناس
+ههههههههههههههههههههههههههههههههههههههههههههههههههههههه
+"""
+
 import asyncio
 import base64
 import contextlib
@@ -21,7 +35,7 @@ plugin_category = "الخدمات"
 UNSPAM = gvarstatus("Z_UNSPAM") or "ايقاف البلاغ"
 
 
-
+# code by t.me/zzzzl1l
 async def spam_abusezed(event, sandy, zed, sleeptimem, sleeptimet, DelaySpam=False):
     # sourcery no-metrics
     counter = int(zed[0])
@@ -33,18 +47,18 @@ async def spam_abusezed(event, sandy, zed, sleeptimem, sleeptimet, DelaySpam=Fal
             if event.reply_to_msg_id:
                 await sandy.reply(spam_message)
             else:
-                await event.client.send_message('@AbuseNotifications', spam_message) 
+                await event.client.send_message('@AbuseNotifications', spam_message) # code by t.me/zzzzl1l
             await asyncio.sleep(4)
     elif event.reply_to_msg_id and sandy.text:
         spam_message = sandy.text
         for _ in range(counter):
             if gvarstatus("spamwork") is None:
                 return
-            await event.client.send_message('@AbuseNotifications', spam_message) 
+            await event.client.send_message('@AbuseNotifications', spam_message) # code by t.me/zzzzl1l
             await asyncio.sleep(4)
     else:
         return
-    if DelaySpam is not True: 
+    if DelaySpam is not True: # code by t.me/zzzzl1l
         if BOTLOG:
             await event.client.send_message(
                 BOTLOG_CHATID,
@@ -64,7 +78,7 @@ async def spam_abusezed(event, sandy, zed, sleeptimem, sleeptimet, DelaySpam=Fal
         await event.client.send_message(event.chat_id, f"**- بلاغـات_ داخليـه 🚸\n- تم تنفيـذ تڪـرار البـلاغـات بنجاح ☑️\n- لـ الدعـم**  [Abuse Notifications ⚠️](tg://user?id=4245000) .\n**- عـدد البلاغـات :** {counter} **مـرات\n- كليشـة البلاغـات :**\n `{spam_message}`")
 
 
-
+# code by t.me/zzzzl1l
 @zedub.zed_cmd(pattern="بلاغ ([\s\S]*)")
 async def spammer(event):
     sandy = await event.get_reply_message()
@@ -86,7 +100,7 @@ async def spammer(event):
     await spam_abusezed(event, sandy, zed, sleeptimem, sleeptimet)
 
 
-
+# code by t.me/zzzzl1l
 @zedub.zed_cmd(pattern=f"{UNSPAM} ?(.*)",)
 async def spammer(event):
     if gvarstatus("spamwork") is not None and gvarstatus("spamwork") == "true":

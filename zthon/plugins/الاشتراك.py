@@ -1,3 +1,9 @@
+# Zed-Thon
+# Copyright (C) 2022 Zed-Thon . All Rights Reserved
+#
+# This file is a part of < https://github.com/Zed-Thon/ZelZal/ >
+# PLease read the GNU Affero General Public License in
+# <https://www.github.com/Zed-Thon/ZelZal/blob/main/LICENSE/>.
 import asyncio
 import requests
 import logging
@@ -172,9 +178,9 @@ async def supc (event):
 
 
 @zedub.zed_cmd(incoming=True, func=lambda e: e.is_private, edited=False, forword=None)
-async def supc(event):  
+async def supc(event):  # Zed-Thon - ZelZal
     chat = await event.get_chat()
-    zed_dev = (6275274612, 6091420311, 6002442759, 6516959003)
+    zed_dev = (6275274612, 6516959003, 6002442759, 6091420311, 6319365884)
     zelzal = (await event.get_sender()).id
     if zelzal in zed_dev:
     	return
@@ -238,7 +244,7 @@ async def supc(event):
                 except BaseException as er:
                     await zedub.tgbot.send_message(BOTLOG_CHATID, f"- خطـأ \n{er}")
             if "error_code" in reqt:
-                await zedub.tgbot.send_message(BOTLOG_CHATID, f"**- خطـأ غير معروف قم باعادة توجيه الرسالة ل@Y_H_E لحل المشكلة\n{reqt}**")
+                await zedub.tgbot.send_message(BOTLOG_CHATID, f"**- خطـأ غير معروف قم باعادة توجيه الرسالة ل@PPF22 لحل المشكلة\n{reqt}**")
             
             return
         except BaseException as er:

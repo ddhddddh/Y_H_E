@@ -1,3 +1,9 @@
+"""
+©ZelZal™
+"""
+#𝙕𝙚𝙙𝙏𝙝𝙤𝙣 ®
+#الملـف حقـوق وتعديـل زلـزال الهيبـه ⤶ @zzzzl1l خاص بسـورس ⤶ 𝙕𝙚𝙙𝙏𝙝𝙤𝙣
+
 import asyncio
 import base64
 import os
@@ -327,7 +333,7 @@ async def _(event):
             os.remove(new_required_file_name)
             await event.delete()
             
- 
+#ZedThon 
 @zedub.zed_cmd(pattern="متحركه ?(.*)")
 async def gifs(ult):
     get = ult.pattern_match.group(1)

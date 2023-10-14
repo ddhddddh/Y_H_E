@@ -1,3 +1,7 @@
+"""امـر نقـل ملكيـة القنـاة/الكـروب
+كتابـة وتطويـر الكـود لـ زلـزال الهيبـه T.ME/zzzzl1l
+حقـــوق زدثـــون™ T.me/ZedThon"""
+
 import telethon.password as pwd_mod
 from telethon.tl import functions
 

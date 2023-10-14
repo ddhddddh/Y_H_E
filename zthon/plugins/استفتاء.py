@@ -4,7 +4,7 @@ from telethon.errors.rpcbaseerrors import ForbiddenError
 from telethon.errors.rpcerrorlist import PollOptionInvalidError
 from telethon.tl.types import InputMediaPoll, Poll
 
-from humthon import sarub
+from zthon import zedub
 
 from ..core.managers import edit_or_reply
 from . import Build_Poll, reply_id
@@ -12,7 +12,7 @@ from . import Build_Poll, reply_id
 plugin_category = "البوت"
 
 
-@sarub.sar_cmd(
+@zedub.zed_cmd(
     pattern="استفتاء(?:\s|$)([\s\S]*)",
     command=("استفتاء", plugin_category),
     info={

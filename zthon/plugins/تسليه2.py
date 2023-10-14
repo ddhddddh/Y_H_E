@@ -1,3 +1,5 @@
+# animation2 code for zed by @zlzzl77
+
 import asyncio
 from collections import deque
 import os
@@ -215,6 +217,7 @@ Fun2_cmd = (
 "**- اضغـط ع الامـر لـ النسـخ"
 )
 
+# Copyright (C) 2022 Zedthon . All Rights Reserved
 @zedub.zed_cmd(pattern="تسليه2")
 async def cmd(zelzallll):
     await edit_or_reply(zelzallll, Fun2_cmd)

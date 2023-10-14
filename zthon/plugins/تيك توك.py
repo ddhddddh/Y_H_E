@@ -1,3 +1,8 @@
+#𝙕𝙚𝙙𝙏𝙝𝙤𝙣 ®
+# Port to ZThon
+# modified by @ZedThon
+# Copyright (C) 2022.
+
 import asyncio
 import os
 
@@ -31,25 +36,25 @@ async def _(event):
     if not reply_message.text:
         await edit_or_reply(event, "**```بالـرد على الرابـط حمبـي 🧸🎈```**")
         return
-    chat = "@TlkTokDownloaderbot"
-    zelzal = await edit_or_reply(event, "**╮ ❐ جـارِ التحميـل من تيـك تـوك انتظـر قليلاً  ▬▭... 𓅫╰**")
+    chat = "@ZZ191BOT"
+    zzzzl1l = await edit_or_reply(event, "**╮ ❐ جـارِ التحميـل من تيـك تـوك انتظـر قليلاً  ▬▭... 𓅫╰**")
     async with event.client.conversation(chat) as conv:
         try:
             response = conv.wait_event(
-                events.NewMessage(incoming=True, from_users=6256981879)
+                events.NewMessage(incoming=True, from_users=2035595446)
             )
             await event.client.forward_messages(chat, reply_message)
             response = await response
             await event.client.send_read_acknowledge(conv.chat_id)
         except YouBlockedUserError:
-            await zelzal.edit(
-      "❈╎تحـقق من انـك لم تقـم بحظـر البوت @TlkTokDownloaderbot .. ثم اعـد استخدام الامـر ...🤖♥️"
+            await zzzzl1l.edit(
+                "**❈╎تحـقق من انـك لم تقـم بحظـر البوت @ZZ191BOT .. ثم اعـد استخدام الامـر ...🤖♥️**"
             )
             return
         if response.text.startswith(""):
-            await zelzal.edit("**🤨💔...؟**")
+            await zzzzl1l.edit("**🤨💔...؟**")
         else:
-            await zelzal.delete()
+            await zzzzl1l.delete()
             await event.client.send_message(event.chat_id, response.message)
 
 

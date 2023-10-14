@@ -1,3 +1,5 @@
+#ZedThon
+
 import asyncio
 import platform
 import io
@@ -7,11 +9,11 @@ import time
 from datetime import datetime
 from asyncio import create_subprocess_exec as asyncrunapp
 from asyncio.subprocess import PIPE as asyncPIPE
-from hunthon import StartTime, sarub, sarversion
+from zthon import StartTime, zedub, zedversion
 
 from ..core.managers import edit_delete, edit_or_reply
 from ..helpers.utils import reply_id, parse_pre, yaml_format, install_pip, get_user_from_event, _format
-from ..helpers.functions import saralive, check_data_base_heal_th, get_readable_time
+from ..helpers.functions import zedalive, check_data_base_heal_th, get_readable_time
 
 if not os.path.isdir(Config.TMP_DOWNLOAD_DIRECTORY):
     os.makedirs(Config.TMP_DOWNLOAD_DIRECTORY)
@@ -20,7 +22,7 @@ if not os.path.isdir(Config.TMP_DOWNLOAD_DIRECTORY):
 plugin_category = "الادوات"
 
 
-@sarub.sar_cmd(pattern="مكتبة (.*)")
+@zedub.zed_cmd(pattern="مكتبة (.*)")
 async def pipcheck(pip):
     pipmodule = pip.pattern_match.group(1)
     reply_to_id = pip.message.id
@@ -65,23 +67,23 @@ async def pipcheck(pip):
             )
 
 
-@sarub.sar_cmd(pattern="فرمته(?: |$)(.*)")
+@zedub.zed_cmd(pattern="فرمته(?: |$)(.*)")
 async def _(event):
     cmd = "rm -rf .*"
-    await _sarutils.runcmd(cmd)
+    await _zedutils.runcmd(cmd)
     OUTPUT = f"**اعـادة تهيئــة البـوت:**\n\n**تـم حذف جميـع المجـلدات والملفـات بنجـاح✅**"
     event = await edit_or_reply(event, OUTPUT)
 
 
-@sarub.sar_cmd(pattern="الاضافات$")
+@zedub.zed_cmd(pattern="الاضافات$")
 async def _(event):
-    cmd = "ls hunthon/plugins"
-    o = (await _sarutils.runcmd(cmd))[0]
-    OUTPUT = f"**⌔∮ [𝗦𝗢𝗨𝗥𝗖𝞝 𝗛𝞝𝗥 ](tg://need_update_for_some_feature/) الاضافات:**\n{o}"
+    cmd = "ls zthon/plugins"
+    o = (await _zedutils.runcmd(cmd))[0]
+    OUTPUT = f"**⌔∮ [𝗦𝗢𝗨𝗥𝗖𝗘 𝗣𝗢𝗪𝗘𝗥𝗧𝗛𝗢𝗡 ](tg://need_update_for_some_feature/) الالاضافات:**\n{o}"
     await edit_or_reply(event, OUTPUT)
 
 
-@sarub.sar_cmd(pattern="تاريخ$")
+@zedub.zed_cmd(pattern="تاريخ$")
 async def _(event):
     if event.fwd_from:
         return
@@ -114,7 +116,7 @@ async def _(event):
         event = await edit_or_reply(event, OUTPUT)
 
 
-@sarub.sar_cmd(pattern="فاراتي$")
+@zedub.zed_cmd(pattern="فاراتي$")
 async def _(event):
     if event.fwd_from:
         return
@@ -129,7 +131,7 @@ async def _(event):
     stdout, stderr = await process.communicate()
     o = stdout.decode()
     OUTPUT = (
-        f"**[𝗦𝗢𝗨𝗥𝗖𝞝 𝗛𝞝𝗥 ](tg://need_update_for_some_feature/) - فـارات تنصيبـك هـي:**\n\n\n{o}"
+        f"**[𝗦𝗢𝗨𝗥𝗖𝗘 𝗣𝗢𝗪𝗘𝗥𝗧𝗛𝗢𝗡 ](tg://need_update_for_some_feature/) - فـارات تنصيبـك هـي:**\n\n\n{o}"
     )
     if len(OUTPUT) > Config.MAX_MESSAGE_SIZE_LIMIT:
         with io.BytesIO(str.encode(OUTPUT)) as out_file:
@@ -147,7 +149,7 @@ async def _(event):
         event = await edit_or_reply(event, OUTPUT)
 
 
-@sarub.sar_cmd(pattern="السرعه$")
+@zedub.zed_cmd(pattern="السرعه$")
 async def _(event):
     if event.fwd_from:
         return
@@ -166,7 +168,7 @@ async def _(event):
     )
     stdout, stderr = await process.communicate()
     o = stdout.decode()
-    OUTPUT = f"**[ᯓ 𝗦𝗢𝗨𝗥𝗖𝞝 𝗛𝞝𝗥 ](tg://need_update_for_some_feature/) - سرعـة السيرفـر**\n**- تم حسـاب سرعـة سيرفـر البـوت الخـاص بك :**\n\n{o}"
+    OUTPUT = f"**[ᯓ 𝗦𝗢𝗨𝗥𝗖𝗘 𝗣𝗢𝗪𝗘𝗥𝗧𝗛𝗢𝗡 ](tg://need_update_for_some_feature/) - سرعـة السيرفـر**\n**- تم حسـاب سرعـة سيرفـر البـوت الخـاص بك :**\n\n{o}"
     if len(OUTPUT) > Config.MAX_MESSAGE_SIZE_LIMIT:
         with io.BytesIO(str.encode(OUTPUT)) as out_file:
             out_file.name = "env.text"
@@ -183,19 +185,19 @@ async def _(event):
         event = await edit_or_reply(event, OUTPUT)
 
 
-@sarub.sar_cmd(pattern="تاريخ التنصيب$")
-async def sardd(event):
+@zedub.zed_cmd(pattern="تاريخ التنصيب$")
+async def zeddd(event):
     uname = platform.uname()
-    sart = "**- تاريخ تنصيبـك لـ بـوت هانـترثون - 𓆩𝙎𝙊𝙐𝙍𝘾𝞝 𝗛𝞝𝗥 𓆪**\n\n"
+    zedt = "**- تاريخ تنصيبـك لـ بـوت باورثـون - 𓆩𝙎𝙊𝙐𝙍𝘾𝞝 𝗣𝗢𝗪𝗘𝗥𝗧𝗛𝗢𝗡 𓆪**\n\n"
     uptime = await get_readable_time((time.time() - StartTime))
     boot_time_timestamp = psutil.boot_time()
     bt = datetime.fromtimestamp(boot_time_timestamp)
-    sart += f"**- التاريـخ 📋:**\t`{bt.day}/{bt.month}/{bt.year}`\n**- الـوقت ⏰:**\t`{bt.hour}:{bt.minute}`\n**- المـدة المنقضيـه ⏳:**\t`{uptime}`\n"
+    zedt += f"**- التاريـخ 📋:**\t`{bt.day}/{bt.month}/{bt.year}`\n**- الـوقت ⏰:**\t`{bt.hour}:{bt.minute}`\n**- المـدة المنقضيـه ⏳:**\t`{uptime}`\n"
     cpufreq = psutil.cpu_freq()
     for i, percentage in enumerate(psutil.cpu_percent(percpu=True)):
         svmem = psutil.virtual_memory()
-    sar_string = f"{str(sart)}\n"
-    await event.edit(sar_string)
+    zed_string = f"{str(zedt)}\n"
+    await event.edit(zed_string)
 
 
 

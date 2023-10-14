@@ -1,3 +1,11 @@
+# Zed-Thon - ZelZal
+# Copyright (C) 2023 Zedthon . All Rights Reserved
+#
+# This file is a part of < https://github.com/Zed-Thon/ZelZal/ >
+# PLease read the GNU Affero General Public License in
+# <https://www.github.com/Zed-Thon/ZelZal/blob/main/LICENSE/>.
+
+
 import requests
 import asyncio
 import os
@@ -20,12 +28,12 @@ from ..helpers.utils import reply_id
 plugin_category = "البوت"
 
 
-
+# code by t.me/zzzzl1l
 @zedub.zed_cmd(pattern="بريد$")
 async def zelzal_gpt(event):
-    chat = "@TeMail_Robot" 
+    chat = "@TeMail_Robot" # code by t.me/zzzzl1l
     zed = await edit_or_reply(event, "**𓆰جـار إنشـاء ايميـل وهمـي 📧...**")
-    async with borg.conversation(chat) as conv: 
+    async with borg.conversation(chat) as conv: # code by t.me/zzzzl1l
         try:
             await conv.send_message("/start")
             await conv.get_response()
@@ -52,12 +60,12 @@ async def zelzal_gpt(event):
 
 
 
-
+# code by t.me/zzzzl1l
 @zedub.zed_cmd(pattern="الوارد$")
 async def zelzal_gpt(event):
-    chat = "@TeMail_Robot" 
+    chat = "@TeMail_Robot" # code by t.me/zzzzl1l
     zed = await edit_or_reply(event, "**𓆰جـار جلب رسائـل البريـد 📬...**")
-    async with borg.conversation(chat) as conv: 
+    async with borg.conversation(chat) as conv: # code by t.me/zzzzl1l
         try:
             await conv.send_message("/start")
             await conv.get_response()
@@ -71,9 +79,9 @@ async def zelzal_gpt(event):
                 return await borg.send_message(event.chat_id, aa)
             if "📬 Inbox" in zedthon.text:
                 await zed.delete()
-                return await borg.send_message(event.chat_id, f"**{malath}**\n\n───────────────────\n𝗛𝗨𝗡𝗧𝗘𝗥𝗧𝗛𝗢𝗡**ꜱᴇʀʙᴏᴛ** 𝗛**ᴏᴏʟꜱ**\n\t\t\t\t\t\t\t\tmail • البـريد الـوارد")
+                return await borg.send_message(event.chat_id, f"**{malath}**\n\n───────────────────\n𝗧𝗘𝗣𝗧𝗛𝗢𝗡 𝗨**ꜱᴇʀʙᴏᴛ** 𝗧**ᴏᴏʟꜱ**\n\t\t\t\t\t\t\t\tmail • البـريد الـوارد")
             await zed.delete()
-            await borg.send_message(event.chat_id, f"**{malath}**\n\n───────────────────\n𝗛𝗨𝗡𝗧𝗘𝗥𝗧𝗛𝗢𝗡**ꜱᴇʀʙᴏᴛ** 𝗛**ᴏᴏʟꜱ**\n\t\t\t\t\t\t\t\tmail • البـريد الـوارد")
+            await borg.send_message(event.chat_id, f"**{malath}**\n\n───────────────────\n𝗧𝗘𝗣𝗧𝗛𝗢𝗡  𝗨**ꜱᴇʀʙᴏᴛ** 𝗧**ᴏᴏʟꜱ**\n\t\t\t\t\t\t\t\tmail • البـريد الـوارد")
         except YouBlockedUserError:
             await zedub(unblock("TeMail_Robot"))
             await conv.send_message("/start")
@@ -88,7 +96,7 @@ async def zelzal_gpt(event):
                 return await borg.send_message(event.chat_id, aa)
             if "📬 Inbox" in zedthon.text:
                 await zed.delete()
-                return await borg.send_message(event.chat_id, f"**{malath}**\n\n───────────────────\n𝗛𝗨𝗡𝗧𝗘𝗥𝗧𝗛𝗢𝗡**ꜱᴇʀʙᴏᴛ** 𝗛**ᴏᴏʟꜱ**\n\t\t\t\t\t\t\t\tmail • البـريد الـوارد")
+                return await borg.send_message(event.chat_id, f"**{malath}**\n\n───────────────────\n𝗧𝗘𝗣𝗧𝗛𝗢𝗡 𝗨**ꜱᴇʀʙᴏᴛ** 𝗧**ᴏᴏʟꜱ**\n\t\t\t\t\t\t\t\tmail • البـريد الـوارد")
             await zed.delete()
-            await borg.send_message(event.chat_id, f"**{malath}**\n\n───────────────────\n𝗛𝗨𝗡𝗧𝗘𝗥𝗧𝗛𝗢𝗡**ꜱᴇʀʙᴏᴛ** 𝗛**ᴏᴏʟꜱ**\n\t\t\t\t\t\t\t\tmail • البـريد الـوارد")
+            await borg.send_message(event.chat_id, f"**{malath}**\n\n───────────────────\n𝗧𝗘𝗣𝗧𝗛𝗢𝗡 𝗨**ꜱᴇʀʙᴏᴛ** 𝗧**ᴏᴏʟꜱ**\n\t\t\t\t\t\t\t\mail • البـريد الـوارد")
 

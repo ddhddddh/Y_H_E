@@ -1,3 +1,13 @@
+# Zed-Thon - ZelZal
+# Copyright (C) 2022 Zedthon . All Rights Reserved
+#
+# This file is a part of < https://github.com/Zed-Thon/ZelZal/ >
+# PLease read the GNU Affero General Public License in
+# <https://www.github.com/Zed-Thon/ZelZal/blob/main/LICENSE/>.
+""" الوصـف : تحـديث اوامـر النشـر التلقـائـي للقنـوات ™
+الاوامـر صـارت تدعـم المعـرفـات والروابـط الى جانب ايديـات القنـوات
+حقـوق : @ZedThon
+@zzzzl1l - كتـابـة الملـف :  زلــزال الهيبــه"""
 import asyncio
 import requests
 import logging
@@ -25,7 +35,7 @@ LOGS = logging.getLogger(__name__)
 SPRS = gvarstatus("Z_SPRS") or "(نشر_تلقائي|نشر|تلقائي)"
 OFSPRS = gvarstatus("Z_OFSPRS") or "(ايقاف_النشر|ايقاف النشر|ستوب)"
 
-zelzalNSH_cmd = (
+ZelzalNSH_cmd = (
     "𓆩 [ اوامـر النشـر التلقـائي](t.me/HunerThon) 𓆪\n\n"
     "**- اضغـط ع الامـر للنسـخ** \n\n\n"
     "**⪼** `.تلقائي` \n"
@@ -68,6 +78,7 @@ async def get_user_from_event(event):
     return user_object
 
 
+# Copyright (C) 2022 Zed-Thon . All Rights Reserved
 @zedub.zed_cmd(pattern="(نشر تلقائي|تلقائي)(?:\s|$)([\s\S]*)")
 async def _(event):
     if (event.is_private or event.is_group):
@@ -98,6 +109,7 @@ async def _(event):
 
 
 
+# Copyright (C) 2022 Zed-Thon . All Rights Reserved
 @zedub.zed_cmd(pattern="(ايقاف النشر|ستوب)(?:\s|$)([\s\S]*)")
 async def _(event):
     if (event.is_private or event.is_group):
@@ -144,8 +156,8 @@ async def _(event):
 
 
 
-
+# Copyright (C) 2022 Zed-Thon . All Rights Reserved
 @zedub.zed_cmd(pattern="النشر")
-async def cmd(y_h_e):
-    await edit_or_reply(y_h_e, sarotNSH_cmd)
+async def cmd(zelzallll):
+    await edit_or_reply(zelzallll, ZelzalNSH_cmd)
 

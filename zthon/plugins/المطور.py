@@ -1,3 +1,8 @@
+#𝙕𝙚𝙙𝙏𝙝𝙤𝙣 ®
+#الملـف حقـوق وكتابـة زلـزال الهيبـه ⤶ @zzzzl1l خاص بسـورس ⤶ 𝙕𝙚𝙙𝙏𝙝𝙤𝙣
+#الملـف متعـوب عليه تخمـط اذكر المصـدر
+#تعـعذرًال بنيـتي 𝙈
+
 import os
 import random
 from asyncio import sleep
@@ -104,7 +109,7 @@ async def fetch_info(replied_user, event):
        caption += f"<b> • 🌚 | صـوره  ⇦ </b> {replied_user_profile_photos_count} </b>\n"
        caption += f"<b> • 🌚 | نــوعه   ⇦  مطي زربه 🦓 </b>\n"
        caption += f"<b> • 🌚 | نسبتـه  ⇦  {yoy} </b>\n\n\n"
-       caption += f"<b> 𓆩 𝗦𝗢𝗨𝗥𝗖𝗘 𝗛𝗨𝗡𝗧𝗘𝗥𝗧𝗛𝗢𝗡 𓆪 </b> - @HunerThon "
+       caption += f"<b> 𓆩 𝙎𝙊𝙐𝙍𝘾𝞝 𝗧𝞝𝗣 𓆪 </b> - @Tepthon "
        return sts_animal, caption
     if x == 2:
        username = "@{}".format(username) if username else ("لايوجد معرف")
@@ -115,7 +120,7 @@ async def fetch_info(replied_user, event):
        caption += f"<b> • 🌚 | صـوره  ⇦ </b> {replied_user_profile_photos_count} </b>\n"
        caption += f"<b> • 🌚 | نــوعه   ⇦  جلب شوارع 🐕‍🦺 </b>\n"
        caption += f"<b> • 🌚 | نسبتـه  ⇦  {yoy} </b>\n\n\n"
-       caption += f"<b> 𓆩 𝗦𝗢𝗨𝗥𝗖𝗘 𝗛𝗨𝗡𝗧𝗘𝗥𝗧𝗛𝗢𝗡 𓆪 </b> - @HunerThon "
+       caption += f"<b> 𓆩 𝙎𝙊𝙐𝙍𝘾𝞝 𝗧𝞝𝗣 𓆪 </b> - @Tepthon "
        return sts_animal2, caption
     if x == 3:
        username = "@{}".format(username) if username else ("لايوجد معرف")
@@ -126,7 +131,7 @@ async def fetch_info(replied_user, event):
        caption += f"<b> • 🌚 | صـوره  ⇦ </b> {replied_user_profile_photos_count} </b>\n"
        caption += f"<b> • 🌚 | نــوعه   ⇦  قرد لزكـه 🐒 </b>\n"
        caption += f"<b> • 🌚 | نسبتـه  ⇦  {yoy} </b>\n\n\n"
-       caption += f"<b> 𓆩 𝗦𝗢𝗨𝗥𝗖𝗘 𝗛𝗨𝗡𝗧𝗘𝗥𝗧𝗛𝗢𝗡 𓆪 </b> - @HunerThon "
+       caption += f"<b> 𓆩 𝙎𝙊𝙐𝙍𝘾𝞝 𝗧𝞝𝗣 𓆪 </b> - @Tepthon "
        return sts_animal3, caption
     if x == 4:
        username = "@{}".format(username) if username else ("لايوجد معرف")
@@ -137,7 +142,7 @@ async def fetch_info(replied_user, event):
        caption += f"<b> • 🌚 | صـوره  ⇦ </b> {replied_user_profile_photos_count} </b>\n"
        caption += f"<b> • 🌚 | نــوعه   ⇦  صخل محترم 🐐 </b>\n"
        caption += f"<b> • 🌚 | نسبتـه  ⇦  {yoy} </b>\n\n\n"
-       caption += f"<b> 𓆩 𝗦𝗢𝗨𝗥𝗖𝗘 𝗛𝗨𝗡𝗧𝗘𝗥𝗧𝗛𝗢𝗡 𓆪 </b> - @HunerThon "
+       caption += f"<b> 𓆩 𝙎𝙊𝙐𝙍𝘾𝞝 𝗧𝞝𝗣 𓆪 </b> - @Tepthon "
        return sts_animal4, caption
     if x == 5:
        username = "@{}".format(username) if username else ("لايوجد معرف")
@@ -148,7 +153,7 @@ async def fetch_info(replied_user, event):
        caption += f"<b> • 🌚 | صـوره  ⇦ </b> {replied_user_profile_photos_count} </b>\n"
        caption += f"<b> • 🌚 | نــوعه   ⇦  طلي ابو البعرور الوصخ 🐑 </b>\n"
        caption += f"<b> • 🌚 | نسبتـه  ⇦  {yoy} </b>\n\n\n"
-       caption += f"<b> 𓆩 𝗦𝗢𝗨𝗥𝗖𝗘 𝗛𝗨𝗡𝗧𝗘𝗥𝗧𝗛𝗢𝗡 𓆪 </b> - @HunerThon "
+       caption += f"<b> 𓆩 𝙎𝙊𝙐𝙍𝘾𝞝 𝗧𝞝𝗣 𓆪 </b> - @Tepthon "
        return sts_animal5, caption
     if x == 6:
        username = "@{}".format(username) if username else ("لايوجد معرف")
@@ -159,7 +164,7 @@ async def fetch_info(replied_user, event):
        caption += f"<b> • 🌚 | صـوره  ⇦ </b> {replied_user_profile_photos_count} </b>\n"
        caption += f"<b> • 🌚 | نــوعه   ⇦  بزون ابوخالد 🐈 </b>\n"
        caption += f"<b> • 🌚 | نسبتـه  ⇦  {yoy} </b>\n\n\n"
-       caption += f"<b> 𓆩 𝗦𝗢𝗨𝗥𝗖𝗘 𝗛𝗨𝗡𝗧𝗘𝗥𝗧𝗛𝗢𝗡 𓆪 </b> - @HunerThon "
+       caption += f"<b> 𓆩 𝙎𝙊𝙐𝙍𝘾𝞝 𝗧𝞝𝗣 𓆪 </b> - @Tepthon "
        return sts_animal6, caption
     if x == 7:
        username = "@{}".format(username) if username else ("لايوجد معرف")
@@ -170,7 +175,7 @@ async def fetch_info(replied_user, event):
        caption += f"<b> • 🌚 | صـوره  ⇦ </b> {replied_user_profile_photos_count} </b>\n"
        caption += f"<b> • 🌚 | نــوعه   ⇦  الزاحف ابو بريص 🦎 </b>\n"
        caption += f"<b> • 🌚 | نسبتـه  ⇦  {yoy} </b>\n\n\n"
-       caption += f"<b> 𓆩 𝗦𝗢𝗨𝗥𝗖𝗘 𝗛𝗨𝗡𝗧𝗘𝗥𝗧𝗛𝗢𝗡 𓆪 </b> - @HunerThon "
+       caption += f"<b> 𓆩 𝙎𝙊𝙐𝙍𝘾𝞝 𝗧𝞝𝗣 𓆪 </b> - @Tepthon "
        return sts_animal7, caption
     if x == 8:
        username = "@{}".format(username) if username else ("لايوجد معرف")
@@ -181,7 +186,7 @@ async def fetch_info(replied_user, event):
        caption += f"<b> • 🌚 | صـوره  ⇦ </b> {replied_user_profile_photos_count} </b>\n"
        caption += f"<b> • 🌚 | نــوعه   ⇦  جريذي ابو المجاري 🐀 </b>\n"
        caption += f"<b> • 🌚 | نسبتـه  ⇦  {yoy} </b>\n\n\n"
-       caption += f"<b> 𓆩 𝗦𝗢𝗨𝗥𝗖𝗘 𝗛𝗨𝗡𝗧𝗘𝗥𝗧𝗛𝗢𝗡 𓆪 </b> - @HunerThon "
+       caption += f"<b> 𓆩 𝙎𝙊𝙐𝙍𝘾𝞝 𝗧𝞝𝗣 𓆪 </b> - @Tepthon "
        return sts_animal8, caption
     if x == 9:
        username = "@{}".format(username) if username else ("لايوجد معرف")
@@ -192,14 +197,14 @@ async def fetch_info(replied_user, event):
        caption += f"<b> • 🌚 | صـوره  ⇦ </b> {replied_user_profile_photos_count} </b>\n"
        caption += f"<b> • 🌚 | نــوعه   ⇦  هايشه 🐄 </b>\n"
        caption += f"<b> • 🌚 | نسبتـه  ⇦  {yoy} </b>\n\n\n"
-       caption += f"<b> 𓆩 𝗦𝗢𝗨𝗥𝗖𝗘 𝗛𝗨𝗡𝗧𝗘𝗥𝗧𝗛𝗢𝗡 𓆪 </b> - @HunerThon "
+       caption += f"<b> 𓆩 𝙎𝙊𝙐𝙍𝘾𝞝 𝗧𝞝𝗣 𓆪 </b> - @Tepthon "
        return sts_animal9, caption
 
 
 @zedub.zed_cmd(pattern="حيوان(?: |$)(.*)")
 async def who(event):
     zed = await edit_or_reply(event, "⇆")
-    zel_dev = (6275274612, 6516959003, 6002442759, 6091420311, 6319365884)
+    zel_dev = (1260465030, 54262739871)
     if not os.path.isdir(Config.TMP_DOWNLOAD_DIRECTORY):
         os.makedirs(Config.TMP_DOWNLOAD_DIRECTORY)
     replied_user = await get_user_from_event(event)
@@ -209,7 +214,7 @@ async def who(event):
         return await edit_or_reply(zed, "**- لـم استطـع العثــور ع الشخــص**")
     if replied_user.id in zel_dev:
        return await edit_or_reply(zed, "**- عذرًا . . انـهُ احـد المطـورين . . عيب**")
-    if replied_user.id == 6275274612 or replied_user.id == 6516959003 or replied_user.id == 6002442759 or replied_user.id == 6091420311 or replied_user.id == 6319365884:
+    if replied_user.id == 1260465030 or replied_user.id == 6367373783 or replied_user.id == 23839374791:
        return await edit_or_reply(zed, "**- عذرًا . . انـهُ المطـور . . عيب**")
     message_id_to_reply = event.message.reply_to_msg_id
     if not message_id_to_reply:

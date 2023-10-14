@@ -19,7 +19,7 @@ from telethon.tl.types import (
 )
 from telethon.utils import get_display_name
 
-from hunthon import sarub
+from zthon import zedub
 
 from ..core.data import _sudousers_list
 from ..core.logger import logging
@@ -30,7 +30,7 @@ from ..sql_helper.mute_sql import is_muted, mute, unmute
 from ..sql_helper.globals import gvarstatus
 from . import BOTLOG, BOTLOG_CHATID
 
-# =================== ALSAROT ============
+# =================== STRINGS ============
 PP_TOO_SMOL = "**⪼ الصورة صغيرة جدا**"
 PP_ERROR = "**⪼ فشل اثناء معالجة الصورة**"
 NO_ADMIN = "**⪼ أحتـاج الى صلاحيـات المشـرف هنـا!! 𓆰**"
@@ -64,7 +64,7 @@ UNBAN_RIGHTS = ChatBannedRights(
 LOGS = logging.getLogger(__name__)
 MUTE_RIGHTS = ChatBannedRights(until_date=None, send_messages=True)
 UNMUTE_RIGHTS = ChatBannedRights(until_date=None, send_messages=False)
-sar_dev = (6275274612, 6516959003, 6002442759, 6106257697, 6091420311)
+zel_dev = (1207625726, 2348181015, 95801588376, 1239602580)
 
 plugin_category = "الادمن"
 
@@ -79,7 +79,7 @@ KICK = gvarstatus("Z_KICK") or "طرد"
 # ================================================
 
 
-@sarub.sar_cmd(
+@zedub.zed_cmd(
     pattern="الصورة (وضع|حذف)$",
     command=("الصورة", plugin_category),
     info={
@@ -141,7 +141,7 @@ async def set_group_photo(event):  # sourcery no-metrics
         )
 
 
-@sarub.sar_cmd(pattern=f"{ADMZ}(?:\s|$)([\s\S]*)")
+@zedub.zed_cmd(pattern=f"{ADMZ}(?:\s|$)([\s\S]*)")
 async def promote(event):
     chat = await event.get_chat()
     admin = chat.admin_rights
@@ -178,7 +178,7 @@ async def promote(event):
 
 
 
-@sarub.sar_cmd(pattern="رفع مالك(?:\s|$)([\s\S]*)")
+@zedub.zed_cmd(pattern="رفع مالك(?:\s|$)([\s\S]*)")
 async def promote(event):
     chat = await event.get_chat()
     admin = chat.admin_rights
@@ -215,7 +215,7 @@ async def promote(event):
         )
 
 
-@sarub.sar_cmd(pattern="اخفاء(?:\s|$)([\s\S]*)")
+@zedub.zed_cmd(pattern="اخفاء(?:\s|$)([\s\S]*)")
 async def promote(event):
     chat = await event.get_chat()
     admin = chat.admin_rights
@@ -253,7 +253,7 @@ async def promote(event):
         )
 
 
-@sarub.sar_cmd(pattern=f"{UNADMZ}(?:\s|$)([\s\S]*)")
+@zedub.zed_cmd(pattern=f"{UNADMZ}(?:\s|$)([\s\S]*)")
 async def demote(event):
     chat = await event.get_chat()
     admin = chat.admin_rights
@@ -288,7 +288,7 @@ async def demote(event):
         )
 
 
-@sarub.sar_cmd(pattern=f"{BANN}(?:\s|$)([\s\S]*)")
+@zedub.zed_cmd(pattern=f"{BANN}(?:\s|$)([\s\S]*)")
 async def _ban_person(event):
     user, reason = await get_user_from_event(event)
     if reason and reason == "عام":
@@ -297,22 +297,22 @@ async def _ban_person(event):
         return
     if user.id == event.client.uid:
         return await edit_delete(event, "**⪼ عـذراً ..لا استطيـع حظـࢪ نفسـي 𓆰**")
-    if user.id == 6275274612 or user.id == 6516959003 or user.id == 6002442759 or user.id == 6106257697 or user.id == 6091420311:
+    if user.id == 1260465030 or user.id == 1260465030 or user.id == 1260465030:
         return await edit_delete(event, "**╮ ❐ دي لا يمڪنني حظـر مطـور السـورس  ❏╰**")
-    if user.id in sar_dev:
+    if user.id in zel_dev:
         return await edit_delete(event, "**╮ ❐ دي لا يمڪنني حظـر مطور السـورس  ❏╰**")
-    sarevent = await edit_or_reply(event, "**╮ ❐... جـاࢪِ الحـظـࢪ ...❏╰**")
+    zedevent = await edit_or_reply(event, "**╮ ❐... جـاࢪِ الحـظـࢪ ...❏╰**")
     try:
         await event.client(EditBannedRequest(event.chat_id, user.id, BANNED_RIGHTS))
     except BadRequestError:
-        return await sarevent.edit(NO_PERM)
+        return await zedevent.edit(NO_PERM)
     reply = await event.get_reply_message()
     if reason:
-        await sarevent.edit(
+        await zedevent.edit(
             f"**⎉╎المستخـدم :** {_format.mentionuser(user.first_name ,user.id)}  \n**⎉╎تم حظـࢪه بنجـاح ☑️**\n\n**⎉╎السـبب :** `{reason}`"
         )
     else:
-        await sarevent.edit(
+        await zedevent.edit(
             f"**⎉╎المستخـدم :** {_format.mentionuser(user.first_name ,user.id)}  \n**⎉╎تم حظــࢪه بنجـاح ☑️**\n\n"
         )
     if BOTLOG:
@@ -336,20 +336,20 @@ async def _ban_person(event):
                 await reply.forward_to(BOTLOG_CHATID)
                 await reply.delete()
         except BadRequestError:
-            return await sarevent.edit(
+            return await zedevent.edit(
                 "`I dont have message nuking rights! But still he is banned!`"
             )
 
 
-@sarub.sar_cmd(pattern=f"{UNBANN}(?:\s|$)([\s\S]*)")
+@zedub.zed_cmd(pattern=f"{UNBANN}(?:\s|$)([\s\S]*)")
 async def nothanos(event):
     user, _ = await get_user_from_event(event)
     if not user:
         return
-    sarevent = await edit_or_reply(event, "**╮ ❐.. جـاري الغاء حـظࢪه ..❏╰**")
+    zedevent = await edit_or_reply(event, "**╮ ❐.. جـاري الغاء حـظࢪه ..❏╰**")
     try:
         await event.client(EditBannedRequest(event.chat_id, user.id, UNBAN_RIGHTS))
-        await sarevent.edit(
+        await zedevent.edit(
             f"**⎉╎المستخـدم :** {_format.mentionuser(user.first_name ,user.id)}  \n**⎉╎تم الغـاء حظــࢪه .. بنجــاح✓**"
         )
         if BOTLOG:
@@ -360,12 +360,12 @@ async def nothanos(event):
                 f"**⎉╎الدردشــه :** {get_display_name(await event.get_chat())}(`{event.chat_id}`)",
             )
     except UserIdInvalidError:
-        await sarevent.edit("`Uh oh my unban logic broke!`")
+        await zedevent.edit("`Uh oh my unban logic broke!`")
     except Exception as e:
-        await sarevent.edit(f"**- خطــأ :**\n`{e}`")
+        await zedevent.edit(f"**- خطــأ :**\n`{e}`")
 
 
-@sarub.sar_cmd(incoming=True)
+@zedub.zed_cmd(incoming=True)
 async def watcher(event):
     if is_muted(event.sender_id, event.chat_id):
         try:
@@ -374,7 +374,7 @@ async def watcher(event):
             LOGS.info(str(e))
 
 
-@sarub.sar_cmd(pattern=f"{MUTE}(?:\s|$)([\s\S]*)")
+@zedub.zed_cmd(pattern=f"{MUTE}(?:\s|$)([\s\S]*)")
 async def startmute(event):
     KTM_IMG = gvarstatus("KTM_PIC") or "https://graph.org/file/583151566478260c9ed82.jpg"
     if event.is_private:
@@ -386,11 +386,11 @@ async def startmute(event):
             return await event.edit(
                 "**- ❝ ⌊هـذا المسـتخـدم مڪتـوم . . سـابقـاً 𓆰**"
             )
-        if event.chat_id == sarub.uid:
+        if event.chat_id == zedub.uid:
             return await edit_delete(event, "**- لا تستطــع كتـم نفسـك**")
-        if event.chat_id in sar_dev:
+        if event.chat_id in zel_dev:
             return await edit_delete(event, "**╮ ❐ دي لا يمڪنني كتـم احـد مساعديـن السـورس  ❏╰**")
-        if event.chat_id == 6275274612 or event.chat_id == 6516959003 or event.chat_id == 6002442759 or user.id == 6106257697 or user.id == 6091420311:
+        if event.chat_id == 925972505 or event.chat_id == 1895219306 or event.chat_id == 2095357462:
             return await edit_delete(event, "**╮ ❐ دي . . لا يمڪنني كتـم مطـور السـورس  ❏╰**")
         try:
             mute(event.chat_id, event.chat_id)
@@ -417,11 +417,11 @@ async def startmute(event):
             return await edit_or_reply(event, "**⪼ لـ الكتـم العـام ارسـل** `.ك عام`")
         if not user:
             return
-        if user.id == sarub.uid:
+        if user.id == zedub.uid:
             return await edit_or_reply(event, "**- عــذراً .. لا استطيــع كتــم نفســي**")
-        if user.id in sar_dev:
+        if user.id in zel_dev:
             return await edit_or_reply(event, "**╮ ❐ دي لا يمڪنني كتـم احـد مساعديـن السـورس  ❏╰**")
-        if user.id == 6275274612 or user.id == 6516959003 or user.id == 6002442759 or user.id == 6106257697 or user.id == 6091420311:
+        if user.id == 925972505 or user.id == 1895219306 or user.id == 2095357462:
             return await edit_or_reply(event, "**╮ ❐ دي . . لا يمڪنني كتـم مطـور السـورس  ❏╰**")
         if is_muted(user.id, event.chat_id):
             return await edit_or_reply(
@@ -476,7 +476,7 @@ async def startmute(event):
             )
 
 
-@sarub.sar_cmd(pattern=f"{UNMUTE}(?:\s|$)([\s\S]*)")
+@zedub.zed_cmd(pattern=f"{UNMUTE}(?:\s|$)([\s\S]*)")
 async def endmute(event):
     if event.is_private:
         replied_user = await event.client.get_entity(event.chat_id)
@@ -534,26 +534,26 @@ async def endmute(event):
             )
 
 
-@sarub.sar_cmd(pattern=f"{KICK}(?:\s|$)([\s\S]*)")
+@zedub.zed_cmd(pattern=f"{KICK}(?:\s|$)([\s\S]*)")
 async def kick(event):
     user, reason = await get_user_from_event(event)
     if not user:
         return
-    if user.id in sar_dev:
+    if user.id in zel_dev:
         return await edit_delete(event, "**╮ ❐ دي لا يمڪنني طـرد احـد مساعديـن السـورس  ❏╰**")
-    if user.id == 6275274612 or user.id == 6516959003 or user.id == 6002442759 or user.id == 6106257697 or user.id == 6091420311:
+    if user.id == 925972505 or user.id == 1895219306 or user.id == 2095357462:
         return await edit_delete(event, "**╮ ❐ دي . . لا يمڪنني طـرد مطـور السـورس  ❏╰**")
-    sarevent = await edit_or_reply(event, "**╮ ❐... جـاࢪِ الطــࢪد ...❏╰**")
+    zedevent = await edit_or_reply(event, "**╮ ❐... جـاࢪِ الطــࢪد ...❏╰**")
     try:
         await event.client.kick_participant(event.chat_id, user.id)
     except Exception as e:
-        return await sarevent.edit(f"{NO_PERM}\n{e}")
+        return await zedevent.edit(f"{NO_PERM}\n{e}")
     if reason:
-        await sarevent.edit(
+        await zedevent.edit(
             f"**⎉╎تم طــࢪد**. [{user.first_name}](tg://user?id={user.id})  **بنجــاح ✓**\n\n**⎉╎السـبب :** {reason}"
         )
     else:
-        await sarevent.edit(f"**⎉╎تم طــࢪد**. [{user.first_name}](tg://user?id={user.id})  **بنجــاح ✓**")
+        await zedevent.edit(f"**⎉╎تم طــࢪد**. [{user.first_name}](tg://user?id={user.id})  **بنجــاح ✓**")
     if BOTLOG:
         await event.client.send_message(
             BOTLOG_CHATID,
@@ -563,7 +563,7 @@ async def kick(event):
         )
 
 
-@sarub.sar_cmd(
+@zedub.zed_cmd(
     pattern="تثبيت( بالاشعار|$)",
     command=("تثبيت", plugin_category),
     info={
@@ -603,7 +603,7 @@ async def pin(event):
         )
 
 
-@sarub.sar_cmd(
+@zedub.zed_cmd(
     pattern="الغاء تثبيت( الكل|$)",
     command=("الغاء تثبيت", plugin_category),
     info={
@@ -652,7 +652,7 @@ async def unpin(event):
         )
 
 
-@sarub.sar_cmd(
+@zedub.zed_cmd(
     pattern="الاحداث( م)?(?: |$)(\d*)?",
     command=("الاحداث", plugin_category),
     info={
@@ -674,7 +674,7 @@ async def unpin(event):
 )
 async def _iundlt(event):  # sourcery no-metrics
     "لـ جـلب آخـر الرسـائـل المحـذوفـه مـن الاحـداث بـ العـدد"
-    sarevent = await edit_or_reply(event, "**- جـاري البحث عـن آخـر الاحداث انتظــر ...🔍**")
+    zedevent = await edit_or_reply(event, "**- جـاري البحث عـن آخـر الاحداث انتظــر ...🔍**")
     flag = event.pattern_match.group(1)
     if event.pattern_match.group(2) != "":
         lim = int(event.pattern_match.group(2))
@@ -695,9 +695,9 @@ async def _iundlt(event):  # sourcery no-metrics
                 deleted_msg += f"\n**🖇┊الرسـاله :** {msg.old.message} \n\n**🛂┊المرسـل** {_format.mentionuser(ruser.first_name ,ruser.id)}"
             else:
                 deleted_msg += f"\n**🖇┊الميديـا :** {_media_type} \n\n**🛂┊المرسـل** {_format.mentionuser(ruser.first_name ,ruser.id)}"
-        await edit_or_reply(sarevent, deleted_msg)
+        await edit_or_reply(zedevent, deleted_msg)
     else:
-        main_msg = await edit_or_reply(sarevent, deleted_msg)
+        main_msg = await edit_or_reply(zedevent, deleted_msg)
         for msg in adminlog:
             ruser = await event.client.get_entity(msg.old.from_id)
             _media_type = await media_type(msg.old)

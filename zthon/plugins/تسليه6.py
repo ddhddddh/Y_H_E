@@ -1,3 +1,4 @@
+# ©source Zed - @ZlZZl77
 from zthon.core.logger import logging
 from zthon import zedub
 from ..Config import Config
@@ -415,6 +416,7 @@ Fun6_cmd = (
 )
 
 
+# Copyright (C) 2022 Zedthon . All Rights Reserved
 @zedub.zed_cmd(pattern="تسليه6")
 async def cmd(zelzallll):
     await edit_or_reply(zelzallll, Fun6_cmd)
