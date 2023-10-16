@@ -1,4 +1,3 @@
-# حمد : @S_4_N باقر : @E_7_V ~ @Tepthon ~ @Repthon
 from telethon.errors import BadRequestError
 from telethon.errors.rpcerrorlist import UserAdminInvalidError, UserIdInvalidError
 from telethon.tl.functions.channels import EditBannedRequest
