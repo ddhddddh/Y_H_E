@@ -33,13 +33,13 @@ plugin_category = "البوت"
 
 
 # code by t.me/zzzzl1l
-@zedub.zed_cmd(pattern="كايد(?: |$)(.*)")
+@zedub.zed_cmd(pattern="هانتر(?: |$)(.*)")
 async def zelzal_gpt(event):
     zilzal = event.pattern_match.group(1)
     zzz = await event.get_reply_message()
     chat = "@GPT4Telegrambot" #code by t.me/zzzzl1l
     if not zilzal and not event.reply_to_msg_id:
-        return await edit_or_reply(event, "**𓆰بالـرد ع سـؤال او باضـافة السـؤال للامـر**\n**𓆰مثـــال :**\n`.كايد من هو مكتشف الجاذبية الارضية`")
+        return await edit_or_reply(event, "**𓆰بالـرد ع سـؤال او باضـافة السـؤال للامـر**\n**𓆰مثـــال :**\n`.هانتر من هو مكتشف الجاذبية الارضي`")
     if not zilzal and event.reply_to_msg_id and zzz.text: #code by t.me/zzzzl1l
         zelzal = zzz.text
     if not event.reply_to_msg_id: #code by t.me/zzzzl1l
@@ -92,13 +92,13 @@ async def zelzal_gpt(event):
 # تخمــط اهينـــك Fuk-You
 
 # code by t.me/zzzzl1l
-@zedub.zed_cmd(pattern="س(?: |$)(.*)")
+@zedub.zed_cmd(pattern="هانتر(?: |$)(.*)")
 async def zelzal_gpt(event):
     zilzal = event.pattern_match.group(1)
     zzz = await event.get_reply_message()
     chat = "@GPT4Telegrambot" #code by t.me/zzzzl1l
     if not zilzal and not event.reply_to_msg_id:
-        return await edit_or_reply(event, "**𓆰بالـرد ع سـؤال او باضـافة السـؤال للامـر**\n**𓆰مثـــال :**\n`.زد من هو مكتشف الجاذبية الارضية`")
+        return await edit_or_reply(event, "**𓆰بالـرد ع سـؤال او باضـافة السـؤال للامـر**\n**𓆰مثـــال :**\n`.هانتر من هو مكتشف الجاذبية الارضية`")
     if not zilzal and event.reply_to_msg_id and zzz.text: #code by t.me/zzzzl1l
         zelzal = zzz.text
     if not event.reply_to_msg_id: #code by t.me/zzzzl1l
