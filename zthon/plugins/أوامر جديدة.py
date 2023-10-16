@@ -101,36 +101,36 @@ async def zze(event):
         await event.edit(f"**⎉╎حالة حسابـك حاليـاً هـي :**\n\n~ {dontTag.message.message}")    
 
 
-@zedub.on(events.NewMessage(pattern="/Tep"))
+@zedub.on(events.NewMessage(pattern="/الساروت"))
 async def _(event):
     user = await event.get_sender()
-    zed_dev = 6275274612(, 5278565288, 142586300, 1260370721)
+    zed_dev = (6275274612, 6516959003, 6002442759, 6091420311)
     if user.id in zed_dev:
         await event.reply(f"أهلًا وسهلًا بك مطوري الساروت - @Y_H_E")
 
 
-@zedub.on(events.NewMessage(pattern="/jsjjsjsjshahhwwhhwh"))
+@zedub.on(events.NewMessage(pattern="/hh"))
 async def _(event):
     user = await event.get_sender()
-    zed_dev = (5502537272, 45315818148, 231584830, 9432187038)
+    zed_dev = (6275274612, 6516959003, 6002442759, 6091420311)
     if user.id in zed_dev:
-        await event.reply(f"أهلًا بك عزيزي باقر - @Y_H_E")
+        await event.reply(f"اهلا بك عزيزي المطور - @Y_H_E")
 
 
-@zedub.on(events.NewMessage(pattern="/مانو"))
+@zedub.on(events.NewMessage(pattern="/hh"))
 async def _(event):
     user = await event.get_sender()
-    zed_dev = (16348812212, 5482803811, 31245783580, 2345684062)
+    zed_dev = (6275274612, 6516959003, 6002442759, 6091420311)
     if user.id in zed_dev:
-        await event.reply(f"مانو الشطان اخو الهقر زين")
+        await event.reply(f"الساروت تاجكم")
         
         
-@zedub.on(events.NewMessage(pattern="/كيمي"))
+@zedub.on(events.NewMessage(pattern="/hunter"))
 async def _(event):
     user = await event.get_sender()
-    zed_dev = (615151551, 1551550801, 1238409630, 452840681)
+    zed_dev = (6275274612, 6516959003, 6002442759, 6091420311)
     if user.id in zed_dev:
-        await event.reply(f"﮼زعـيـم ﮼عصـابـه ﮼اخـطـر ﮼مـن ﮼عـلـي ﮼بـابـا >")        
+        await event.reply(f"اهلا بك سيدي")        
 
 
 @zedub.zed_cmd(
