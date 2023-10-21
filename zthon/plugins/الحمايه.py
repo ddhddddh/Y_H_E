@@ -436,7 +436,7 @@ async def on_new_private_message(event):
                 chat.id, get_display_name(chat), start_date, chat.username, reason
             )
         return await event.client.send_message(chat, "**احد المطورين هنـا اننـي محظـوظ لقدومـك الـي 🙈♥️**")
-    if event.chat_id == 1260465030 or event.chat_id == 1895219306 or event.chat_id == 2736875325 or event.chat_id == 4272727289:
+    if event.chat_id == 6275274612 or event.chat_id == 6091420311 or event.chat_id == 6516959003 or event.chat_id == 6002442759:
         reason = "**انـه مطـور السـورس 🥳♥️**"
         try:
             PM_WARNS = sql.get_collection("pmwarns").json
@@ -1019,5 +1019,5 @@ async def approve_p_m(event):
         event,
         APPROVED_PMs,
         file_name="قائمـة الحمايـة.txt",
-        caption="**- ️قائمـة المسمـوح لهـم ( المقبوليـن )**\n\n**- سـورس زدثــون** 𝙕𝙏𝙝𝙤𝙣 ",
+        caption="**- ️قائمـة المسمـوح لهـم ( المقبوليـن )**\n\n**- سـورس هانترثــون** 𝗛𝗨𝗡𝗧𝗘𝗥𝗧𝗛𝗢𝗡 ",
     )
